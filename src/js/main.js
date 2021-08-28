@@ -22,7 +22,7 @@ createSidebarButtons();
 getRaces(2021);
 
 // On-click sidebar buttons
-const buttons = document.querySelectorAll("li[fetch-button]");
+const buttons = document.querySelectorAll("button[fetch-button]");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     yearGlobal = button.id;
