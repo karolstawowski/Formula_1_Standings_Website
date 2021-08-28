@@ -1,0 +1,40 @@
+@use "./variables/fontSize.scss";
+@import "./include-media.scss";
+
+body {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-size: fontSize.$global-font-size-m;
+  line-height: fontSize.$global-line-height-m;
+
+  @include media(">phone") {
+    font-size: fontSize.$global-font-size-m;
+  }
+  @include media(">tablet") {
+    font-size: fontSize.$global-font-size-l;
+  }
+  @include media(">desktop") {
+    font-size: fontSize.$global-font-size-x;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-width: 320px;
+}
+
+.main-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  @include media(">tablet") {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

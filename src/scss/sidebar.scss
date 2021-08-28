@@ -1,0 +1,99 @@
+@import "./include-media.scss";
+
+.sidebar-container {
+  width: 100%;
+  z-index: 2;
+  position: fixed;
+  visibility: hidden;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include media(">tablet") {
+    display: block;
+    width: 20%;
+    visibility: visible;
+    z-index: 1;
+    margin-top: 120px;
+    position: static;
+    height: auto;
+    top: auto;
+    left: auto;
+    right: auto;
+  }
+  @include media(">desktop") {
+    width: 15%;
+  }
+}
+
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: rgb(161, 161, 161);
+  width: 40%;
+  z-index: 3;
+  height: 100%;
+  overflow-y: auto;
+
+  @include media(">tablet") {
+    width: 100%;
+    overflow-y: hidden;
+  }
+}
+
+.sidebar-content {
+  margin-bottom: 5rem;
+  @include media(">tablet") {
+    margin-bottom: 2rem;
+  }
+}
+
+.sidebar-title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80px;
+  line-height: 1.4em;
+  font-size: 1.4em;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
+.sidebar-button {
+  height: 2.2rem;
+  line-height: 2.2rem;
+  width: 60%;
+  max-width: 200px;
+  background-color: darkkhaki;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 0.5rem;
+
+  @include media(">phone") {
+    margin-top: 0.55rem;
+  }
+  @include media(">tablet") {
+    margin-top: 0.6rem;
+  }
+}
+
+.filler {
+  width: 60%;
+  visibility: hidden;
+  background-color: rgb(184, 184, 197);
+  height: 100%;
+  left: 40%;
+  z-index: 2;
+  opacity: 0.7;
+
+  @include media(">tablet") {
+    visibility: hidden;
+  }
+}

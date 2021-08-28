@@ -1,0 +1,15 @@
+@import "./include-media.scss";
+
+img.flag {
+  height: 38px;
+
+  @include media(">phone") {
+    height: 42px;
+  }
+  @include media(">tablet") {
+    height: 44px;
+  }
+  @include media(">desktop") {
+    height: 48px;
+  }
+}

@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+.navbar {
+  color: white;
+  width: 100%;
+  height: 60px;
+  z-index: 2;
+  background-color: #4e6dc0;
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 320px;
+}
+
+.navbar-logo-section {
+  float: left;
+  width: 100%;
+  height: 60px;
+  background-color: #59bdc0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-switch {
+  width: 80px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 520px) and (max-width: 849px) {
+  .sidebar-switch {
+    margin-right: 20px;
+  }
+}
+
+.menu-bar-icon {
+  height: 40px;
+  width: 40px;
+  margin-left: -20px;
+  cursor: pointer;
+}
+@media (min-width: 851px) {
+  .menu-bar-icon {
+    visibility: hidden;
+  }
+}
+
+.logo {
+  display: block;
+  padding: 5px 0px;
+  height: 50px;
+  width: 120px;
+  position: relative;
+  display: block;
+  top: auto;
+  left: auto;
+}
+
+.language-buttons {
+  float: right;
+  height: 100%;
+  width: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media (min-width: 521px) {
+  .language-buttons {
+    width: 90px;
+  }
+}
+
+.language-button {
+  height: 100%;
+  width: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 5px;
+}
+@media (min-width: 521px) {
+  .language-button {
+    margin-right: 10px;
+  }
+}
+
+.en-flag,
+.pl-flag {
+  width: 100%;
+  cursor: pointer;
+}
+
+.language-flag {
+  width: 100%;
+}
+
+.navbar-buttons {
+  float: left;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: stretch;
+}
+
+.navbar-button {
+  line-height: 100%;
+  height: 100%;
+  width: 33.33%;
+  background-color: #4e6dc0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-button-text {
+  display: block;
+  margin: 5%;
+}
+
+:root {
+  --szerokosc: 40%;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  background-color: #b8b8c5;
+  font-size: 16px;
+  line-height: 16px;
+}
+@media (min-width: 521px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 851px) {
+  body {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1401px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  min-width: 320px;
+}
+
+.main-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #9e9ec0;
+  width: 40%;
+  z-index: 2;
+  visibility: hidden;
+  position: absolute;
+  height: 100%;
+}
+@media (min-width: 851px) {
+  .sidebar {
+    display: block;
+    width: 25%;
+    visibility: visible;
+    z-index: 1;
+    margin-top: 120px;
+  }
+}
+@media (min-width: 1401px) {
+  .sidebar {
+    width: 20%;
+  }
+}
+
+.sidebar-content {
+  margin-bottom: 2rem;
+}
+
+.sidebar-title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80px;
+  line-height: 1.4em;
+  font-size: 1.4em;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+.sidebar-button {
+  height: 2.2rem;
+  width: 60%;
+  background-color: darkkhaki;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.filler {
+  width: 60%;
+  visibility: hidden;
+  position: absolute;
+  background-color: #b8b8c5;
+  height: 100%;
+  left: 40%;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+  width: 100%;
+  background-color: beige;
+  min-height: 1020px;
+}
+@media (min-width: 851px) {
+  .main {
+    margin-left: 25%;
+    width: 75%;
+  }
+}
+@media (min-width: 1401px) {
+  .main {
+    margin-left: 20%;
+    width: 80%;
+  }
+}
+
+.seasonname {
+  margin: 12px 0px;
+  padding-left: 7.5%;
+  line-height: 2em;
+  font-size: 2em;
+  align-self: flex-start;
+}
+
+.main-content {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 90%;
+  padding-bottom: 1rem;
+  overflow-x: auto;
+}
+@media (min-width: 851px) {
+  .main-content {
+    padding-left: 2em;
+    padding-right: 2em;
+    width: 85%;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  height: 38px;
+  margin: 0;
+}
+
+td {
+  height: 2.25rem;
+  margin: 0;
+}
+
+.footer {
+  height: 1.8em;
+  width: 100%;
+  bottom: 0;
+  background-color: #ba68bd;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+}
+@media (min-width: 851px) {
+  .footer {
+    margin-left: 25%;
+    width: 75%;
+  }
+}
+@media (min-width: 1401px) {
+  .footer {
+    margin-left: 20%;
+    width: 80%;
+  }
+}
+
+.footer-content {
+  padding-left: 2em;
+}
+
+/*# sourceMappingURL=main.css.map */

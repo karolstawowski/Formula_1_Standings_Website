@@ -1,0 +1,17 @@
+{
+    "races": "Wyścigi",
+    "driversChampionship": "Mistrzostwa kierowców",
+    "constructorsChampionship": "Mistrzostwa konstruktorów",
+    "season": "Sezon",
+    "round": "Runda",
+    "country": "Kraj",
+    "raceName": "Nazwa wyścigu",
+    "circuitName": "Nazwa toru",
+    "date": "Data",
+    "position": "Pozycja",
+    "driver": "Kierowca",
+    "nationality": "Narodowość",
+    "team": "Zespół",
+    "points": "Ilość punktów",
+    "constructor": "Konstruktor"
+}

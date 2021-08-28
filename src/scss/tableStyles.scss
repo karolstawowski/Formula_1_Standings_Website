@@ -1,0 +1,62 @@
+@import "./include-media.scss";
+
+table {
+  width: 100%;
+  font-weight: bold;
+  border-collapse: collapse;
+
+  @include media(">desktop") {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+
+thead {
+  color: white;
+  text-transform: uppercase;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+th {
+  text-align: left;
+  background-color: #c90700;
+  padding: 20px 12px;
+
+  @include media(">phone") {
+    padding: 22px 14px;
+  }
+  @include media(">tablet") {
+    padding: 23px 18px;
+  }
+  @include media(">desktop") {
+    padding: 23px 20px;
+  }
+}
+
+tr {
+  height: 38px;
+  margin: 0;
+}
+
+td {
+  height: 2.25rem;
+  margin: 0;
+  padding: 8px 12px;
+
+  @include media(">phone") {
+    padding: 8px 14px;
+  }
+  @include media(">tablet") {
+    padding: 8px 18px;
+  }
+  @include media(">desktop") {
+    padding: 6px 20px;
+  }
+}
