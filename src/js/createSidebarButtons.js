@@ -1,16 +1,18 @@
 export function createSidebarButtons() {
-    let sidebarContent = document.getElementById("sidebar-content");
-    let innerContent = "";
-    innerContent += "<h2 class=\"sidebar-title\" id=\"sidebar-title\"> Season </h2>";
-    innerContent += "<ol>";
-    for (i = 21; i > -1; i--) {
-        if (i.toString().length == 1) {
-            innerContent += `<li class="sidebar-button" id="200${i}" fetch-button> 200${i} </li>`;
-        }
-        else {
-            innerContent += `<li class="sidebar-button" id="20${i}" fetch-button> 20${i} </li>`;
-        }
+  const sidebarContent = document.getElementById("sidebar-button-wrapper");
+  for (let i = 21; i > -1; i--) {
+    const sidebarItem = document.createElement("li");
+    const sidebarButton = document.createElement("button");
+    sidebarButton.classList.add("sidebar-button");
+    sidebarButton.setAttribute("fetch-button", "");
+    if (i / 10 < 1) {
+      sidebarButton.id = "200" + i;
+      sidebarButton.innerHTML = "200" + i;
+    } else {
+      sidebarButton.id = "20" + i;
+      sidebarButton.innerHTML = "20" + i;
     }
-    innerContent += "</ol>";
-    sidebarContent.innerHTML = innerContent;
+    sidebarItem.append(sidebarButton);
+    sidebarContent.append(sidebarItem);
+  }
 }

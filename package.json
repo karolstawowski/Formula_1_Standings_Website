@@ -1,0 +1,14 @@
+{
+  "name": "oxif1",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.38.2",
+    "vite": "^2.5.1"
+  }
+}
