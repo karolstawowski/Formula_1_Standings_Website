@@ -8,7 +8,7 @@ import { reverseDateOrder } from "./functions.js";
 import { listenToResize } from "./resizingListener.js";
 import { listenToSidebarSwitch } from "./sidebarSwitchListener.js";
 import { createSidebarButtons } from "./createSidebarButtons.js";
-import { changeSidebarButtonsBackgroundColor } from "./changeNavbarButtonsBackgroundColor.js";
+import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor.js";
 import { colorDefaultButtons } from "./colorSelectedButtonsByDef.js";
 import * as elements from "./variables/getElementsFromDocument.js";
 import * as colors from "./variables/colors.js";
@@ -28,6 +28,7 @@ const buttons = document.querySelectorAll("button[fetch-button]");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     yearGlobal = button.id;
+    highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
     if (selectedMainButton == "races") {
       getRaces(button.id);
@@ -48,6 +49,27 @@ buttons.forEach((button) => {
 //
 // Get and set races
 //
+
+highlightSidebarButton(document.getElementById(yearGlobal));
+
+function highlightSidebarButton(button) {
+  buttons.forEach((otherButtons) => {
+    otherButtons.addEventListener("mouseover", () => {
+      otherButtons.style.backgroundColor = colors.sidebarButtonHighlightedColor;
+    }),
+      otherButtons.addEventListener("mouseout", () => {
+        otherButtons.style.backgroundColor =
+          colors.sidebarButtonNotSelectedColor;
+      });
+  });
+  button.addEventListener("mouseover", () => {
+    button.style.backgroundColor =
+      colors.sidebarButtonSelectedAndHighlightedColor;
+  }),
+    button.addEventListener("mouseout", () => {
+      button.style.backgroundColor = colors.sidebarButtonSelectedColor;
+    });
+}
 
 async function getRaces(selectedYear) {
   let innerContent = "";
@@ -180,7 +202,7 @@ buttonConstructors.addEventListener("click", function () {
   );
 });
 
-// On hover for navbar buttons
+// Highlight navbar buttons
 const navbarButtons = [buttonRaces, buttonConstructors, buttonDrivers];
 buttonRaces.addEventListener("mouseover", () => {
   if (selectedMainButton === "races") {
