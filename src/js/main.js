@@ -8,7 +8,7 @@ import { reverseDateOrder } from "./functions.js";
 import { listenToResize } from "./resizingListener.js";
 import { listenToSidebarSwitch } from "./sidebarSwitchListener.js";
 import { createSidebarButtons } from "./createSidebarButtons.js";
-import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor.js";
+import { changeSidebarButtonsBackgroundColor } from "./changeNavbarButtonsBackgroundColor.js";
 import { colorDefaultButtons } from "./colorSelectedButtonsByDef.js";
 import * as elements from "./variables/getElementsFromDocument.js";
 import * as colors from "./variables/colors.js";
