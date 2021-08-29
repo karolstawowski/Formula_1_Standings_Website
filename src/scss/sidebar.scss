@@ -82,6 +82,9 @@
   @include media(">tablet") {
     margin-top: 0.6rem;
   }
+  @include media(">desktop") {
+    margin-top: 0.7rem;
+  }
 }
 
 .filler {
