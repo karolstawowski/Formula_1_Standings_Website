@@ -9,6 +9,7 @@ import { listenToResize } from "./resizingListener.js";
 import { listenToSidebarSwitch } from "./sidebarSwitchListener.js";
 import { createSidebarButtons } from "./createSidebarButtons.js";
 import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor.js";
+import { colorDefaultButtons } from "./colorSelectedButtonsByDef.js";
 import * as elements from "./variables/getElementsFromDocument.js";
 import * as colors from "./variables/colors.js";
 
@@ -19,6 +20,7 @@ let yearGlobal = 2021;
 listenToResize();
 listenToSidebarSwitch();
 createSidebarButtons();
+colorDefaultButtons();
 getRaces(2021);
 
 // On-click sidebar buttons
@@ -177,11 +179,6 @@ buttonConstructors.addEventListener("click", function () {
     (selectedMainButton = "constructorChampionship")
   );
 });
-
-// Change background of buttons selected by default
-const button2021 = document.getElementById("2021");
-button2021.style.backgroundColor = colors.sidebarButtonSelectedColor;
-buttonRaces.style.backgroundColor = colors.mainButtonSelectedColor;
 
 // On hover for navbar buttons
 const navbarButtons = [buttonRaces, buttonConstructors, buttonDrivers];
