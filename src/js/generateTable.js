@@ -1,3 +1,5 @@
+import { getRaces, getDrivers, getConstructors } from "./main";
+
 export function generateTable(selectedMainButton, year, language) {
   if (selectedMainButton == "races") {
     getRaces(language, year);

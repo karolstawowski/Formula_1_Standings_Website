@@ -28,23 +28,11 @@ getRaces(language, 2021);
 
 elements.en.addEventListener("click", () => {
   language = "en";
-  if (selectedMainButton == "races") {
-    getRaces(language, yearGlobal);
-  } else if (selectedMainButton == "driverChampionship") {
-    getDrivers(language, yearGlobal);
-  } else if (selectedMainButton == "constructorChampionship") {
-    getConstructors(language, yearGlobal);
-  }
+  generateTable(selectedMainButton, yearGlobal, language);
 });
 elements.pl.addEventListener("click", () => {
   language = "pl";
-  if (selectedMainButton == "races") {
-    getRaces(language, yearGlobal);
-  } else if (selectedMainButton == "driverChampionship") {
-    getDrivers(language, yearGlobal);
-  } else if (selectedMainButton == "constructorChampionship") {
-    getConstructors(language, yearGlobal);
-  }
+  generateTable(selectedMainButton, yearGlobal, language);
 });
 
 // On-click sidebar buttons
@@ -54,7 +42,7 @@ buttons.forEach((button) => {
     yearGlobal = button.id;
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
-
+    generateTable(selectedMainButton, yearGlobal, language);
     // Color other, not selected buttons
     buttons.forEach((otherButtons) => {
       otherButtons.style.backgroundColor = colors.sidebarButtonNotSelectedColor;
@@ -88,7 +76,7 @@ function highlightSidebarButton(button) {
     });
 }
 
-async function getRaces(lang, selectedYear) {
+export async function getRaces(lang, selectedYear) {
   let innerContent = "";
   elements.seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table><thead id="theadRaces"><tr>`;
@@ -139,7 +127,7 @@ buttonRaces.addEventListener("click", function () {
 // Get and set drivers
 //
 
-async function getDrivers(lang, selectedYear) {
+export async function getDrivers(lang, selectedYear) {
   let innerContent = "";
   seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table>
@@ -198,7 +186,7 @@ buttonDrivers.addEventListener("click", function () {
 // Get and set constructors
 //
 
-async function getConstructors(lang, selectedYear) {
+export async function getConstructors(lang, selectedYear) {
   let innerContent = "";
   seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table style="max-height: 380px;">
