@@ -9,19 +9,42 @@ import { listenToResize } from "./resizingListener.js";
 import { listenToSidebarSwitch } from "./sidebarSwitchListener.js";
 import { createSidebarButtons } from "./createSidebarButtons.js";
 import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor.js";
+import { changeToEnglish } from "./changeLanguage";
 import { colorDefaultButtons } from "./colorSelectedButtonsByDef.js";
 import * as elements from "./variables/getElementsFromDocument.js";
 import * as colors from "./variables/colors.js";
 
 let selectedMainButton = "races";
 let yearGlobal = 2021;
+let language = "pl";
 
 // Fire on start
 listenToResize();
 listenToSidebarSwitch();
 createSidebarButtons();
 colorDefaultButtons();
-getRaces(2021);
+getRaces(language, 2021);
+
+elements.en.addEventListener("click", () => {
+  language = "en";
+  if (selectedMainButton == "races") {
+    getRaces(language, yearGlobal);
+  } else if (selectedMainButton == "driverChampionship") {
+    getDrivers(language, yearGlobal);
+  } else if (selectedMainButton == "constructorChampionship") {
+    getConstructors(language, yearGlobal);
+  }
+});
+elements.pl.addEventListener("click", () => {
+  language = "pl";
+  if (selectedMainButton == "races") {
+    getRaces(language, yearGlobal);
+  } else if (selectedMainButton == "driverChampionship") {
+    getDrivers(language, yearGlobal);
+  } else if (selectedMainButton == "constructorChampionship") {
+    getConstructors(language, yearGlobal);
+  }
+});
 
 // On-click sidebar buttons
 const buttons = document.querySelectorAll("button[fetch-button]");
@@ -31,11 +54,11 @@ buttons.forEach((button) => {
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
     if (selectedMainButton == "races") {
-      getRaces(button.id);
+      getRaces(language, button.id);
     } else if (selectedMainButton == "driverChampionship") {
-      getDrivers(button.id);
+      getDrivers(language, button.id);
     } else if (selectedMainButton == "constructorChampionship") {
-      getConstructors(button.id);
+      getConstructors(language, button.id);
     }
 
     // Color other, not selected buttons
@@ -71,17 +94,26 @@ function highlightSidebarButton(button) {
     });
 }
 
-async function getRaces(selectedYear) {
+async function getRaces(lang, selectedYear) {
   let innerContent = "";
   elements.seasonname.innerHTML = "Season " + selectedYear;
-  innerContent += `<table>
-        <thead><tr>
-            <th> Runda </th>
-            <th> Kraj </th>
-            <th> Nazwa wyścigu </th>
-            <th> Nazwa toru </th>
-            <th> Data </th>
-        </tr></thead>`;
+  innerContent += `<table><thead id="theadRaces"><tr>`;
+  if (lang === "en") {
+    innerContent += `
+    <th> Round </th>
+    <th> Country </th>
+    <th> Race </th>
+    <th> Circuit </th>
+    <th> Date </th>`;
+  } else if (lang === "pl") {
+    innerContent += `
+    <th> Runda </th>
+    <th> Kraj </th>
+    <th> Nazwa wyścigu </th>
+    <th> Nazwa toru </th>
+    <th> Data </th>`;
+  }
+  innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(selectedYear + "Races", selectedYear);
   for (const element of data["MRData"].RaceTable.Races) {
     innerContent += `<tr>
@@ -105,7 +137,7 @@ async function getRaces(selectedYear) {
 // On-click main button #races
 const buttonRaces = document.getElementById("races");
 buttonRaces.addEventListener("click", function () {
-  getRaces(yearGlobal);
+  getRaces(language, yearGlobal);
   changeSidebarButtonsBackgroundColor((selectedMainButton = "races"));
 });
 
@@ -113,17 +145,28 @@ buttonRaces.addEventListener("click", function () {
 // Get and set drivers
 //
 
-async function getDrivers(selectedYear) {
+async function getDrivers(lang, selectedYear) {
   let innerContent = "";
   seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table>
-        <thead><tr>
-            <th> Pozycja </th>
-            <th> Kierowca </th>
-            <th> Kraj </th>
-            <th> Drużyna </th>
-            <th> Ilość punktów </th>
-        </tr></thead>`;
+        <thead id="theadDrivers"><tr>`;
+  if (lang === "en") {
+    innerContent += `
+          <th> Position </th>
+          <th> Driver </th>
+          <th> Country </th>
+          <th> Team </th>
+          <th> Points </th>`;
+  } else if (lang === "pl") {
+    innerContent += `
+      <th> Pozycja </th>
+      <th> Kierowca </th>
+      <th> Kraj </th>
+      <th> Drużyna </th>
+      <th> Ilość punktów </th>`;
+  }
+
+  innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(
     selectedYear + "Drivers",
     selectedYear + "/driverStandings"
@@ -151,7 +194,7 @@ async function getDrivers(selectedYear) {
 // On-click main button #driverChampionship
 const buttonDrivers = document.getElementById("driverChampionship");
 buttonDrivers.addEventListener("click", function () {
-  getDrivers(yearGlobal);
+  getDrivers(language, yearGlobal);
   changeSidebarButtonsBackgroundColor(
     (selectedMainButton = "driverChampionship")
   );
@@ -161,16 +204,24 @@ buttonDrivers.addEventListener("click", function () {
 // Get and set constructors
 //
 
-async function getConstructors(selectedYear) {
+async function getConstructors(lang, selectedYear) {
   let innerContent = "";
   seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table style="max-height: 380px;">
-        <thead><tr>
-            <th> Pozycja </th>
-            <th> Konstruktor </th>
-            <th> Kraj </th>
-            <th> Ilość punktów </th>
-        </tr></thead>`;
+        <thead id="theadConstructors"><tr>`;
+  if (lang === "en") {
+    innerContent += `<th> Position </th>
+<th> Constructor </th>
+<th> Country </th>
+<th> Points </th>`;
+  } else if (lang === "pl") {
+    innerContent += `<th> Pozycja </th>
+    <th> Konstruktor </th>
+    <th> Kraj </th>
+    <th> Ilość punktów </th>`;
+  }
+
+  innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(
     selectedYear + "Constructors",
     selectedYear + "/constructorStandings"
@@ -196,7 +247,7 @@ async function getConstructors(selectedYear) {
 // On-click main button #constructorChampionship
 const buttonConstructors = document.getElementById("constructorChampionship");
 buttonConstructors.addEventListener("click", function () {
-  getConstructors(yearGlobal);
+  getConstructors(language, yearGlobal);
   changeSidebarButtonsBackgroundColor(
     (selectedMainButton = "constructorChampionship")
   );

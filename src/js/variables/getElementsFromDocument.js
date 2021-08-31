@@ -10,3 +10,8 @@ export const buttonConstructors = document.getElementById(
   "constructorChampionship"
 );
 export const footer = document.getElementById("footer");
+export const en = document.getElementById("en");
+export const pl = document.getElementById("pl");
+export const theadConstructors = document.getElementById("theadConstructors");
+export const theadDrivers = document.getElementById("theadDrivers");
+export const theadRaces = document.getElementById("theadRaces");
