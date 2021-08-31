@@ -9,7 +9,6 @@ import { listenToResize } from "./resizingListener";
 import { listenToSidebarSwitch } from "./sidebarSwitchListener";
 import { createSidebarButtons } from "./createSidebarButtons";
 import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor";
-import { changeToEnglish } from "./changeLanguage";
 import { colorDefaultButtons } from "./colorSelectedButtonsByDef";
 import { generateTable } from "./generateTable";
 import * as elements from "./variables/getElementsFromDocument";
