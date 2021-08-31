@@ -47,6 +47,7 @@
 
 .sidebar-content {
   margin-bottom: 5rem;
+
   @include media(">tablet") {
     margin-bottom: 2rem;
   }
@@ -81,6 +82,9 @@
   }
   @include media(">tablet") {
     margin-top: 0.6rem;
+  }
+  @include media(">desktop") {
+    margin-top: 0.7rem;
   }
 }
 

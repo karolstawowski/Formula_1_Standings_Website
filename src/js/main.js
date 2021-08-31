@@ -2,41 +2,56 @@ import {
   findCountryCodeByNationality,
   findCountryNameByNationality,
   findCountryCodeByCountryName,
-} from "./countryCodes.js";
-import { getDataFromStorage } from "./storeDataLocally.js";
-import { reverseDateOrder } from "./functions.js";
-import { listenToResize } from "./resizingListener.js";
-import { listenToSidebarSwitch } from "./sidebarSwitchListener.js";
-import { createSidebarButtons } from "./createSidebarButtons.js";
-import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor.js";
-import { colorDefaultButtons } from "./colorSelectedButtonsByDef.js";
-import * as elements from "./variables/getElementsFromDocument.js";
-import * as colors from "./variables/colors.js";
+} from "./countryCodes";
+import { getDataFromStorage } from "./storeDataLocally";
+import { reverseDateOrder } from "./functions";
+import { listenToResize } from "./resizingListener";
+import { listenToSidebarSwitch } from "./sidebarSwitchListener";
+import { createSidebarButtons } from "./createSidebarButtons";
+import { changeSidebarButtonsBackgroundColor } from "./colorSidebarButtons";
+import { colorDefaultButtons } from "./colorSelectedButtonsByDef";
+import { generateTable } from "./generateTable";
+import { updateLanguageContent } from "./changeLanguage";
+import * as elements from "./variables/documentElements";
+import * as colors from "./variables/colors";
 
+const buttons = document.querySelectorAll("button[fetch-button]");
 let selectedMainButton = "races";
 let yearGlobal = 2021;
+let language = "pl";
 
 // Fire on start
 listenToResize();
 listenToSidebarSwitch();
 createSidebarButtons();
 colorDefaultButtons();
-getRaces(2021);
+updateLanguageContent(yearGlobal, language);
+getRaces(language, 2021);
+highlightSidebarButton(document.getElementById(yearGlobal));
+
+// On-click language buttons
+elements.en.addEventListener("click", () => {
+  if (language === "pl") {
+    language = "en";
+    generateTable(selectedMainButton, yearGlobal, language);
+    updateLanguageContent(yearGlobal, language);
+  }
+});
+elements.pl.addEventListener("click", () => {
+  if (language === "en") {
+    language = "pl";
+    generateTable(selectedMainButton, yearGlobal, language);
+    updateLanguageContent(yearGlobal, language);
+  }
+});
 
 // On-click sidebar buttons
-const buttons = document.querySelectorAll("button[fetch-button]");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     yearGlobal = button.id;
+    highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
-    if (selectedMainButton == "races") {
-      getRaces(button.id);
-    } else if (selectedMainButton == "driverChampionship") {
-      getDrivers(button.id);
-    } else if (selectedMainButton == "constructorChampionship") {
-      getConstructors(button.id);
-    }
-
+    generateTable(selectedMainButton, yearGlobal, language);
     // Color other, not selected buttons
     buttons.forEach((otherButtons) => {
       otherButtons.style.backgroundColor = colors.sidebarButtonNotSelectedColor;
@@ -49,17 +64,44 @@ buttons.forEach((button) => {
 // Get and set races
 //
 
-async function getRaces(selectedYear) {
+function highlightSidebarButton(button) {
+  buttons.forEach((otherButtons) => {
+    otherButtons.addEventListener("mouseover", () => {
+      otherButtons.style.backgroundColor = colors.sidebarButtonHighlightedColor;
+    }),
+      otherButtons.addEventListener("mouseout", () => {
+        otherButtons.style.backgroundColor =
+          colors.sidebarButtonNotSelectedColor;
+      });
+  });
+  button.addEventListener("mouseover", () => {
+    button.style.backgroundColor =
+      colors.sidebarButtonSelectedAndHighlightedColor;
+  }),
+    button.addEventListener("mouseout", () => {
+      button.style.backgroundColor = colors.sidebarButtonSelectedColor;
+    });
+}
+
+export async function getRaces(lang, selectedYear) {
   let innerContent = "";
-  elements.seasonname.innerHTML = "Season " + selectedYear;
-  innerContent += `<table>
-        <thead><tr>
-            <th> Runda </th>
-            <th> Kraj </th>
-            <th> Nazwa wyścigu </th>
-            <th> Nazwa toru </th>
-            <th> Data </th>
-        </tr></thead>`;
+  innerContent += `<table><thead id="theadRaces"><tr>`;
+  if (lang === "en") {
+    innerContent += `
+    <th> Round </th>
+    <th> Country </th>
+    <th> Grand Prix </th>
+    <th> Circuit </th>
+    <th> Date </th>`;
+  } else if (lang === "pl") {
+    innerContent += `
+    <th> Runda </th>
+    <th> Kraj </th>
+    <th> Grand Prix </th>
+    <th> Nazwa toru </th>
+    <th> Data </th>`;
+  }
+  innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(selectedYear + "Races", selectedYear);
   for (const element of data["MRData"].RaceTable.Races) {
     innerContent += `<tr>
@@ -83,7 +125,7 @@ async function getRaces(selectedYear) {
 // On-click main button #races
 const buttonRaces = document.getElementById("races");
 buttonRaces.addEventListener("click", function () {
-  getRaces(yearGlobal);
+  getRaces(language, yearGlobal);
   changeSidebarButtonsBackgroundColor((selectedMainButton = "races"));
 });
 
@@ -91,17 +133,27 @@ buttonRaces.addEventListener("click", function () {
 // Get and set drivers
 //
 
-async function getDrivers(selectedYear) {
+export async function getDrivers(lang, selectedYear) {
   let innerContent = "";
-  seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table>
-        <thead><tr>
-            <th> Pozycja </th>
-            <th> Kierowca </th>
-            <th> Kraj </th>
-            <th> Drużyna </th>
-            <th> Ilość punktów </th>
-        </tr></thead>`;
+        <thead id="theadDrivers"><tr>`;
+  if (lang === "en") {
+    innerContent += `
+          <th> Position </th>
+          <th> Driver </th>
+          <th> Country </th>
+          <th> Team </th>
+          <th> Points </th>`;
+  } else if (lang === "pl") {
+    innerContent += `
+      <th> Pozycja </th>
+      <th> Kierowca </th>
+      <th> Kraj </th>
+      <th> Zespół </th>
+      <th> Ilość punktów </th>`;
+  }
+
+  innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(
     selectedYear + "Drivers",
     selectedYear + "/driverStandings"
@@ -129,7 +181,7 @@ async function getDrivers(selectedYear) {
 // On-click main button #driverChampionship
 const buttonDrivers = document.getElementById("driverChampionship");
 buttonDrivers.addEventListener("click", function () {
-  getDrivers(yearGlobal);
+  getDrivers(language, yearGlobal);
   changeSidebarButtonsBackgroundColor(
     (selectedMainButton = "driverChampionship")
   );
@@ -139,16 +191,23 @@ buttonDrivers.addEventListener("click", function () {
 // Get and set constructors
 //
 
-async function getConstructors(selectedYear) {
+export async function getConstructors(lang, selectedYear) {
   let innerContent = "";
-  seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table style="max-height: 380px;">
-        <thead><tr>
-            <th> Pozycja </th>
-            <th> Konstruktor </th>
-            <th> Kraj </th>
-            <th> Ilość punktów </th>
-        </tr></thead>`;
+        <thead id="theadConstructors"><tr>`;
+  if (lang === "en") {
+    innerContent += `<th> Position </th>
+<th> Constructor </th>
+<th> Country </th>
+<th> Points </th>`;
+  } else if (lang === "pl") {
+    innerContent += `<th> Pozycja </th>
+    <th> Zespół </th>
+    <th> Kraj </th>
+    <th> Ilość punktów </th>`;
+  }
+
+  innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(
     selectedYear + "Constructors",
     selectedYear + "/constructorStandings"
@@ -174,13 +233,13 @@ async function getConstructors(selectedYear) {
 // On-click main button #constructorChampionship
 const buttonConstructors = document.getElementById("constructorChampionship");
 buttonConstructors.addEventListener("click", function () {
-  getConstructors(yearGlobal);
+  getConstructors(language, yearGlobal);
   changeSidebarButtonsBackgroundColor(
     (selectedMainButton = "constructorChampionship")
   );
 });
 
-// On hover for navbar buttons
+// Highlight navbar buttons
 const navbarButtons = [buttonRaces, buttonConstructors, buttonDrivers];
 buttonRaces.addEventListener("mouseover", () => {
   if (selectedMainButton === "races") {
