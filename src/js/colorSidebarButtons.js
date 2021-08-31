@@ -1,4 +1,4 @@
-import * as buttons from "./variables/getElementsFromDocument";
+import * as buttons from "./variables/documentElements";
 import * as colors from "./variables/colors";
 
 export function changeSidebarButtonsBackgroundColor(selectedMainButton) {

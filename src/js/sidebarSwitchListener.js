@@ -1,4 +1,4 @@
-import * as elements from "./variables/getElementsFromDocument";
+import * as elements from "./variables/documentElements";
 
 export function listenToSidebarSwitch() {
   elements.menuButton.addEventListener("click", () => {

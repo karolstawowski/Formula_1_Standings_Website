@@ -1,4 +1,3 @@
-// Reverse date order
 export function reverseDateOrder(date) {
   let year = "";
   let month = "";
@@ -15,14 +14,4 @@ export function reverseDateOrder(date) {
   }
   newDate = day + "-" + month + "-" + year;
   return newDate;
-}
-
-export function getDataBasedOnMainButtons(selectedMainButton) {
-  if (selectedMainButton == "races") {
-    getRaces(button.id);
-  } else if (selectedMainButton == "driverChampionship") {
-    getDrivers(button.id);
-  } else if (selectedMainButton == "constructorChampionship") {
-    getConstructors(button.id);
-  }
 }

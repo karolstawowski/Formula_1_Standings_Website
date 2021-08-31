@@ -8,10 +8,11 @@ import { reverseDateOrder } from "./functions";
 import { listenToResize } from "./resizingListener";
 import { listenToSidebarSwitch } from "./sidebarSwitchListener";
 import { createSidebarButtons } from "./createSidebarButtons";
-import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor";
+import { changeSidebarButtonsBackgroundColor } from "./colorSidebarButtons";
 import { colorDefaultButtons } from "./colorSelectedButtonsByDef";
 import { generateTable } from "./generateTable";
-import * as elements from "./variables/getElementsFromDocument";
+import { updateLanguageContent } from "./changeLanguage";
+import * as elements from "./variables/documentElements";
 import * as colors from "./variables/colors";
 
 const buttons = document.querySelectorAll("button[fetch-button]");
@@ -24,19 +25,23 @@ listenToResize();
 listenToSidebarSwitch();
 createSidebarButtons();
 colorDefaultButtons();
+updateLanguageContent(yearGlobal, language);
 getRaces(language, 2021);
 highlightSidebarButton(document.getElementById(yearGlobal));
 
+// On-click language buttons
 elements.en.addEventListener("click", () => {
   if (language === "pl") {
     language = "en";
     generateTable(selectedMainButton, yearGlobal, language);
+    updateLanguageContent(yearGlobal, language);
   }
 });
 elements.pl.addEventListener("click", () => {
   if (language === "en") {
     language = "pl";
     generateTable(selectedMainButton, yearGlobal, language);
+    updateLanguageContent(yearGlobal, language);
   }
 });
 
@@ -80,20 +85,19 @@ function highlightSidebarButton(button) {
 
 export async function getRaces(lang, selectedYear) {
   let innerContent = "";
-  elements.seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table><thead id="theadRaces"><tr>`;
   if (lang === "en") {
     innerContent += `
     <th> Round </th>
     <th> Country </th>
-    <th> Race </th>
+    <th> Grand Prix </th>
     <th> Circuit </th>
     <th> Date </th>`;
   } else if (lang === "pl") {
     innerContent += `
     <th> Runda </th>
     <th> Kraj </th>
-    <th> Nazwa wyścigu </th>
+    <th> Grand Prix </th>
     <th> Nazwa toru </th>
     <th> Data </th>`;
   }
@@ -131,7 +135,6 @@ buttonRaces.addEventListener("click", function () {
 
 export async function getDrivers(lang, selectedYear) {
   let innerContent = "";
-  seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table>
         <thead id="theadDrivers"><tr>`;
   if (lang === "en") {
@@ -146,7 +149,7 @@ export async function getDrivers(lang, selectedYear) {
       <th> Pozycja </th>
       <th> Kierowca </th>
       <th> Kraj </th>
-      <th> Drużyna </th>
+      <th> Zespół </th>
       <th> Ilość punktów </th>`;
   }
 
@@ -190,7 +193,6 @@ buttonDrivers.addEventListener("click", function () {
 
 export async function getConstructors(lang, selectedYear) {
   let innerContent = "";
-  seasonname.innerHTML = "Season " + selectedYear;
   innerContent += `<table style="max-height: 380px;">
         <thead id="theadConstructors"><tr>`;
   if (lang === "en") {
@@ -200,7 +202,7 @@ export async function getConstructors(lang, selectedYear) {
 <th> Points </th>`;
   } else if (lang === "pl") {
     innerContent += `<th> Pozycja </th>
-    <th> Konstruktor </th>
+    <th> Zespół </th>
     <th> Kraj </th>
     <th> Ilość punktów </th>`;
   }
