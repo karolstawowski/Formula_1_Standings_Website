@@ -1,5 +1,5 @@
-import * as buttons from "./variables/getElementsFromDocument.js";
-import * as colors from "./variables/colors.js";
+import * as buttons from "./variables/getElementsFromDocument";
+import * as colors from "./variables/colors";
 
 export function changeSidebarButtonsBackgroundColor(selectedMainButton) {
   if (selectedMainButton == "races") {

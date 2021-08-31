@@ -1,4 +1,4 @@
-import * as elements from "./variables/getElementsFromDocument.js";
+import * as elements from "./variables/getElementsFromDocument";
 
 let timeout = false;
 let delay = 200;

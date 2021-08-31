@@ -2,17 +2,18 @@ import {
   findCountryCodeByNationality,
   findCountryNameByNationality,
   findCountryCodeByCountryName,
-} from "./countryCodes.js";
-import { getDataFromStorage } from "./storeDataLocally.js";
-import { reverseDateOrder } from "./functions.js";
-import { listenToResize } from "./resizingListener.js";
-import { listenToSidebarSwitch } from "./sidebarSwitchListener.js";
-import { createSidebarButtons } from "./createSidebarButtons.js";
-import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor.js";
+} from "./countryCodes";
+import { getDataFromStorage } from "./storeDataLocally";
+import { reverseDateOrder } from "./functions";
+import { listenToResize } from "./resizingListener";
+import { listenToSidebarSwitch } from "./sidebarSwitchListener";
+import { createSidebarButtons } from "./createSidebarButtons";
+import { changeSidebarButtonsBackgroundColor } from "./changeSidebarButtonsBackgroundColor";
 import { changeToEnglish } from "./changeLanguage";
-import { colorDefaultButtons } from "./colorSelectedButtonsByDef.js";
-import * as elements from "./variables/getElementsFromDocument.js";
-import * as colors from "./variables/colors.js";
+import { colorDefaultButtons } from "./colorSelectedButtonsByDef";
+import { generateTable } from "./generateTable";
+import * as elements from "./variables/getElementsFromDocument";
+import * as colors from "./variables/colors";
 
 let selectedMainButton = "races";
 let yearGlobal = 2021;
@@ -53,13 +54,6 @@ buttons.forEach((button) => {
     yearGlobal = button.id;
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
-    if (selectedMainButton == "races") {
-      getRaces(language, button.id);
-    } else if (selectedMainButton == "driverChampionship") {
-      getDrivers(language, button.id);
-    } else if (selectedMainButton == "constructorChampionship") {
-      getConstructors(language, button.id);
-    }
 
     // Color other, not selected buttons
     buttons.forEach((otherButtons) => {

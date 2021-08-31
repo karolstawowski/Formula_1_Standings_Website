@@ -1,4 +1,4 @@
-import * as colors from "./variables/colors.js";
+import * as colors from "./variables/colors";
 
 export function colorDefaultButtons() {
   document.getElementById("2021").style.backgroundColor =
