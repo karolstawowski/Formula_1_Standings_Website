@@ -15,6 +15,7 @@ import { generateTable } from "./generateTable";
 import * as elements from "./variables/getElementsFromDocument";
 import * as colors from "./variables/colors";
 
+const buttons = document.querySelectorAll("button[fetch-button]");
 let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
@@ -25,18 +26,22 @@ listenToSidebarSwitch();
 createSidebarButtons();
 colorDefaultButtons();
 getRaces(language, 2021);
+highlightSidebarButton(document.getElementById(yearGlobal));
 
 elements.en.addEventListener("click", () => {
-  language = "en";
-  generateTable(selectedMainButton, yearGlobal, language);
+  if (language === "pl") {
+    language = "en";
+    generateTable(selectedMainButton, yearGlobal, language);
+  }
 });
 elements.pl.addEventListener("click", () => {
-  language = "pl";
-  generateTable(selectedMainButton, yearGlobal, language);
+  if (language === "en") {
+    language = "pl";
+    generateTable(selectedMainButton, yearGlobal, language);
+  }
 });
 
 // On-click sidebar buttons
-const buttons = document.querySelectorAll("button[fetch-button]");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     yearGlobal = button.id;
@@ -54,8 +59,6 @@ buttons.forEach((button) => {
 //
 // Get and set races
 //
-
-highlightSidebarButton(document.getElementById(yearGlobal));
 
 function highlightSidebarButton(button) {
   buttons.forEach((otherButtons) => {
