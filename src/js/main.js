@@ -11,7 +11,7 @@ import { createSidebarButtons } from "./createSidebarButtons";
 import { changeSidebarButtonsBackgroundColor } from "./colorSidebarButtons";
 import { colorDefaultButtons } from "./colorSelectedButtonsByDef";
 import { generateTable } from "./generateTable";
-import { updateLanguageContent } from "./changeLanguage";
+import { updateLanguageContent, changeSeasonname } from "./changeLanguage";
 import * as elements from "./variables/documentElements";
 import * as colors from "./variables/colors";
 
@@ -49,9 +49,12 @@ elements.pl.addEventListener("click", () => {
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     yearGlobal = button.id;
+    // Light up selected button
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
     generateTable(selectedMainButton, yearGlobal, language);
+    // Change season year
+    changeSeasonname(yearGlobal, language);
     // Color other, not selected buttons
     buttons.forEach((otherButtons) => {
       otherButtons.style.backgroundColor = colors.sidebarButtonNotSelectedColor;
@@ -60,10 +63,7 @@ buttons.forEach((button) => {
   });
 });
 
-//
-// Get and set races
-//
-
+// Hightlight sidebar buttons
 function highlightSidebarButton(button) {
   buttons.forEach((otherButtons) => {
     otherButtons.addEventListener("mouseover", () => {
@@ -82,6 +82,10 @@ function highlightSidebarButton(button) {
       button.style.backgroundColor = colors.sidebarButtonSelectedColor;
     });
 }
+
+//
+// Get and set races
+//
 
 export async function getRaces(lang, selectedYear) {
   let innerContent = "";

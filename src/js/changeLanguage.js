@@ -6,7 +6,7 @@ import {
   buttonDrivers,
 } from "./variables/documentElements";
 
-function changeSeasonname(year, lang) {
+export function changeSeasonname(year, lang) {
   if (lang === "en") {
     seasonname.innerHTML = "Season " + year;
   } else if (lang === "pl") {
@@ -29,8 +29,8 @@ function changeNavbarButtons(lang) {
     buttonDrivers.innerHTML = "Driver standings";
   } else if (lang === "pl") {
     buttonRaces.innerHTML = "Wyścigi";
-    buttonConstructors.innerHTML = "Mistrzostwa kierowców";
-    buttonDrivers.innerHTML = "Mistrzostwa konstruktorów";
+    buttonConstructors.innerHTML = "Mistrzostwa konstruktorów";
+    buttonDrivers.innerHTML = "Mistrzostwa kierowców";
   }
 }
 
