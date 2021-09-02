@@ -15,7 +15,6 @@ import { updateLanguageContent, changeSeasonname } from "./changeLanguage";
 import * as elements from "./variables/documentElements";
 import * as colors from "./variables/colors";
 
-const buttons = document.querySelectorAll("button[fetch-button]");
 let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
@@ -27,6 +26,9 @@ createSidebarButtons();
 colorDefaultButtons();
 updateLanguageContent(yearGlobal, language);
 getRaces(language, 2021);
+
+const buttons = document.querySelectorAll("button[fetch-button]");
+
 highlightSidebarButton(document.getElementById(yearGlobal));
 
 // On-click language buttons
