@@ -16,6 +16,10 @@ export function listenToResize() {
         elements.main.style.marginLeft = "0%";
         elements.footer.style.marginLeft = "0%";
       }
+      elements.filler.style.visibility = "hidden";
+      elements.main.style.position = "static";
+      elements.main.style.marginLeft = "0%";
+      document.getElementById("navbar").style.marginLeft = "0%";
     }, delay);
   });
 }
