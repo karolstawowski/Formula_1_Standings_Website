@@ -1,0 +1,17 @@
+@import "./include-media.scss";
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f8f8f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
