@@ -1,9 +1,9 @@
 import {
   seasonname,
   sidebarTitle,
-  buttonRaces,
-  buttonConstructors,
-  buttonDrivers,
+  buttonRacesText,
+  buttonConstructorsText,
+  buttonDriversText,
 } from "./variables/documentElements";
 
 export function changeSeasonname(year, lang) {
@@ -24,13 +24,13 @@ function changeSidebarTitle(lang) {
 
 function changeNavbarButtons(lang) {
   if (lang === "en") {
-    buttonRaces.innerHTML = "Races";
-    buttonConstructors.innerHTML = "Constructor standings";
-    buttonDrivers.innerHTML = "Driver standings";
+    buttonRacesText.innerHTML = "Races";
+    buttonConstructorsText.innerHTML = "Constructor standings";
+    buttonDriversText.innerHTML = "Driver standings";
   } else if (lang === "pl") {
-    buttonRaces.innerHTML = "Wyścigi";
-    buttonConstructors.innerHTML = "Mistrzostwa konstruktorów";
-    buttonDrivers.innerHTML = "Mistrzostwa kierowców";
+    buttonRacesText.innerHTML = "Wyścigi";
+    buttonConstructorsText.innerHTML = "Mistrzostwa konstruktorów";
+    buttonDriversText.innerHTML = "Mistrzostwa kierowców";
   }
 }
 

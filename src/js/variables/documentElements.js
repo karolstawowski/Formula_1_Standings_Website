@@ -9,6 +9,13 @@ export const buttonDrivers = document.getElementById("driverChampionship");
 export const buttonConstructors = document.getElementById(
   "constructorChampionship"
 );
+export const buttonRacesText = document.getElementById("racesText");
+export const buttonDriversText = document.getElementById(
+  "driverChampionshipText"
+);
+export const buttonConstructorsText = document.getElementById(
+  "constructorChampionshipText"
+);
 export const footer = document.getElementById("footer");
 export const en = document.getElementById("en");
 export const pl = document.getElementById("pl");
