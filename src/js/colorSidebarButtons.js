@@ -3,24 +3,23 @@ import * as colors from "./variables/colors";
 
 export function changeSidebarButtonsBackgroundColor(selectedMainButton) {
   if (selectedMainButton == "races") {
-    buttons.buttonRaces.style.backgroundColor = colors.mainButtonSelectedColor;
+    buttons.buttonRaces.style.backgroundColor =
+      colors.navbarButtonSelectedColor;
     buttons.buttonDrivers.style.backgroundColor =
-      colors.mainButtonNotSelectedColor;
+      colors.navbarButtonDefaultColor;
     buttons.buttonConstructors.style.backgroundColor =
-      colors.mainButtonNotSelectedColor;
+      colors.navbarButtonDefaultColor;
   } else if (selectedMainButton == "driverChampionship") {
-    buttons.buttonRaces.style.backgroundColor =
-      colors.mainButtonNotSelectedColor;
+    buttons.buttonRaces.style.backgroundColor = colors.navbarButtonDefaultColor;
     buttons.buttonDrivers.style.backgroundColor =
-      colors.mainButtonSelectedColor;
+      colors.navbarButtonSelectedColor;
     buttons.buttonConstructors.style.backgroundColor =
-      colors.mainButtonNotSelectedColor;
+      colors.navbarButtonDefaultColor;
   } else if (selectedMainButton == "constructorChampionship") {
-    buttons.buttonRaces.style.backgroundColor =
-      colors.mainButtonNotSelectedColor;
+    buttons.buttonRaces.style.backgroundColor = colors.navbarButtonDefaultColor;
     buttons.buttonDrivers.style.backgroundColor =
-      colors.mainButtonNotSelectedColor;
+      colors.navbarButtonDefaultColor;
     buttons.buttonConstructors.style.backgroundColor =
-      colors.mainButtonSelectedColor;
+      colors.navbarButtonSelectedColor;
   }
 }

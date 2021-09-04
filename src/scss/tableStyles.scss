@@ -1,9 +1,11 @@
 @import "./include-media.scss";
+@import "./variables/colors";
 
 table {
   width: 100%;
   font-weight: bold;
   border-collapse: collapse;
+  color: $font-accent-color;
 
   @include media(">desktop") {
     font-size: 18px;
@@ -12,21 +14,21 @@ table {
 }
 
 thead {
-  color: white;
+  color: $table-header-text-color;
   text-transform: uppercase;
 }
 
 tr:nth-child(odd) {
-  background-color: #f2f2f2;
+  background-color: $table-odd-row-color;
 }
 
 tr:nth-child(even) {
-  background-color: white;
+  background-color: $table-even-row-color;
 }
 
 th {
   text-align: left;
-  background-color: #c90700;
+  background-color: $table-header-color;
   padding: 20px 12px;
 
   @include media(">phone") {

@@ -1,8 +1,10 @@
+@import "./variables/colors";
+
 .footer {
   height: 1.8em;
   width: 100%;
   bottom: 0;
-  background-color: #59bdc0;
+  background-color: $footer-background-color;
   display: flex;
   align-items: center;
   align-self: flex-end;

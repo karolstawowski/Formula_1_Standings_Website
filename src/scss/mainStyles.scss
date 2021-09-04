@@ -1,6 +1,8 @@
 @use "./variables/mainContentWidth.scss";
 @import "./include-media.scss";
 
+@import "./variables/colors";
+
 .main {
   display: flex;
   flex-direction: column;
@@ -8,6 +10,7 @@
   margin-top: 120px;
   width: 100%;
   min-height: 1020px;
+  background-color: $main-background-color;
 
   @include media(">tablet") {
     width: 80%;
@@ -33,9 +36,6 @@
   padding-bottom: 1rem;
   overflow-x: auto;
 
-  @include media(">phone") {
-    overflow-x: hidden;
-  }
   @include media(">tablet") {
     padding-left: 2em;
     padding-right: 2em;

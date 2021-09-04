@@ -1,11 +1,12 @@
 @import "./include-media.scss";
+@import "./variables/colors";
 
 .navbar {
   color: white;
   width: 100%;
   height: 60px;
   z-index: 2;
-  background-color: #4e6dc0;
+  background-color: $navbar-button-default-color;
   display: flex;
   flex-wrap: wrap;
   position: fixed;
@@ -18,7 +19,7 @@
   float: left;
   width: 100%;
   height: 60px;
-  background-color: #59bdc0;
+  background-color: $navbar-background-color;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -32,8 +33,8 @@
   justify-content: center;
   align-items: center;
 
-  @include media(">=phone", "<tablet") {
-    margin-right: 20px;
+  @include media(">=phone") {
+    margin-right: 10px;
   }
 }
 
@@ -106,7 +107,7 @@
   line-height: 100%;
   height: 100%;
   width: 33.33%;
-  background-color: #4e6dc0;
+  background-color: $navbar-button-default-color;
   text-align: center;
   display: flex;
   justify-content: center;

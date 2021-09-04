@@ -59,7 +59,7 @@ buttons.forEach((button) => {
     changeSeasonname(yearGlobal, language);
     // Color other, not selected buttons
     buttons.forEach((otherButtons) => {
-      otherButtons.style.backgroundColor = colors.sidebarButtonNotSelectedColor;
+      otherButtons.style.backgroundColor = colors.sidebarButtonDefaultColor;
     });
     button.style.backgroundColor = colors.sidebarButtonSelectedColor;
   });
@@ -69,16 +69,15 @@ buttons.forEach((button) => {
 function highlightSidebarButton(button) {
   buttons.forEach((otherButtons) => {
     otherButtons.addEventListener("mouseover", () => {
-      otherButtons.style.backgroundColor = colors.sidebarButtonHighlightedColor;
+      otherButtons.style.backgroundColor =
+        colors.sidebarButtonDefaultHoverColor;
     }),
       otherButtons.addEventListener("mouseout", () => {
-        otherButtons.style.backgroundColor =
-          colors.sidebarButtonNotSelectedColor;
+        otherButtons.style.backgroundColor = colors.sidebarButtonDefaultColor;
       });
   });
   button.addEventListener("mouseover", () => {
-    button.style.backgroundColor =
-      colors.sidebarButtonSelectedAndHighlightedColor;
+    button.style.backgroundColor = colors.sidebarButtonSelectedHoverColor;
   }),
     button.addEventListener("mouseout", () => {
       button.style.backgroundColor = colors.sidebarButtonSelectedColor;
@@ -118,7 +117,7 @@ export async function getRaces(lang, selectedYear) {
       element.Circuit.Location.country
     )}/shiny/64.png" alt="${element.Circuit.Location.country}"> </td>
             <td style="min-width: 220px;"> ${element.raceName} </td>
-            <td style="min-width: 280px;"> ${element.Circuit.circuitName} </td>
+            <td style="min-width: 290px;"> ${element.Circuit.circuitName} </td>
             <td style="min-width: 100px;"> ${reverseDateOrder(
               element.date
             )} </td>
@@ -249,39 +248,39 @@ buttonConstructors.addEventListener("click", function () {
 const navbarButtons = [buttonRaces, buttonConstructors, buttonDrivers];
 buttonRaces.addEventListener("mouseover", () => {
   if (selectedMainButton === "races") {
-    buttonRaces.style.background = colors.mainButtonSelectedAndHighlightedColor;
-  } else buttonRaces.style.background = colors.mainButtonHighlightedColor;
+    buttonRaces.style.background = colors.navbarButtonSelectedHoverColor;
+  } else buttonRaces.style.background = colors.navbarButtonDefaultHoverColor;
   buttonRaces.style.transition = "background-color 0.1s ease-in";
 });
 
 buttonConstructors.addEventListener("mouseover", () => {
   if (selectedMainButton === "constructorChampionship") {
     buttonConstructors.style.backgroundColor =
-      colors.mainButtonSelectedAndHighlightedColor;
+      colors.navbarButtonSelectedHoverColor;
   } else
     buttonConstructors.style.backgroundColor =
-      colors.mainButtonHighlightedColor;
+      colors.navbarButtonDefaultHoverColor;
   buttonConstructors.style.transition = "background-color 0.1s ease-in";
 });
 
 buttonDrivers.addEventListener("mouseover", () => {
   if (selectedMainButton === "driverChampionship") {
-    buttonDrivers.style.backgroundColor =
-      colors.mainButtonSelectedAndHighlightedColor;
+    buttonDrivers.style.backgroundColor = colors.navbarButtonSelectedHoverColor;
   } else
-    buttonDrivers.style.backgroundColor = colors.mainButtonHighlightedColor;
+    buttonDrivers.style.backgroundColor = colors.navbarButtonDefaultHoverColor;
   buttonDrivers.style.transition = "background-color 0.1s ease-in";
 });
 
 navbarButtons.forEach((button) =>
   button.addEventListener("mouseout", () => {
-    button.style.backgroundColor = colors.mainButtonNotSelectedColor;
+    button.style.backgroundColor = colors.navbarButtonDefaultColor;
     if (selectedMainButton == "races") {
-      buttonRaces.style.backgroundColor = colors.mainButtonSelectedColor;
+      buttonRaces.style.backgroundColor = colors.navbarButtonSelectedColor;
     } else if (selectedMainButton == "driverChampionship") {
-      buttonDrivers.style.backgroundColor = colors.mainButtonSelectedColor;
+      buttonDrivers.style.backgroundColor = colors.navbarButtonSelectedColor;
     } else if (selectedMainButton == "constructorChampionship") {
-      buttonConstructors.style.backgroundColor = colors.mainButtonSelectedColor;
+      buttonConstructors.style.backgroundColor =
+        colors.navbarButtonSelectedColor;
     }
   })
 );

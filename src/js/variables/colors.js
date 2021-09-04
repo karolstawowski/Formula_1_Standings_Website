@@ -1,9 +1,10 @@
-export const sidebarButtonSelectedColor = "#bc3a4c";
-export const sidebarButtonNotSelectedColor = "#bdb76b";
-export const sidebarButtonSelectedAndHighlightedColor = "rgb(210,94,110)";
-export const sidebarButtonHighlightedColor = "#d8d4a0";
+// Change colors in _colors.scss as well
+export const navbarButtonDefaultColor = "#19868a";
+export const navbarButtonDefaultHoverColor = "#136567";
+export const navbarButtonSelectedColor = "#c51b29";
+export const navbarButtonSelectedHoverColor = "#a31621";
 
-export const mainButtonSelectedColor = "#7eae7e";
-export const mainButtonNotSelectedColor = "#4e6dc0";
-export const mainButtonSelectedAndHighlightedColor = "#b9ccb9";
-export const mainButtonHighlightedColor = "#8c9dcc";
+export const sidebarButtonDefaultColor = "#19868a";
+export const sidebarButtonDefaultHoverColor = "#136567";
+export const sidebarButtonSelectedColor = "#c51b29";
+export const sidebarButtonSelectedHoverColor = "#a31621";
