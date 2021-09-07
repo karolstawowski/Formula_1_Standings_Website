@@ -5,7 +5,7 @@ export function listenToSidebarSwitch() {
     elements.sideBar.style.visibility = "visible";
     elements.filler.style.visibility = "visible";
     elements.main.style.marginLeft = "40%";
-    document.getElementById("navbar").style.marginLeft = "40%";
+    elements.navbar.style.marginLeft = "40%";
     elements.main.style.position = "fixed";
     elements.main.style.top = "0";
     elements.filler.addEventListener("click", () => {
@@ -13,7 +13,7 @@ export function listenToSidebarSwitch() {
       elements.filler.style.visibility = "hidden";
       elements.main.style.position = "static";
       elements.main.style.marginLeft = "0%";
-      document.getElementById("navbar").style.marginLeft = "0%";
+      elements.navbar.style.marginLeft = "0%";
     });
   });
 }

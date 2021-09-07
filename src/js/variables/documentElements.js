@@ -23,3 +23,4 @@ export const theadConstructors = document.getElementById("theadConstructors");
 export const theadDrivers = document.getElementById("theadDrivers");
 export const theadRaces = document.getElementById("theadRaces");
 export const sidebarTitle = document.getElementById("sidebar-title");
+export const navbar = document.getElementById("navbar");

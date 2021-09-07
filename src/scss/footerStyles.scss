@@ -6,9 +6,8 @@
   bottom: 0;
   background-color: $footer-background-color;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   align-self: flex-end;
-}
-.footer-content {
-  padding-left: 2em;
+  padding: 0em 2em;
 }
