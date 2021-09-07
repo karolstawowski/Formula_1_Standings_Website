@@ -250,18 +250,6 @@ buttonRaces.addEventListener("mouseover", () => {
   if (selectedMainButton === "races") {
     buttonRaces.style.background = colors.navbarButtonSelectedHoverColor;
   } else buttonRaces.style.background = colors.navbarButtonDefaultHoverColor;
-  buttonRaces.style.transition = "background-color 0.1s ease-in";
-  elements.buttonRacesText.animate(
-    [
-      {
-        borderBottom: "none",
-      },
-      {
-        borderBottom: "1px solid black",
-      },
-    ],
-    { delay: 200, fill: "forwards" }
-  );
 });
 
 buttonConstructors.addEventListener("mouseover", () => {
