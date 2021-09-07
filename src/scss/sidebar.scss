@@ -35,7 +35,7 @@
   justify-content: space-between;
   flex-direction: column;
   background-color: $sidebar-background-color;
-  width: 40%;
+  width: 50%;
   z-index: 3;
   height: 100%;
   overflow-y: auto;
@@ -95,7 +95,7 @@
 }
 
 .filler {
-  width: 60%;
+  width: 50%;
   visibility: hidden;
   background-color: $filler-color;
   height: 100%;

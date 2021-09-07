@@ -1,13 +1,24 @@
 @import "./variables/colors";
 
 .footer {
-  height: 1.8em;
+  text-align: center;
+  height: 3.2em;
   width: 100%;
   bottom: 0;
   background-color: $footer-background-color;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: flex-end;
-  padding: 0em 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+
+  @include media(">phone") {
+    height: 1.6em;
+    justify-content: space-evenly;
+  }
+}
+.footer > span {
+  height: 1.4em;
+  @include media(">phone") {
+    height: 1em;
+  }
 }

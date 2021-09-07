@@ -4,8 +4,8 @@ export function listenToSidebarSwitch() {
   elements.menuButton.addEventListener("click", () => {
     elements.sideBar.style.visibility = "visible";
     elements.filler.style.visibility = "visible";
-    elements.main.style.marginLeft = "40%";
-    elements.navbar.style.marginLeft = "40%";
+    elements.main.style.marginLeft = "50%";
+    elements.navbar.style.marginLeft = "50%";
     elements.main.style.position = "fixed";
     elements.main.style.top = "0";
     elements.filler.addEventListener("click", () => {
