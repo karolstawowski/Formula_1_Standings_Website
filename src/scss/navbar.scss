@@ -39,14 +39,26 @@
 }
 
 .menu-bar-icon {
-  height: 40px;
+  height: 36px;
   width: 40px;
   margin-left: -20px;
   cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-evenly;
+  background-color: #19868a;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   @include media(">tablet") {
     visibility: hidden;
   }
+}
+
+.menu-bar-icon > div {
+  height: 4px;
+  width: 30px;
+  background-color: #f2f2f2;
 }
 
 .logo {
