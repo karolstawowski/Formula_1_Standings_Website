@@ -17,8 +17,10 @@
   }
 }
 .footer > span {
+  font-size: 0.8em;
   height: 1.4em;
   @include media(">phone") {
+    font-size: 0.9em;
     height: 1em;
   }
 }

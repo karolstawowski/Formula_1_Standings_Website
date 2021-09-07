@@ -82,6 +82,7 @@
   margin-top: 0.6rem;
   color: white;
   border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   @include media(">phone") {
     margin-top: 0.65rem;
