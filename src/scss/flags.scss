@@ -9,7 +9,7 @@ img.flag {
   @include media(">tablet") {
     height: 44px;
   }
-  @include media(">desktop") {
+  @include media(">laptop") {
     height: 48px;
   }
 }

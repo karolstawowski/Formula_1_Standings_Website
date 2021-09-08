@@ -18,12 +18,16 @@
 .navbar-logo-section {
   float: left;
   width: 100%;
-  height: 60px;
+  height: 64px;
   background-color: $navbar-background-color;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+  @include media(">desktop") {
+    height: 70px;
+  }
 }
 
 .sidebar-switch {
@@ -33,14 +37,20 @@
   justify-content: center;
   align-items: center;
 
-  @include media(">=phone") {
-    margin-right: 10px;
+  @include media(">phone") {
+    margin-right: 12px;
+  }
+  @include media(">tablet") {
+    margin-right: 20px;
+  }
+  @include media(">laptop") {
+    margin-right: 24px;
   }
 }
 
 .menu-bar-icon {
-  height: 36px;
-  width: 40px;
+  height: 38px;
+  width: 42px;
   margin-left: -20px;
   cursor: pointer;
   display: flex;
@@ -57,20 +67,25 @@
 
 .menu-bar-icon > div {
   height: 4px;
-  width: 30px;
+  width: 32px;
   background-color: #f2f2f2;
 }
 
 .logo {
   display: block;
-  padding: 5px 0px;
+  padding: 7px 0px;
   height: 50px;
-  width: 120px;
   position: relative;
   display: block;
   top: auto;
   left: auto;
+
+  @include media(">phone") {
+    padding: 4px 0px;
+    height: 54px;
+  }
 }
+
 .language-buttons {
   float: right;
   height: 100%;
@@ -80,7 +95,13 @@
   align-items: center;
 
   @include media(">phone") {
-    width: 90px;
+    width: 92px;
+  }
+  @include media(">tablet") {
+    width: 100px;
+  }
+  @include media(">laptop") {
+    width: 104px;
   }
 }
 
@@ -93,6 +114,13 @@
   margin-right: 5px;
 
   @include media(">phone") {
+    width: 38px;
+    margin-right: 8px;
+  }
+  @include media(">tablet") {
+    width: 42px;
+  }
+  @include media(">laptop") {
     margin-right: 10px;
   }
 }
@@ -109,10 +137,14 @@
 
 .navbar-buttons {
   float: left;
-  height: 100%;
+  height: 60px;
   width: 100%;
   display: flex;
   justify-content: stretch;
+
+  @include media(">desktop") {
+    height: 66px;
+  }
 }
 
 .navbar-button {

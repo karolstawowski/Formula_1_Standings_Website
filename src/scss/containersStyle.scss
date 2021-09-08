@@ -1,5 +1,5 @@
-@use "./variables/fontSize.scss";
-@import "./include-media.scss";
+@use "./variables/fontSize";
+@import "./include-media";
 
 body {
   margin: 0;
@@ -13,8 +13,11 @@ body {
   @include media(">tablet") {
     font-size: fontSize.$global-font-size-l;
   }
-  @include media(">desktop") {
+  @include media(">laptop") {
     font-size: fontSize.$global-font-size-x;
+  }
+  @include media(">desktop") {
+    font-size: fontSize.$global-font-size-xl;
   }
 }
 
@@ -26,12 +29,14 @@ body {
   justify-content: center;
   width: 100%;
   min-width: 320px;
+  min-height: 100vh;
 }
 
 .main-container {
   width: 100%;
   position: relative;
   overflow: hidden;
+  min-height: calc(100vh - 1.6em);
 
   @include media(">tablet") {
     display: flex;

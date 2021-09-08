@@ -1,3 +1,4 @@
+@use "./variables/fontSize";
 @import "./include-media.scss";
 @import "./variables/colors";
 
@@ -7,9 +8,11 @@ table {
   border-collapse: collapse;
   color: $font-accent-color;
 
+  @include media(">laptop") {
+    font-size: 0.9em;
+  }
   @include media(">desktop") {
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 0.8em;
   }
 }
 
@@ -37,14 +40,9 @@ th {
   @include media(">tablet") {
     padding: 23px 18px;
   }
-  @include media(">desktop") {
-    padding: 23px 20px;
+  @include media(">laptop") {
+    padding: 24px 20px;
   }
-}
-
-tr {
-  height: 38px;
-  margin: 0;
 }
 
 td {
@@ -58,7 +56,7 @@ td {
   @include media(">tablet") {
     padding: 8px 18px;
   }
-  @include media(">desktop") {
-    padding: 6px 20px;
+  @include media(">laptop") {
+    padding: 8px 20px;
   }
 }

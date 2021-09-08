@@ -16,29 +16,46 @@
     width: 80%;
   }
 
-  @include media(">desktop") {
+  @include media(">laptop") {
     width: 85%;
+  }
+
+  @include media(">desktop") {
+    width: calc(100% - 300px);
+    margin-top: 136px;
   }
 }
 
 .seasonname {
-  margin: 12px 0px;
-  padding-left: 7.5%;
+  margin: 10px 0px;
+  padding-left: 5%;
   line-height: 2em;
   font-size: 2em;
   align-self: flex-start;
+
+  @include media(">phone") {
+    margin: 12px 0px;
+  }
+  @include media(">desktop") {
+    margin: 16px 0px;
+    padding-left: 100px;
+  }
 }
 
 .main-content {
   display: flex;
-  margin-bottom: 1rem;
+  padding-bottom: 2rem;
   width: mainContentWidth.$main-content-width-m-s;
-  padding-bottom: 1rem;
   overflow-x: auto;
 
   @include media(">tablet") {
     padding-left: 2em;
     padding-right: 2em;
     width: mainContentWidth.$main-content-width-x-l;
+  }
+  @include media(">desktop") {
+    padding-left: 2em;
+    padding-right: 2em;
+    width: calc(100% - 200px);
   }
 }

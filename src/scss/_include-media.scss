@@ -31,7 +31,8 @@
 $breakpoints: (
   "phone": 520px,
   "tablet": 850px,
-  "desktop": 1400px,
+  "laptop": 1400px,
+  "desktop": 1920px,
 ) !default;
 
 ///
@@ -110,7 +111,7 @@ $im-media-support: true !default;
 ///
 /// @example scss - This media query will show because it intercepts the static breakpoint
 ///  $im-media-support: false;
-///  $im-no-media-breakpoint: 'desktop';
+///  $im-no-media-breakpoint: 'laptop';
 ///  @include media('>=tablet') {
 ///    .foo {
 ///      color: tomato;
@@ -122,10 +123,10 @@ $im-media-support: true !default;
 ///    color: tomato;
 ///  }
 ///
-/// @example scss - This media query will NOT show because it does not intercept the desktop breakpoint
+/// @example scss - This media query will NOT show because it does not intercept the laptop breakpoint
 ///  $im-media-support: false;
 ///  $im-no-media-breakpoint: 'tablet';
-///  @include media('>=desktop') {
+///  @include media('>=laptop') {
 ///    .foo {
 ///      color: tomato;
 ///    }
@@ -133,7 +134,7 @@ $im-media-support: true !default;
 ///
 ///  /* No output */
 ///
-$im-no-media-breakpoint: "desktop" !default;
+$im-no-media-breakpoint: "laptop" !default;
 
 ///
 /// Selects which media expressions are allowed in an expression for it to be used when media queries
@@ -141,7 +142,7 @@ $im-no-media-breakpoint: "desktop" !default;
 ///
 /// @example scss - This media query will show because it intercepts the static breakpoint and contains only accepted media expressions
 ///  $im-media-support: false;
-///  $im-no-media-breakpoint: 'desktop';
+///  $im-no-media-breakpoint: 'laptop';
 ///  $im-no-media-expressions: ('screen');
 ///  @include media('>=tablet', 'screen') {
 ///    .foo {
@@ -156,7 +157,7 @@ $im-no-media-breakpoint: "desktop" !default;
 ///
 /// @example scss - This media query will NOT show because it intercepts the static breakpoint but contains a media expression that is not accepted
 ///  $im-media-support: false;
-///  $im-no-media-breakpoint: 'desktop';
+///  $im-no-media-breakpoint: 'laptop';
 ///  $im-no-media-expressions: ('screen');
 ///  @include media('>=tablet', 'retina2x') {
 ///    .foo {
@@ -564,7 +565,7 @@ $im-no-media-expressions: ("screen", "portrait", "landscape") !default;
 ///  @include media('>=358px', '<850px') { }
 ///
 /// @example scss - With set breakpoints with custom values
-///  @include media('>desktop', '<=1350px') { }
+///  @include media('>laptop', '<=1350px') { }
 ///
 /// @example scss - With a static expression
 ///  @include media('retina2x') { }

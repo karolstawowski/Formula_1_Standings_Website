@@ -25,8 +25,12 @@
     left: auto;
     right: auto;
   }
-  @include media(">desktop") {
+  @include media(">laptop") {
     width: 15%;
+  }
+  @include media(">desktop") {
+    width: 300px;
+    margin-top: 136px;
   }
 }
 
@@ -90,8 +94,12 @@
   @include media(">tablet") {
     margin-top: 0.7rem;
   }
+  @include media(">laptop") {
+    margin-top: 0.9rem;
+  }
   @include media(">desktop") {
-    margin-top: 0.8rem;
+    margin-top: 1rem;
+    height: 2.4rem;
   }
 }
 
@@ -100,7 +108,7 @@
   visibility: hidden;
   background-color: $filler-color;
   height: 100%;
-  left: 40%;
+  left: 50%;
   z-index: 2;
   opacity: 0.7;
 
