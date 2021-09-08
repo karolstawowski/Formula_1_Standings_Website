@@ -1,6 +1,5 @@
-@use "./variables/mainContentWidth.scss";
-@import "./include-media.scss";
-
+@use "./variables/mainContentWidth";
+@import "./include-media";
 @import "./variables/colors";
 
 .main {
@@ -30,7 +29,6 @@
   margin: 10px 0px;
   padding-left: 5%;
   line-height: 2em;
-  font-size: 2em;
   align-self: flex-start;
 
   @include media(">phone") {
