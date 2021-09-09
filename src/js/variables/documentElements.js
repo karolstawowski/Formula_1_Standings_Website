@@ -5,16 +5,16 @@ export const main = document.getElementById("main");
 export const mainContainer = document.getElementById("main-container");
 export const seasonName = document.getElementById("season-name");
 export const buttonRaces = document.getElementById("races");
-export const buttonDrivers = document.getElementById("driverChampionship");
+export const buttonDrivers = document.getElementById("driver-championship");
 export const buttonConstructors = document.getElementById(
-  "constructorChampionship"
+  "constructor-championship"
 );
-export const buttonRacesText = document.getElementById("racesText");
+export const buttonRacesText = document.getElementById("races-text");
 export const buttonDriversText = document.getElementById(
-  "driverChampionshipText"
+  "driver-championship-text"
 );
 export const buttonConstructorsText = document.getElementById(
-  "constructorChampionshipText"
+  "constructor-championship-text"
 );
 export const footer = document.getElementById("footer");
 export const en = document.getElementById("en");

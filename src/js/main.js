@@ -183,8 +183,8 @@ export async function getDrivers(lang, selectedYear) {
   document.getElementById("main-content").innerHTML = innerContent;
 }
 
-// On-click main button #driverChampionship
-const buttonDrivers = document.getElementById("driverChampionship");
+// On-click main button #driver-championship
+const buttonDrivers = document.getElementById("driver-championship");
 buttonDrivers.addEventListener("click", function () {
   getDrivers(language, yearGlobal);
   changeSidebarButtonsBackgroundColor(
@@ -235,8 +235,8 @@ export async function getConstructors(lang, selectedYear) {
   document.getElementById("main-content").innerHTML = innerContent;
 }
 
-// On-click main button #constructorChampionship
-const buttonConstructors = document.getElementById("constructorChampionship");
+// On-click main button #constructor-championship
+const buttonConstructors = document.getElementById("constructor-championship");
 buttonConstructors.addEventListener("click", function () {
   getConstructors(language, yearGlobal);
   changeSidebarButtonsBackgroundColor(

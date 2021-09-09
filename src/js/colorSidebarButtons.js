@@ -15,7 +15,7 @@ export function changeSidebarButtonsBackgroundColor(selectedMainButton) {
       colors.navbarButtonSelectedColor;
     buttons.buttonConstructors.style.backgroundColor =
       colors.navbarButtonDefaultColor;
-  } else if (selectedMainButton == "constructorChampionship") {
+  } else if (selectedMainButton == "constructor-championship") {
     buttons.buttonRaces.style.backgroundColor = colors.navbarButtonDefaultColor;
     buttons.buttonDrivers.style.backgroundColor =
       colors.navbarButtonDefaultColor;
