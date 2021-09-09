@@ -2,7 +2,7 @@
 
 .footer {
   text-align: center;
-  height: 3.2em;
+  height: 6.6em;
   width: 100%;
   bottom: 0;
   background-color: $footer-background-color;
@@ -10,17 +10,64 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+}
 
-  @include media(">phone") {
-    height: 1.6em;
-    justify-content: space-evenly;
+.footer-icons-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-icons {
+  width: 180px;
+  display: flex;
+  justify-content: space-evenly;
+  @include media(">tablet") {
+    justify-content: space-around;
+  }
+  @include media(">desktop") {
+    justify-content: space-between;
   }
 }
-.footer > span {
-  font-size: 0.8em;
-  height: 1.4em;
+
+.footer-icon {
+  height: 34px;
+
   @include media(">phone") {
-    font-size: 0.9em;
-    height: 1em;
+    height: 38px;
+  }
+  @include media(">tablet") {
+    height: 42px;
+  }
+  @include media(">laptop") {
+    height: 46px;
+  }
+  @include media(">desktop") {
+    height: 50px;
+  }
+}
+
+.footer-author {
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid black;
+  padding-right: 2px;
+  padding-left: 2px;
+
+  @include media(">phone") {
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  @include media(">tablet") {
+    padding-top: 12px;
+    margin-top: 12px;
+  }
+  @include media(">laptop") {
+    padding-top: 14px;
+    margin-top: 14px;
+  }
+  @include media(">desktop") {
+    padding-top: 16px;
+    margin-top: 16px;
   }
 }

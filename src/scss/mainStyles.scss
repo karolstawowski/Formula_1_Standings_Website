@@ -42,18 +42,19 @@
 
 .main-content {
   display: flex;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
   width: mainContentWidth.$main-content-width-m-s;
   overflow-x: auto;
 
   @include media(">tablet") {
-    padding-left: 2em;
-    padding-right: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
     width: mainContentWidth.$main-content-width-x-l;
   }
   @include media(">desktop") {
-    padding-left: 2em;
-    padding-right: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
     width: calc(100% - 200px);
   }
 }

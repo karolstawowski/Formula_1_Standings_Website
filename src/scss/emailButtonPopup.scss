@@ -1,0 +1,63 @@
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.popup .popuptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #f2f2f2;
+  color: #000;
+  text-align: center;
+  line-height: 1.2em;
+  border-radius: 6px;
+  padding: 8px 0px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -70px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  @include media(">phone") {
+    width: 200px;
+    margin-left: -100px;
+  }
+  @include media(">tablet") {
+    width: 240px;
+    margin-left: -120px;
+  }
+  @include media(">laptop") {
+    width: 280px;
+    margin-left: -140px;
+  }
+  @include media(">desktop") {
+    width: 320px;
+    margin-left: -160px;
+  }
+}
+
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

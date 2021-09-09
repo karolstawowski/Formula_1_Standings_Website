@@ -19,6 +19,13 @@ let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
 
+// When the user clicks on <div>, open the popup
+var popupbtn = document.getElementById("popupbtn");
+popupbtn.addEventListener("click", () => {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+});
+
 // Fire on start
 listenToResize();
 listenToSidebarSwitch();
@@ -283,3 +290,7 @@ navbarButtons.forEach((button) =>
     }
   })
 );
+
+document.getElementById("emailIcon").addEventListener("click", () => {
+  navigator.clipboard.writeText("stawowski.dev@gmail.com");
+});
