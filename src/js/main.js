@@ -19,13 +19,6 @@ let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
 
-// When the user clicks on <div>, open the popup
-var popupbtn = document.getElementById("popupbtn");
-popupbtn.addEventListener("click", () => {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-});
-
 // Fire on start
 listenToResize();
 listenToSidebarSwitch();
@@ -34,8 +27,8 @@ colorDefaultButtons();
 updateLanguageContent(yearGlobal, language);
 getRaces(language, 2021);
 
+// Highlight sidebarbuttons
 const buttons = document.querySelectorAll("button[fetch-button]");
-
 highlightSidebarButton(document.getElementById(yearGlobal));
 
 // On-click language buttons
@@ -293,4 +286,10 @@ navbarButtons.forEach((button) =>
 
 document.getElementById("emailIcon").addEventListener("click", () => {
   navigator.clipboard.writeText("stawowski.dev@gmail.com");
+});
+
+// Open popup on emailIcon click
+elements.emailButton.addEventListener("click", () => {
+  let emailPopup = document.getElementById("email-popup");
+  emailPopup.classList.toggle("show");
 });
