@@ -36,7 +36,7 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
-  min-height: calc(100vh - 1.6em);
+  min-height: calc(100vh - 6.6em);
 
   @include media(">tablet") {
     display: flex;
