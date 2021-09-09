@@ -1,5 +1,5 @@
 import {
-  seasonname,
+  seasonName,
   sidebarTitle,
   buttonRacesText,
   buttonConstructorsText,
@@ -8,9 +8,9 @@ import {
 
 export function changeSeasonname(year, lang) {
   if (lang === "en") {
-    seasonname.innerHTML = "Season " + year;
+    seasonName.innerHTML = "Season " + year;
   } else if (lang === "pl") {
-    seasonname.innerHTML = "Sezon " + year;
+    seasonName.innerHTML = "Sezon " + year;
   }
 }
 

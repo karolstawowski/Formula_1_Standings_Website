@@ -284,11 +284,11 @@ navbarButtons.forEach((button) =>
   })
 );
 
-document.getElementById("emailIcon").addEventListener("click", () => {
+document.getElementById("email-icon").addEventListener("click", () => {
   navigator.clipboard.writeText("stawowski.dev@gmail.com");
 });
 
-// Open popup on emailIcon click
+// Open popup on email-icon click
 elements.emailButton.addEventListener("click", () => {
   let emailPopup = document.getElementById("email-popup");
   emailPopup.classList.toggle("show");
