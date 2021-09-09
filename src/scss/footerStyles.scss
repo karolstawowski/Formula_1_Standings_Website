@@ -2,7 +2,7 @@
 
 .footer {
   text-align: center;
-  height: 6.6em;
+  height: 6.2em;
   width: 100%;
   bottom: 0;
   background-color: $footer-background-color;
@@ -32,19 +32,19 @@
 }
 
 .footer-icon {
-  height: 34px;
+  height: 32px;
 
   @include media(">phone") {
-    height: 38px;
+    height: 34px;
   }
   @include media(">tablet") {
-    height: 42px;
+    height: 38px;
   }
   @include media(">laptop") {
-    height: 46px;
+    height: 42px;
   }
   @include media(">desktop") {
-    height: 50px;
+    height: 46px;
   }
 }
 
