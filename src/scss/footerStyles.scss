@@ -22,6 +22,7 @@
   width: 180px;
   display: flex;
   justify-content: space-evenly;
+
   @include media(">tablet") {
     justify-content: space-around;
   }
