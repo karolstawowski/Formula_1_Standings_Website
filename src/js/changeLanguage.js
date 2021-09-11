@@ -4,6 +4,8 @@ import {
   buttonRacesText,
   buttonConstructorsText,
   buttonDriversText,
+  emailPopup,
+  footerAuthor,
 } from "./variables/documentElements";
 
 export function changeSeasonname(year, lang) {
@@ -34,8 +36,26 @@ function changeNavbarButtons(lang) {
   }
 }
 
+function changeEmailButton(lang) {
+  if (lang === "en") {
+    emailPopup.innerHTML = "Email copied to clipboard!";
+  } else if (lang === "pl") {
+    emailPopup.innerHTML = "Email skopiowany do schowka!";
+  }
+}
+
+function changeAuthor(lang) {
+  if (lang === "en") {
+    footerAuthor.innerHTML = "Author: Karol Stawowski";
+  } else if (lang === "pl") {
+    footerAuthor.innerHTML = "Autor: Karol Stawowski";
+  }
+}
+
 export function updateLanguageContent(year, lang) {
   changeSeasonname(year, lang);
   changeSidebarTitle(lang);
   changeNavbarButtons(lang);
+  changeEmailButton(lang);
+  changeAuthor(lang);
 }
