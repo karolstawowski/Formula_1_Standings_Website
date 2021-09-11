@@ -9,7 +9,7 @@ export function listenToSidebarSwitch() {
     elements.main.style.position = "fixed";
     elements.main.style.top = "0";
     elements.emailIcon.style.visibility = "hidden";
-    elements.emailPopup.style.visibility = "hidden";
+    elements.emailPopup.classList.remove("show-popup");
     elements.filler.addEventListener("click", () => {
       elements.sideBar.style.visibility = "hidden";
       elements.filler.style.visibility = "hidden";
@@ -17,7 +17,6 @@ export function listenToSidebarSwitch() {
       elements.main.style.marginLeft = "0%";
       elements.navbar.style.marginLeft = "0%";
       elements.emailIcon.style.visibility = "visible";
-      elements.emailPopup.style.visibility = "visble";
     });
   });
 }

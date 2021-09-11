@@ -293,5 +293,5 @@ elements.emailIcon.addEventListener("click", () => {
 
 // Open popup on email-icon click
 elements.emailButton.addEventListener("click", () => {
-  elements.emailPopup.classList.toggle("show");
+  elements.emailPopup.classList.toggle("show-popup");
 });
