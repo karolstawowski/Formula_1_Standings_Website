@@ -19,6 +19,8 @@ export function listenToResize() {
       elements.filler.style.visibility = "hidden";
       elements.main.style.position = "static";
       elements.main.style.marginLeft = "0%";
+      elements.emailIcon.style.visibility = "visible";
+      elements.emailPopup.style.visibility = "visible";
       document.getElementById("navbar").style.marginLeft = "0%";
     }, delay);
   });
