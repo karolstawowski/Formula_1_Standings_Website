@@ -25,3 +25,6 @@ export const theadRaces = document.getElementById("theadRaces");
 export const sidebarTitle = document.getElementById("sidebar-title");
 export const navbar = document.getElementById("navbar");
 export const emailButton = document.getElementById("email-button");
+export const emailIcon = document.getElementById("email-icon");
+export const emailPopup = document.getElementById("email-popup");
+export const mainContent = document.getElementById("main-content");

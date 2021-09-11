@@ -26,8 +26,7 @@ createSidebarButtons();
 colorDefaultButtons();
 updateLanguageContent(yearGlobal, language);
 getRaces(language, 2021);
-
-// Highlight sidebarbuttons
+// Highlight sidebar buttons
 const buttons = document.querySelectorAll("button[fetch-button]");
 highlightSidebarButton(document.getElementById(yearGlobal));
 
@@ -124,7 +123,8 @@ export async function getRaces(lang, selectedYear) {
         </tr>`;
   }
   innerContent += "</table>";
-  document.getElementById("main-content").innerHTML = innerContent;
+
+  elements.mainContent.innerHTML = innerContent;
 }
 
 // On-click main button #races
@@ -144,11 +144,11 @@ export async function getDrivers(lang, selectedYear) {
         <thead id="theadDrivers"><tr>`;
   if (lang === "en") {
     innerContent += `
-          <th> Position </th>
-          <th> Driver </th>
-          <th> Country </th>
-          <th> Team </th>
-          <th> Points </th>`;
+      <th> Position </th>
+      <th> Driver </th>
+      <th> Country </th>
+      <th> Team </th>
+      <th> Points </th>`;
   } else if (lang === "pl") {
     innerContent += `
       <th> Pozycja </th>
@@ -180,7 +180,8 @@ export async function getDrivers(lang, selectedYear) {
         </tr>`;
   }
   innerContent += "</table>";
-  document.getElementById("main-content").innerHTML = innerContent;
+
+  elements.mainContent.innerHTML = innerContent;
 }
 
 // On-click main button #driver-championship
@@ -201,15 +202,16 @@ export async function getConstructors(lang, selectedYear) {
   innerContent += `<table style="max-height: 380px;">
         <thead id="theadConstructors"><tr>`;
   if (lang === "en") {
-    innerContent += `<th> Position </th>
-<th> Constructor </th>
-<th> Country </th>
-<th> Points </th>`;
+    innerContent += `
+      <th> Position </th>
+      <th> Constructor </th>
+      <th> Country </th>
+      <th> Points </th>`;
   } else if (lang === "pl") {
     innerContent += `<th> Pozycja </th>
-    <th> Zespół </th>
-    <th> Kraj </th>
-    <th> Ilość punktów </th>`;
+      <th> Zespół </th>
+      <th> Kraj </th>
+      <th> Ilość punktów </th>`;
   }
 
   innerContent += `</tr></thead>`;
@@ -232,7 +234,7 @@ export async function getConstructors(lang, selectedYear) {
   }
   innerContent += "</table>";
 
-  document.getElementById("main-content").innerHTML = innerContent;
+  elements.mainContent.innerHTML = innerContent;
 }
 
 // On-click main button #constructor-championship
@@ -284,12 +286,12 @@ navbarButtons.forEach((button) =>
   })
 );
 
-document.getElementById("email-icon").addEventListener("click", () => {
+// Copy text to user's clipboard
+elements.emailIcon.addEventListener("click", () => {
   navigator.clipboard.writeText("stawowski.dev@gmail.com");
 });
 
 // Open popup on email-icon click
 elements.emailButton.addEventListener("click", () => {
-  let emailPopup = document.getElementById("email-popup");
-  emailPopup.classList.toggle("show");
+  elements.emailPopup.classList.toggle("show");
 });

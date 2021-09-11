@@ -1,0 +1,32 @@
+.loading-screen {
+  height: 100vh;
+  width: 100%;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-image {
+  width: 60%;
+  animation: rotate 1.2s infinite;
+
+  @include media(">phone") {
+    width: 40%;
+  }
+  @include media(">tablet") {
+    width: 30%;
+  }
+  @include media(">laptop") {
+    width: 25%;
+  }
+  @include media(">desktop") {
+    width: 20%;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

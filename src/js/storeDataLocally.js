@@ -1,3 +1,5 @@
+import { dataLoadingScreen } from "./dataLoadingScreen";
+
 const LOCALSTORAGE_KEY = "f1";
 
 const saveJSONToStorage = (key, json) => {
@@ -24,11 +26,12 @@ const parseStorageData = (key) => {
 };
 
 const updateDataInStorage = async (key, APIKey) => {
-  const nazwa = await fetch(
+  dataLoadingScreen();
+  const name = await fetch(
     "https://ergast.com/api/f1/" + APIKey + ".json"
   ).then((resp) => resp.json());
-  saveJSONToStorage(key, nazwa);
-  return nazwa;
+  saveJSONToStorage(key, name);
+  return name;
 };
 
 export const getDataFromStorage = async (queryId, APIKey) => {

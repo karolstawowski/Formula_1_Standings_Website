@@ -1,10 +1,11 @@
 @import ".\\navbar";
 @import ".\\clearStyles";
-@import ".\\tableStyles";
+@import ".\\table";
 @import ".\\sidebar";
-@import ".\\containersStyle";
-@import ".\\mainStyles";
-@import ".\\footerStyles";
+@import ".\\parentContainers";
+@import ".\\mainContainer";
+@import ".\\footer";
 @import ".\\flags";
-@import ".\\scroll";
-@import ".\\emailButtonPopup";
+@import ".\\scrollbar";
+@import ".\\emailButton";
+@import ".\\dataLoadingScreen";
