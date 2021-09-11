@@ -1431,7 +1431,7 @@ var countryCodesAndNames = [
 
 export function findCountryCodeByNationality(nationality) {
   for (let i = 0; i < countryCodesAndNames.length; i++) {
-    if (countryCodesAndNames[i].Nationality == nationality) {
+    if (countryCodesAndNames[i].Nationality === nationality) {
       return countryCodesAndNames[i].CCA2;
     }
   }
@@ -1439,7 +1439,7 @@ export function findCountryCodeByNationality(nationality) {
 
 export function findCountryNameByNationality(nationality) {
   for (let i = 0; i < countryCodesAndNames.length; i++) {
-    if (countryCodesAndNames[i].Nationality == nationality) {
+    if (countryCodesAndNames[i].Nationality === nationality) {
       return countryCodesAndNames[i].Name;
     }
   }
@@ -1447,7 +1447,7 @@ export function findCountryNameByNationality(nationality) {
 
 export function findCountryCodeByCountryName(countryName) {
   for (let i = 0; i < countryCodesAndNames.length; i++) {
-    if (countryCodesAndNames[i].Name == countryName) {
+    if (countryCodesAndNames[i].Name === countryName) {
       return countryCodesAndNames[i].CCA2;
     }
   }

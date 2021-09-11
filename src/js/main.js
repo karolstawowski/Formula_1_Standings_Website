@@ -273,11 +273,11 @@ buttonDrivers.addEventListener("mouseover", () => {
 navbarButtons.forEach((button) =>
   button.addEventListener("mouseout", () => {
     button.style.backgroundColor = colors.navbarButtonDefaultColor;
-    if (selectedMainButton == "races") {
+    if (selectedMainButton === "races") {
       buttonRaces.style.backgroundColor = colors.navbarButtonSelectedColor;
-    } else if (selectedMainButton == "driverChampionship") {
+    } else if (selectedMainButton === "driverChampionship") {
       buttonDrivers.style.backgroundColor = colors.navbarButtonSelectedColor;
-    } else if (selectedMainButton == "constructorChampionship") {
+    } else if (selectedMainButton === "constructorChampionship") {
       buttonConstructors.style.backgroundColor =
         colors.navbarButtonSelectedColor;
     }
