@@ -121,7 +121,9 @@ export async function getRaces(lang, selectedYear) {
             <td style="min-width: 110px;"> ${reverseDateOrder(
               element.date
             )} </td>
-            <td style="min-width: 100px;"> ${convertTZDToUTC(element.time)}</td>
+            <td style="min-width: 100px;"> ${
+              element.time ? convertTZDToUTC(element.time) : "-"
+            }</td>
             <td style="min-width: 260px;"> ${element.Circuit.circuitName} </td>
         </tr>`;
   }

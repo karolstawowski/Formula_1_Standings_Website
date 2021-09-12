@@ -13,6 +13,7 @@
 
   @include media(">tablet") {
     width: 80%;
+    margin-left: 0%;
   }
   @include media(">laptop") {
     width: 85%;
@@ -20,6 +21,35 @@
   @include media(">desktop") {
     width: calc(100% - 300px);
     margin-top: 136px;
+  }
+}
+
+.main-slide {
+  animation: slide-main 0.4s;
+  position: fixed;
+  margin-left: 50%;
+  top: 0;
+}
+
+@keyframes slide-main {
+  0% {
+    margin-left: 0%;
+  }
+  100% {
+    margin-left: 50%;
+  }
+}
+
+.main-hide {
+  animation: hide-main 0.4s;
+}
+
+@keyframes hide-main {
+  0% {
+    margin-left: 50%;
+  }
+  100% {
+    margin-left: 0%;
   }
 }
 

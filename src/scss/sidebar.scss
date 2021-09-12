@@ -1,8 +1,9 @@
 @import "./include-media";
 @import "./variables/colors";
+@import "./variables/animationDuration";
 
 .sidebar-container {
-  width: 100%;
+  width: 200%;
   z-index: 2;
   position: fixed;
   visibility: hidden;
@@ -39,7 +40,7 @@
   justify-content: space-between;
   flex-direction: column;
   background-color: $sidebar-background-color;
-  width: 50%;
+  width: 25%;
   z-index: 3;
   height: 100%;
   overflow-y: auto;
@@ -47,18 +48,36 @@
   @include media(">tablet") {
     width: 100%;
     overflow-y: hidden;
+    visibility: visible;
   }
-}
-.slide {
-  animation: slid 1.2s;
 }
 
-@keyframes slid {
+.sidebar-slide {
+  animation: slide-sidebar $animation-duration;
+  visibility: visible;
+}
+
+@keyframes slide-sidebar {
   0% {
-    margin-right: 0%;
+    margin-left: -25%;
   }
   100% {
-    margin-right: 50%;
+    margin-left: 0%;
+  }
+}
+
+.sidebar-hide {
+  animation: hide-sidebar $animation-duration;
+  visibility: visible;
+  margin-left: -50%;
+}
+
+@keyframes hide-sidebar {
+  0% {
+    margin-left: 0%;
+  }
+  100% {
+    margin-left: -25%;
   }
 }
 
@@ -116,7 +135,7 @@
 }
 
 .filler {
-  width: 50%;
+  width: 75%;
   visibility: hidden;
   background-color: $filler-color;
   height: 100%;
@@ -125,6 +144,37 @@
   opacity: 0.7;
 
   @include media(">tablet") {
+    visibility: hidden;
+  }
+}
+
+.filler-slide {
+  animation: slide-filler $animation-duration;
+  visibility: visible;
+}
+
+@keyframes slide-filler {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.filler-hide {
+  animation: hide-filler $animation-duration;
+}
+
+@keyframes hide-filler {
+  0% {
+    opacity: 0.7;
+  }
+  99% {
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
     visibility: hidden;
   }
 }

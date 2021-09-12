@@ -3,23 +3,23 @@ import * as elements from "./variables/documentElements";
 let timeout = false;
 let delay = 200;
 
+let previousHeight = window.innerHeight;
+
 export function listenToResize() {
   window.addEventListener("resize", () => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
-      if (window.innerWidth > 850) {
-        elements.sideBar.style.visibility = "visible";
+      if (window.innerHeight === previousHeight) {
+        elements.sideBar.classList.remove("sidebar-slide");
+        elements.main.classList.remove("main-slide");
+        elements.filler.classList.remove("filler-slide");
+        elements.navbar.classList.remove("navbar-slide");
+        elements.sideBar.classList.remove("sidebar-hide");
+        elements.filler.classList.remove("filler-hide");
+        elements.main.classList.remove("main-hide");
+        elements.navbar.classList.remove("navbar-hide");
       }
-      if (window.innerWidth <= 850) {
-        elements.sideBar.style.visibility = "hidden";
-        elements.filler.style.visibility = "hidden";
-        elements.main.style.marginLeft = "0%";
-        elements.footer.style.marginLeft = "0%";
-      }
-      elements.filler.style.visibility = "hidden";
-      elements.main.style.position = "static";
-      elements.main.style.marginLeft = "0%";
-      elements.navbar.style.marginLeft = "0%";
+      previousHeight = window.innerHeight;
     }, delay);
   });
 }

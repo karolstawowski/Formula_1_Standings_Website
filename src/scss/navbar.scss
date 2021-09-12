@@ -1,5 +1,6 @@
 @import "./include-media";
 @import "./variables/colors";
+@import "./variables/animationDuration";
 
 .navbar {
   color: white;
@@ -13,6 +14,34 @@
   top: 0;
   left: 0;
   min-width: 320px;
+}
+
+.navbar-slide {
+  animation: slide-navbar $animation-duration;
+  visibility: visible;
+  margin-left: 50%;
+}
+
+@keyframes slide-navbar {
+  0% {
+    margin-left: 0%;
+  }
+  100% {
+    margin-left: 50%;
+  }
+}
+
+.navbar-hide {
+  animation: hide-navbar $animation-duration;
+}
+
+@keyframes hide-navbar {
+  0% {
+    margin-left: 50%;
+  }
+  100% {
+    margin-left: 0%;
+  }
 }
 
 .navbar-logo-section {
