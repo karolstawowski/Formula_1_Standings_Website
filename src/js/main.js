@@ -4,7 +4,7 @@ import {
   findCountryCodeByCountryName,
 } from "./countryCodes";
 import { getDataFromStorage } from "./storeDataLocally";
-import { reverseDateOrder } from "./functions";
+import { reverseDateOrder, convertTZDToUTC } from "./dateConversion";
 import { listenToResize } from "./resizingListener";
 import { listenToSidebarSwitch } from "./sidebarSwitchListener";
 import { createSidebarButtons } from "./createSidebarButtons";
@@ -95,15 +95,17 @@ export async function getRaces(lang, selectedYear) {
     <th> Round </th>
     <th> Country </th>
     <th> Grand Prix </th>
-    <th> Circuit </th>
-    <th> Date </th>`;
+    <th> Date </th>
+    <th> Time </th>
+    <th> Circuit </th>`;
   } else if (lang === "pl") {
     innerContent += `
     <th> Runda </th>
     <th> Kraj </th>
     <th> Grand Prix </th>
-    <th> Nazwa toru </th>
-    <th> Data </th>`;
+    <th> Data </th>
+    <th> Godzina </th>
+    <th> Nazwa toru </th>`;
   }
   innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(selectedYear + "Races", selectedYear);
@@ -116,10 +118,11 @@ export async function getRaces(lang, selectedYear) {
       element.Circuit.Location.country
     )}/shiny/64.png" alt="${element.Circuit.Location.country}"> </td>
             <td style="min-width: 220px;"> ${element.raceName} </td>
-            <td style="min-width: 290px;"> ${element.Circuit.circuitName} </td>
-            <td style="min-width: 100px;"> ${reverseDateOrder(
+            <td style="min-width: 110px;"> ${reverseDateOrder(
               element.date
             )} </td>
+            <td style="min-width: 100px;"> ${convertTZDToUTC(element.time)}</td>
+            <td style="min-width: 260px;"> ${element.Circuit.circuitName} </td>
         </tr>`;
   }
   innerContent += "</table>";
