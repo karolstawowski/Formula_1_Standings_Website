@@ -49,6 +49,18 @@
     overflow-y: hidden;
   }
 }
+.slide {
+  animation: slid 1.2s;
+}
+
+@keyframes slid {
+  0% {
+    margin-right: 0%;
+  }
+  100% {
+    margin-right: 50%;
+  }
+}
 
 .sidebar-content {
   margin-bottom: 5rem;

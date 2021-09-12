@@ -10,6 +10,7 @@ export function listenToSidebarSwitch() {
     elements.main.style.top = "0";
     elements.emailIcon.style.visibility = "hidden";
     elements.emailPopup.classList.remove("show-popup");
+    elements.sideBar.classList.add("slide");
     elements.filler.addEventListener("click", () => {
       elements.sideBar.style.visibility = "hidden";
       elements.filler.style.visibility = "hidden";
