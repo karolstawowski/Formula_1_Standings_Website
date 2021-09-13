@@ -94,13 +94,26 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 116px;
+  width: 5rem;
   line-height: 1.4em;
   font-size: 1.4em;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid black;
   margin-bottom: 1rem;
   color: black;
+
+  @include media(">phone") {
+    width: 5rem;
+  }
+  @include media(">tablet") {
+    width: 5.5rem;
+  }
+  @include media(">laptop") {
+    width: 6rem;
+  }
+  @include media(">desktop") {
+    width: 7rem;
+  }
 }
 
 .sidebar-button {
