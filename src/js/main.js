@@ -15,21 +15,23 @@ import { updateLanguageContent, changeSeasonname } from "./changeLanguage";
 import * as elements from "./variables/documentElements";
 import * as colors from "./variables/colors";
 
+// Global variables
 let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
 
-// Fire on start
+// Starting functions
 listenToResize();
 listenToSidebarSwitch();
 createSidebarButtons();
 colorDefaultButtons();
 updateLanguageContent(yearGlobal, language);
 getRaces(language, 2021);
-// Highlight sidebar buttons
+// Highlight sidebar buttons on start
 const buttons = document.querySelectorAll("button[fetch-button]");
 highlightSidebarButton(document.getElementById(yearGlobal));
 
+// Theme switch functionality
 elements.themeSwitch.addEventListener("change", () => {
   elements.main.classList.toggle("darktheme");
   elements.seasonName.classList.toggle("darktheme");
@@ -39,7 +41,7 @@ elements.themeSwitch.addEventListener("change", () => {
   elements.footer.classList.toggle("darktheme");
 });
 
-// On-click language buttons
+// Language buttons functionality
 elements.en.addEventListener("click", () => {
   if (language === "pl") {
     language = "en";
@@ -55,20 +57,21 @@ elements.pl.addEventListener("click", () => {
   }
 });
 
-// On-click sidebar buttons
+// Sidebar buttons functionality
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     yearGlobal = button.id;
-    // Light up selected button
+    // Add on-hover colors for all buttons
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
     generateTable(selectedMainButton, yearGlobal, language);
-    // Change season year
+    // Change season year in main
     changeSeasonname(yearGlobal, language);
     // Color other, not selected buttons
     buttons.forEach((otherButtons) => {
       otherButtons.style.backgroundColor = colors.sidebarButtonDefaultColor;
     });
+    // Color selected button
     button.style.backgroundColor = colors.sidebarButtonSelectedColor;
   });
 });
@@ -141,7 +144,7 @@ export async function getRaces(lang, selectedYear) {
   elements.mainContent.innerHTML = innerContent;
 }
 
-// On-click main button #races
+// Races button on-click (main)
 const buttonRaces = document.getElementById("races");
 buttonRaces.addEventListener("click", function () {
   getRaces(language, yearGlobal);
@@ -196,7 +199,7 @@ export async function getDrivers(lang, selectedYear) {
   elements.mainContent.innerHTML = innerContent;
 }
 
-// On-click main button #driver-championship
+// Drivers championship button on-click (main)
 const buttonDrivers = document.getElementById("driver-championship");
 buttonDrivers.addEventListener("click", function () {
   getDrivers(language, yearGlobal);
@@ -247,7 +250,7 @@ export async function getConstructors(lang, selectedYear) {
   elements.mainContent.innerHTML = innerContent;
 }
 
-// On-click main button #constructor-championship
+// Constructors championship button on-click (main)
 const buttonConstructors = document.getElementById("constructor-championship");
 buttonConstructors.addEventListener("click", function () {
   getConstructors(language, yearGlobal);
@@ -256,8 +259,9 @@ buttonConstructors.addEventListener("click", function () {
   );
 });
 
-// Highlight navbar buttons
+// Highlight navbar buttons - mouseover
 const navbarButtons = [buttonRaces, buttonConstructors, buttonDrivers];
+
 buttonRaces.addEventListener("mouseover", () => {
   if (selectedMainButton === "races") {
     buttonRaces.style.background = colors.navbarButtonSelectedHoverColor;
@@ -282,6 +286,7 @@ buttonDrivers.addEventListener("mouseover", () => {
   buttonDrivers.style.transition = "background-color 0.1s ease-in";
 });
 
+// Highlight navbar buttons - mouseout
 navbarButtons.forEach((button) =>
   button.addEventListener("mouseout", () => {
     button.style.backgroundColor = colors.navbarButtonDefaultColor;
@@ -296,12 +301,12 @@ navbarButtons.forEach((button) =>
   })
 );
 
-// Copy text to user's clipboard
+// Copy email to user's clipboard
 elements.emailIcon.addEventListener("click", () => {
   navigator.clipboard.writeText("stawowski.dev@gmail.com");
 });
 
-// Open popup on email-icon click
+// Open email icon popup
 elements.emailButton.addEventListener("click", () => {
   elements.emailPopup.classList.toggle("show-popup");
 });
