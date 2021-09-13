@@ -4,7 +4,6 @@ export function listenToSidebarSwitch() {
   elements.menuButton.addEventListener("click", () => {
     elements.emailIcon.style.visibility = "hidden";
     elements.footer.style.visibility = "hidden";
-    elements.emailPopup.classList.remove("show-popup");
     elements.sideBar.classList.add("sidebar-slide");
     elements.filler.classList.add("filler-slide");
     elements.main.classList.add("main-slide");
@@ -13,6 +12,8 @@ export function listenToSidebarSwitch() {
     elements.filler.classList.remove("filler-hide");
     elements.main.classList.remove("main-hide");
     elements.navbar.classList.remove("navbar-hide");
+    elements.emailPopup.classList.remove("show-popup");
+
     elements.filler.addEventListener("click", () => {
       elements.emailIcon.style.visibility = "visible";
       elements.footer.style.visibility = "visible";
