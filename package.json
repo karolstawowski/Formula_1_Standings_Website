@@ -2,7 +2,7 @@
   "name": "oxif1",
   "version": "0.0.0",
   "scripts": {
-    "start": "vite",
+    "start": "vite --host",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
