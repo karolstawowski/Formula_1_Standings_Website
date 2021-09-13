@@ -1,0 +1,106 @@
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 22px;
+  transform: rotate(90deg);
+  margin-right: 8px;
+
+  @include media(">phone") {
+    margin-right: 16px;
+    width: 48px;
+    height: 24px;
+    transform: rotate(0deg);
+  }
+  @include media(">tablet") {
+    margin-right: 18px;
+    width: 50px;
+    height: 26px;
+  }
+  @include media(">laptop") {
+    margin-right: 20px;
+    width: 52px;
+    height: 28px;
+  }
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $theme-slider-light-background;
+  transition: 0.4s;
+}
+
+.theme-slider:before {
+  position: absolute;
+  content: "";
+  height: 32px;
+  width: 32px;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  transition: 0.4s;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background: $theme-slider-light-input
+    url("https://i.ibb.co/FxzBYR9/night.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(270deg);
+
+  @include media(">phone") {
+    transform: rotate(0deg);
+  }
+  @include media(">tablet") {
+    height: 34px;
+    width: 34px;
+  }
+  @include media(">laptop") {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+input:checked + .theme-slider {
+  background-color: $theme-slider-dark-background;
+}
+
+input:focus + .theme-slider {
+  box-shadow: 0 0 1px $theme-slider-dark-background;
+}
+
+input:checked + .theme-slider:before {
+  transform: translateX(14px) rotate(90deg);
+  background: $theme-slider-dark-input url("https://i.ibb.co/7JfqXxB/sunny.png");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include media(">phone") {
+    transform: translateX(16px) rotate(0deg);
+  }
+  @include media(">tablet") {
+    transform: translateX(18px);
+  }
+  @include media(">laptop") {
+    transform: translateX(20px);
+  }
+}
+
+.theme-slider.round {
+  border-radius: 26px;
+}
+
+.theme-slider.round:before {
+  border-radius: 50%;
+}

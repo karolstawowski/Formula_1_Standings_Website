@@ -22,32 +22,39 @@
   </head>
 
   <body>
-    <div id="container" class="container">
-      <header id="navbar" class="navbar">
+    <div class="container" id="container">
+      <header class="navbar" id="navbar">
         <div class="navbar-logo-section">
           <div class="sidebar-switch">
-            <button id="menu-bar-icon" class="menu-bar-icon">
+            <button class="menu-bar-icon" id="menu-bar-icon">
               <div></div>
               <div></div>
               <div></div>
             </button>
           </div>
           <img class="logo" src="src/assets/logo.png" />
-          <div class="language-buttons">
-            <div class="language-button">
-              <div id="en" class="en-flag">
-                <img
-                  class="language-flag"
-                  src="https://www.countryflags.io/gb/shiny/64.png"
-                />
+
+          <div class="language-buttons-and-theme-switch">
+            <label class="theme-switch" id="theme-switch">
+              <input type="checkbox" id="theme-slider" />
+              <span class="theme-slider round"></span>
+            </label>
+            <div class="language-buttons">
+              <div class="language-button">
+                <div class="en-flag" id="en">
+                  <img
+                    class="language-flag"
+                    src="https://www.countryflags.io/gb/shiny/64.png"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="language-button">
-              <div id="pl" class="pl-flag">
-                <img
-                  class="language-flag"
-                  src="https://www.countryflags.io/pl/shiny/64.png"
-                />
+              <div class="language-button">
+                <div class="pl-flag" id="pl">
+                  <img
+                    class="language-flag"
+                    src="https://www.countryflags.io/pl/shiny/64.png"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -67,16 +74,17 @@
           </button>
         </div>
       </header>
-      <div id="main-container" class="main-container">
+      <div class="main-container" id="main-container">
         <div class="sidebar-container">
-          <aside id="sidebar" class="sidebar row-highlighted">
+          <aside class="sidebar row-highlighted" id="sidebar">
             <div class="sidebar-content" id="sidebar-content">
-              <!-- js generated content -->
               <h2 class="sidebar-title" id="sidebar-title"></h2>
-              <ol id="sidebar-button-wrapper"></ol>
+              <ol id="sidebar-button-wrapper">
+                <!-- js generated content-->
+              </ol>
             </div>
           </aside>
-          <div id="filler" class="filler"></div>
+          <div class="filler" id="filler"></div>
         </div>
         <main class="main" id="main">
           <h1 class="season-name" id="season-name"></h1>
@@ -96,8 +104,8 @@
             </a>
             <a class="email-button" id="email-button">
               <img
-                id="email-icon"
                 class="footer-icon"
+                id="email-icon"
                 src="src/assets/Email-Mark-120px.png"
               />
               <span class="email-popup" id="email-popup"></span>

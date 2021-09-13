@@ -18,6 +18,7 @@ import * as colors from "./variables/colors";
 let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
+let theme = "light";
 
 // Fire on start
 listenToResize();
@@ -29,6 +30,15 @@ getRaces(language, 2021);
 // Highlight sidebar buttons
 const buttons = document.querySelectorAll("button[fetch-button]");
 highlightSidebarButton(document.getElementById(yearGlobal));
+
+elements.themeSwitch.addEventListener("change", () => {
+  elements.main.classList.toggle("darktheme");
+  elements.seasonName.classList.toggle("darktheme");
+  elements.sideBar.classList.toggle("darktheme");
+  elements.sidebarTitle.classList.toggle("darktheme");
+  elements.navbar.classList.toggle("darktheme");
+  elements.footer.classList.toggle("darktheme");
+});
 
 // On-click language buttons
 elements.en.addEventListener("click", () => {
@@ -89,7 +99,7 @@ function highlightSidebarButton(button) {
 
 export async function getRaces(lang, selectedYear) {
   let innerContent = "";
-  innerContent += `<table><thead id="theadRaces"><tr>`;
+  innerContent += `<table id="table"><thead id="theadRaces"><tr>`;
   if (lang === "en") {
     innerContent += `
     <th> Round </th>
@@ -124,7 +134,7 @@ export async function getRaces(lang, selectedYear) {
             <td style="min-width: 100px;"> ${
               element.time ? convertTZDToUTC(element.time) : "-"
             }</td>
-            <td style="min-width: 260px;"> ${element.Circuit.circuitName} </td>
+            <td style="min-width: 280px;"> ${element.Circuit.circuitName} </td>
         </tr>`;
   }
   innerContent += "</table>";
@@ -145,7 +155,7 @@ buttonRaces.addEventListener("click", function () {
 
 export async function getDrivers(lang, selectedYear) {
   let innerContent = "";
-  innerContent += `<table>
+  innerContent += `<table id="table">
         <thead id="theadDrivers"><tr>`;
   if (lang === "en") {
     innerContent += `
@@ -204,7 +214,7 @@ buttonDrivers.addEventListener("click", function () {
 
 export async function getConstructors(lang, selectedYear) {
   let innerContent = "";
-  innerContent += `<table style="max-height: 380px;">
+  innerContent += `<table id="table">
         <thead id="theadConstructors"><tr>`;
   if (lang === "en") {
     innerContent += `

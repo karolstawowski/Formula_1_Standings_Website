@@ -42,7 +42,7 @@ export const getDataFromStorage = async (queryId, APIKey) => {
       new Date(localStorageData.updateDate).getMonth() + 1;
     const todayDay = new Date().getDate();
     const todayMonth = new Date().getMonth() + 1;
-    return lastUpdateDay != todayDay && lastUpdateMonth != todayMonth
+    return lastUpdateDay != todayDay || lastUpdateMonth != todayMonth
       ? updateDataInStorage(queryId, APIKey)
       : localStorageData.data;
   } else {

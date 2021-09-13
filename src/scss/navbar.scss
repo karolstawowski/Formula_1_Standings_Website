@@ -5,15 +5,14 @@
 .navbar {
   color: white;
   width: 100%;
-  height: 60px;
+  height: 124px;
   z-index: 2;
-  background-color: $navbar-button-default-color;
   display: flex;
   flex-wrap: wrap;
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 320px;
+  min-width: 400px;
 }
 
 .navbar-slide {
@@ -65,15 +64,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 54px;
 
   @include media(">phone") {
-    margin-right: 12px;
+    margin-right: 76px;
   }
   @include media(">tablet") {
-    margin-right: 20px;
+    margin-right: 88px;
   }
   @include media(">laptop") {
-    margin-right: 24px;
+    margin-right: 96px;
   }
 }
 
@@ -115,6 +115,10 @@
   }
 }
 
+.language-buttons-and-theme-switch {
+  display: flex;
+  align-items: center;
+}
 .language-buttons {
   float: right;
   height: 100%;

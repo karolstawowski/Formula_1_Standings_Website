@@ -9,7 +9,7 @@ export function listenToResize() {
   window.addEventListener("resize", () => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
-      if (window.innerHeight === previousHeight) {
+      if (window.innerHeight === previousHeight || window.innerWidth > 850) {
         elements.sideBar.classList.remove("sidebar-slide");
         elements.main.classList.remove("main-slide");
         elements.filler.classList.remove("filler-slide");
@@ -18,6 +18,8 @@ export function listenToResize() {
         elements.filler.classList.remove("filler-hide");
         elements.main.classList.remove("main-hide");
         elements.navbar.classList.remove("navbar-hide");
+        elements.emailIcon.style.visibility = "visible";
+        elements.footer.style.visibility = "visible";
       }
       previousHeight = window.innerHeight;
     }, delay);
