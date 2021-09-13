@@ -18,7 +18,6 @@ import * as colors from "./variables/colors";
 let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
-let theme = "light";
 
 // Fire on start
 listenToResize();
@@ -99,7 +98,7 @@ function highlightSidebarButton(button) {
 
 export async function getRaces(lang, selectedYear) {
   let innerContent = "";
-  innerContent += `<table id="table"><thead id="theadRaces"><tr>`;
+  innerContent += `<table><thead><tr>`;
   if (lang === "en") {
     innerContent += `
     <th> Round </th>
@@ -155,8 +154,7 @@ buttonRaces.addEventListener("click", function () {
 
 export async function getDrivers(lang, selectedYear) {
   let innerContent = "";
-  innerContent += `<table id="table">
-        <thead id="theadDrivers"><tr>`;
+  innerContent += `<table><thead><tr>`;
   if (lang === "en") {
     innerContent += `
       <th> Position </th>
@@ -172,7 +170,6 @@ export async function getDrivers(lang, selectedYear) {
       <th> Zespół </th>
       <th> Ilość punktów </th>`;
   }
-
   innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(
     selectedYear + "Drivers",
@@ -214,8 +211,7 @@ buttonDrivers.addEventListener("click", function () {
 
 export async function getConstructors(lang, selectedYear) {
   let innerContent = "";
-  innerContent += `<table id="table">
-        <thead id="theadConstructors"><tr>`;
+  innerContent += `<table><thead><tr>`;
   if (lang === "en") {
     innerContent += `
       <th> Position </th>
@@ -228,7 +224,6 @@ export async function getConstructors(lang, selectedYear) {
       <th> Kraj </th>
       <th> Ilość punktów </th>`;
   }
-
   innerContent += `</tr></thead>`;
   const data = await getDataFromStorage(
     selectedYear + "Constructors",
