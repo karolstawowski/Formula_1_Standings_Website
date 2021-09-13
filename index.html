@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="mul">
   <head>
-    <title>Formula 1 Standings</title>
+    <title>F1 Standings</title>
     <meta charset="utf-8" />
     <meta name="author" content="Karol Stawowski" />
     <meta
       name="keywords"
       content="f1, formula 1, standings, motorsport, world championship, lewis hamilton, max verstappen, mercedes, red bull"
     />
-    <meta name="description" content="Formula 1 World Championship Standings" />
+    <meta
+      name="description"
+      content="Formula 1 World Championship Official Standings."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +25,7 @@
   </head>
 
   <body>
-    <div class="container" id="container">
+    <div class="container">
       <header class="navbar" id="navbar">
         <div class="navbar-logo-section">
           <div class="sidebar-switch">
@@ -33,7 +36,6 @@
             </button>
           </div>
           <img class="logo" src="src/assets/logo.png" />
-
           <div class="language-buttons-and-theme-switch">
             <label class="theme-switch" id="theme-switch">
               <input type="checkbox" id="theme-slider" />
@@ -75,7 +77,7 @@
         </div>
       </header>
       <div class="main-container" id="main-container">
-        <div class="sidebar-container">
+        <nav class="sidebar-container">
           <aside class="sidebar row-highlighted" id="sidebar">
             <div class="sidebar-content" id="sidebar-content">
               <h2 class="sidebar-title" id="sidebar-title"></h2>
@@ -85,7 +87,7 @@
             </div>
           </aside>
           <div class="filler" id="filler"></div>
-        </div>
+        </nav>
         <main class="main" id="main">
           <h1 class="season-name" id="season-name"></h1>
           <div class="main-content" id="main-content">
@@ -93,7 +95,7 @@
           </div>
         </main>
       </div>
-      <div class="footer" id="footer">
+      <footer class="footer" id="footer">
         <div class="footer-icons-container">
           <div class="footer-icons">
             <a href="https://github.com/karolstawowski">
@@ -102,18 +104,18 @@
                 src="src/assets/GitHub-Mark-120px-plus.png"
               />
             </a>
-            <a class="email-button" id="email-button">
+            <button class="email-button" id="email-button">
               <img
                 class="footer-icon"
                 id="email-icon"
                 src="src/assets/Email-Mark-120px.png"
               />
-              <span class="email-popup" id="email-popup"></span>
-            </a>
+              <div class="email-popup" id="email-popup"></div>
+            </button>
           </div>
         </div>
         <span class="footer-author" id="footer-author"></span>
-      </div>
+      </footer>
     </div>
   </body>
 </html>
