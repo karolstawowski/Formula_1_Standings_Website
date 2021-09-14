@@ -19,6 +19,7 @@ import * as colors from "./variables/colors";
 let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
+let darkTheme = false;
 
 // Starting functions
 listenToResize();
@@ -26,33 +27,39 @@ listenToSidebarSwitch();
 createSidebarButtons();
 colorDefaultButtons();
 updateLanguageContent(yearGlobal, language);
-getRaces(language, 2021);
+getRaces(language, 2021, darkTheme);
 // Highlight sidebar buttons on start
 const buttons = document.querySelectorAll("button[fetch-button]");
 highlightSidebarButton(document.getElementById(yearGlobal));
 
 // Theme switch functionality
 elements.themeSwitch.addEventListener("change", () => {
+  darkTheme = !darkTheme;
   elements.main.classList.toggle("darktheme");
   elements.seasonName.classList.toggle("darktheme");
   elements.sideBar.classList.toggle("darktheme");
   elements.sidebarTitle.classList.toggle("darktheme");
   elements.navbar.classList.toggle("darktheme");
   elements.footer.classList.toggle("darktheme");
+
+  let trs = document.getElementsByTagName("tr");
+  for (let element of trs) {
+    element.classList.toggle("tr-dark");
+  }
 });
 
 // Language buttons functionality
 elements.en.addEventListener("click", () => {
   if (language === "pl") {
     language = "en";
-    generateTable(selectedMainButton, yearGlobal, language);
+    generateTable(selectedMainButton, yearGlobal, language, darkTheme);
     updateLanguageContent(yearGlobal, language);
   }
 });
 elements.pl.addEventListener("click", () => {
   if (language === "en") {
     language = "pl";
-    generateTable(selectedMainButton, yearGlobal, language);
+    generateTable(selectedMainButton, yearGlobal, language, darkTheme);
     updateLanguageContent(yearGlobal, language);
   }
 });
@@ -64,7 +71,7 @@ buttons.forEach((button) => {
     // Add on-hover colors for all buttons
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
-    generateTable(selectedMainButton, yearGlobal, language);
+    generateTable(selectedMainButton, yearGlobal, language, darkTheme);
     // Change season year in main
     changeSeasonname(yearGlobal, language);
     // Color other, not selected buttons
@@ -99,7 +106,7 @@ function highlightSidebarButton(button) {
 // Get and set races
 //
 
-export async function getRaces(lang, selectedYear) {
+export async function getRaces(lang, selectedYear, darkTheme) {
   let innerContent = "";
   innerContent += `<table><thead><tr>`;
   if (lang === "en") {
@@ -119,10 +126,15 @@ export async function getRaces(lang, selectedYear) {
     <th> Godzina </th>
     <th> Nazwa toru </th>`;
   }
-  innerContent += `</tr></thead>`;
+  innerContent += `</tr></thead><tbody>`;
   const data = await getDataFromStorage(selectedYear + "Races", selectedYear);
   for (const element of data["MRData"].RaceTable.Races) {
-    innerContent += `<tr>
+    if (darkTheme) {
+      innerContent += "<tr class='tr-dark'>";
+    } else {
+      innerContent += "<tr>";
+    }
+    innerContent += `
             <td style="min-width: 20px;"> ${element.round} </td>
             <td title="${
               element.Circuit.Location.country
@@ -136,10 +148,10 @@ export async function getRaces(lang, selectedYear) {
             <td style="min-width: 100px;"> ${
               element.time ? convertTZDToUTC(element.time) : "-"
             }</td>
-            <td style="min-width: 280px;"> ${element.Circuit.circuitName} </td>
+            <td style="min-width: 290px;"> ${element.Circuit.circuitName} </td>
         </tr>`;
   }
-  innerContent += "</table>";
+  innerContent += "</tbody></table>";
 
   elements.mainContent.innerHTML = innerContent;
 }
@@ -147,7 +159,7 @@ export async function getRaces(lang, selectedYear) {
 // Races button on-click (main)
 const buttonRaces = document.getElementById("races");
 buttonRaces.addEventListener("click", function () {
-  getRaces(language, yearGlobal);
+  getRaces(language, yearGlobal, darkTheme);
   changeSidebarButtonsBackgroundColor((selectedMainButton = "races"));
 });
 
@@ -155,7 +167,7 @@ buttonRaces.addEventListener("click", function () {
 // Get and set drivers
 //
 
-export async function getDrivers(lang, selectedYear) {
+export async function getDrivers(lang, selectedYear, darkTheme) {
   let innerContent = "";
   innerContent += `<table><thead><tr>`;
   if (lang === "en") {
@@ -173,14 +185,19 @@ export async function getDrivers(lang, selectedYear) {
       <th> Zespół </th>
       <th> Ilość punktów </th>`;
   }
-  innerContent += `</tr></thead>`;
+  innerContent += `</tr></thead><tbody>`;
   const data = await getDataFromStorage(
     selectedYear + "Drivers",
     selectedYear + "/driverStandings"
   );
   for (const element of data["MRData"].StandingsTable.StandingsLists[0]
     .DriverStandings) {
-    innerContent += `<tr>
+    if (darkTheme) {
+      innerContent += "<tr class='tr-dark'>";
+    } else {
+      innerContent += "<tr>";
+    }
+    innerContent += `
             <td> ${element.position} </td>
             <td style="min-width: 180px;"> ${element.Driver.givenName} ${
       element.Driver.familyName
@@ -194,7 +211,7 @@ export async function getDrivers(lang, selectedYear) {
             <td style="min-width: 130px;"> ${element.points} </td>
         </tr>`;
   }
-  innerContent += "</table>";
+  innerContent += "</tbody></table>";
 
   elements.mainContent.innerHTML = innerContent;
 }
@@ -202,7 +219,7 @@ export async function getDrivers(lang, selectedYear) {
 // Drivers championship button on-click (main)
 const buttonDrivers = document.getElementById("driver-championship");
 buttonDrivers.addEventListener("click", function () {
-  getDrivers(language, yearGlobal);
+  getDrivers(language, yearGlobal, darkTheme);
   changeSidebarButtonsBackgroundColor(
     (selectedMainButton = "driverChampionship")
   );
@@ -212,7 +229,7 @@ buttonDrivers.addEventListener("click", function () {
 // Get and set constructors
 //
 
-export async function getConstructors(lang, selectedYear) {
+export async function getConstructors(lang, selectedYear, darkTheme) {
   let innerContent = "";
   innerContent += `<table><thead><tr>`;
   if (lang === "en") {
@@ -227,14 +244,19 @@ export async function getConstructors(lang, selectedYear) {
       <th> Kraj </th>
       <th> Ilość punktów </th>`;
   }
-  innerContent += `</tr></thead>`;
+  innerContent += `</tr></thead><tbody>`;
   const data = await getDataFromStorage(
     selectedYear + "Constructors",
     selectedYear + "/constructorStandings"
   );
   for (const element of data["MRData"].StandingsTable.StandingsLists[0]
     .ConstructorStandings) {
-    innerContent += `<tr>
+    if (darkTheme) {
+      innerContent += "<tr class='tr-dark'>";
+    } else {
+      innerContent += "<tr>";
+    }
+    innerContent += `
             <td> ${element.position} </td>
             <td> ${element.Constructor.name} </td>
             <td title="${findCountryNameByNationality(
@@ -245,7 +267,7 @@ export async function getConstructors(lang, selectedYear) {
             <td style="min-width: 120px"> ${element.points} </td>
         </tr>`;
   }
-  innerContent += "</table>";
+  innerContent += "</tbody></table>";
 
   elements.mainContent.innerHTML = innerContent;
 }
@@ -253,7 +275,7 @@ export async function getConstructors(lang, selectedYear) {
 // Constructors championship button on-click (main)
 const buttonConstructors = document.getElementById("constructor-championship");
 buttonConstructors.addEventListener("click", function () {
-  getConstructors(language, yearGlobal);
+  getConstructors(language, yearGlobal, darkTheme);
   changeSidebarButtonsBackgroundColor(
     (selectedMainButton = "constructorChampionship")
   );

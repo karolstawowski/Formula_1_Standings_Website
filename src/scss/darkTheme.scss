@@ -1,25 +1,23 @@
-$main-dark-color: #5c5c5c;
-$sidebar-dark-color: #333333;
-$text-dark-color: #e6e6e6;
+@import "./variables/colors";
 
 .main.darktheme {
   background-color: $main-dark-color;
-  filter: brightness(80%);
+  filter: brightness(95%);
 }
 .season-name.darktheme {
   color: $text-dark-color;
 }
 .sidebar.darktheme {
   background-color: $sidebar-dark-color;
-  filter: brightness(80%);
+  filter: brightness(95%);
 }
 .sidebar-title.darktheme {
   color: $text-dark-color;
   border-bottom: 1px solid $text-dark-color;
 }
 .navbar.darktheme {
-  filter: brightness(80%);
+  filter: brightness(95%);
 }
 .footer.darktheme {
-  filter: brightness(80%);
+  filter: brightness(95%);
 }

@@ -30,6 +30,16 @@ tr:nth-child(even) {
   background-color: $table-even-row-color;
 }
 
+.tr-dark:nth-child(odd) {
+  background-color: #333333;
+  color: $text-dark-color;
+}
+
+.tr-dark:nth-child(even) {
+  background-color: $table-even-row-dark-color;
+  color: $text-dark-color;
+}
+
 th {
   text-align: left;
   background-color: $table-header-color;
