@@ -12,7 +12,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 400px;
+  min-width: 350px;
 }
 
 .navbar-slide {
@@ -44,7 +44,6 @@
 }
 
 .navbar-logo-section {
-  float: left;
   width: 100%;
   height: 64px;
   background-color: $navbar-background-color;
@@ -58,29 +57,17 @@
   }
 }
 
-.sidebar-switch {
-  width: 80px;
+.sidebar-and-theme-switches {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 54px;
-
-  @include media(">phone") {
-    margin-right: 76px;
-  }
-  @include media(">tablet") {
-    margin-right: 88px;
-  }
-  @include media(">laptop") {
-    margin-right: 96px;
-  }
 }
 
 .menu-bar-icon {
   height: 38px;
   width: 42px;
-  margin-left: -20px;
+  margin-left: 13px;
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
@@ -117,26 +104,25 @@
   }
 }
 
-.language-buttons-and-theme-switch {
-  display: flex;
-  align-items: center;
-}
 .language-buttons {
-  float: right;
-  height: 100%;
-  width: 80px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 
-  @include media(">phone") {
-    width: 92px;
+  @include media("<=phone") {
+    margin-left: 29px;
+  }
+  @include media(">phone", "<=tablet") {
+    margin-left: 26px;
   }
   @include media(">tablet") {
-    width: 100px;
+    margin-right: 5px;
   }
   @include media(">laptop") {
-    width: 104px;
+    margin-right: 13px;
+  }
+  @include media(">desktop") {
+    margin-right: 8px;
   }
 }
 
@@ -154,6 +140,7 @@
   }
   @include media(">tablet") {
     width: 42px;
+    margin-right: 13px;
   }
   @include media(">laptop") {
     margin-right: 10px;
@@ -173,7 +160,6 @@
 }
 
 .navbar-buttons {
-  float: left;
   height: 60px;
   width: 100%;
   display: flex;

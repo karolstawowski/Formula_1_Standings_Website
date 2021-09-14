@@ -4,23 +4,26 @@
   width: 46px;
   height: 22px;
   transform: rotate(90deg);
-  margin-right: 8px;
+  margin-left: 8px;
 
   @include media(">phone") {
-    margin-right: 16px;
+    margin-left: 15px;
     width: 48px;
     height: 24px;
     transform: rotate(0deg);
   }
   @include media(">tablet") {
-    margin-right: 18px;
+    margin-left: -38px;
     width: 50px;
     height: 26px;
+    margin-right: 48px;
   }
   @include media(">laptop") {
-    margin-right: 20px;
     width: 52px;
     height: 28px;
+  }
+  @include media(">desktop") {
+    margin-right: 43px;
   }
 }
 
