@@ -25,8 +25,8 @@ const parseStorageData = (key) => {
   return data ? data[key] : null;
 };
 
-const updateDataInStorage = async (key, APIKey) => {
-  dataLoadingScreen();
+const updateDataInStorage = async (key, APIKey, darkTheme) => {
+  dataLoadingScreen(darkTheme);
   const name = await fetch(
     "https://ergast.com/api/f1/" + APIKey + ".json"
   ).then((resp) => resp.json());
@@ -34,7 +34,7 @@ const updateDataInStorage = async (key, APIKey) => {
   return name;
 };
 
-export const getDataFromStorage = async (queryId, APIKey) => {
+export const getDataFromStorage = async (queryId, APIKey, darkTheme) => {
   const localStorageData = parseStorageData(queryId);
   if (localStorageData) {
     const lastUpdateDay = new Date(localStorageData.updateDate).getDate();
@@ -43,9 +43,9 @@ export const getDataFromStorage = async (queryId, APIKey) => {
     const todayDay = new Date().getDate();
     const todayMonth = new Date().getMonth() + 1;
     return lastUpdateDay != todayDay || lastUpdateMonth != todayMonth
-      ? updateDataInStorage(queryId, APIKey)
+      ? updateDataInStorage(queryId, APIKey, darkTheme)
       : localStorageData.data;
   } else {
-    return updateDataInStorage(queryId, APIKey);
+    return updateDataInStorage(queryId, APIKey, darkTheme);
   }
 };

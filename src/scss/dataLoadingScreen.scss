@@ -1,7 +1,18 @@
+@import "./variables/colors";
+
 .loading-screen {
-  height: 100vh;
+  height: calc(100vh - 15rem);
   width: 100%;
-  background-color: #e0e0e0;
+  background-color: $loading-screen-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-screen-dark {
+  height: calc(100vh - 15rem);
+  width: 100%;
+  background-color: $loading-screen-dark-color;
   display: flex;
   justify-content: center;
   align-items: center;

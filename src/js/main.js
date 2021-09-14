@@ -19,7 +19,7 @@ import * as colors from "./variables/colors";
 let selectedMainButton = "races";
 let yearGlobal = 2021;
 let language = "pl";
-let darkTheme = false;
+let isDarkTheme = false;
 
 // Starting functions
 listenToResize();
@@ -27,14 +27,14 @@ listenToSidebarSwitch();
 createSidebarButtons();
 colorDefaultButtons();
 updateLanguageContent(yearGlobal, language);
-getRaces(language, 2021, darkTheme);
+getRaces(language, 2021, isDarkTheme);
 // Highlight sidebar buttons on start
 const buttons = document.querySelectorAll("button[fetch-button]");
 highlightSidebarButton(document.getElementById(yearGlobal));
 
 // Theme switch functionality
 elements.themeSwitch.addEventListener("change", () => {
-  darkTheme = !darkTheme;
+  isDarkTheme = !isDarkTheme;
   elements.main.classList.toggle("darktheme");
   elements.seasonName.classList.toggle("darktheme");
   elements.sideBar.classList.toggle("darktheme");
@@ -71,7 +71,7 @@ buttons.forEach((button) => {
     // Add on-hover colors for all buttons
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
-    generateTable(selectedMainButton, yearGlobal, language, darkTheme);
+    generateTable(selectedMainButton, yearGlobal, language, isDarkTheme);
     // Change season year in main
     changeSeasonname(yearGlobal, language);
     // Color other, not selected buttons
@@ -127,7 +127,11 @@ export async function getRaces(lang, selectedYear, darkTheme) {
     <th> Nazwa toru </th>`;
   }
   innerContent += `</tr></thead><tbody>`;
-  const data = await getDataFromStorage(selectedYear + "Races", selectedYear);
+  const data = await getDataFromStorage(
+    selectedYear + "Races",
+    selectedYear,
+    darkTheme
+  );
   for (const element of data["MRData"].RaceTable.Races) {
     if (darkTheme) {
       innerContent += "<tr class='tr-dark'>";
@@ -159,7 +163,7 @@ export async function getRaces(lang, selectedYear, darkTheme) {
 // Races button on-click (main)
 const buttonRaces = document.getElementById("races");
 buttonRaces.addEventListener("click", function () {
-  getRaces(language, yearGlobal, darkTheme);
+  getRaces(language, yearGlobal, isDarkTheme);
   changeSidebarButtonsBackgroundColor((selectedMainButton = "races"));
 });
 
@@ -188,7 +192,8 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
   innerContent += `</tr></thead><tbody>`;
   const data = await getDataFromStorage(
     selectedYear + "Drivers",
-    selectedYear + "/driverStandings"
+    selectedYear + "/driverStandings",
+    darkTheme
   );
   for (const element of data["MRData"].StandingsTable.StandingsLists[0]
     .DriverStandings) {
@@ -219,7 +224,7 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
 // Drivers championship button on-click (main)
 const buttonDrivers = document.getElementById("driver-championship");
 buttonDrivers.addEventListener("click", function () {
-  getDrivers(language, yearGlobal, darkTheme);
+  getDrivers(language, yearGlobal, isDarkTheme);
   changeSidebarButtonsBackgroundColor(
     (selectedMainButton = "driverChampionship")
   );
@@ -247,7 +252,8 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
   innerContent += `</tr></thead><tbody>`;
   const data = await getDataFromStorage(
     selectedYear + "Constructors",
-    selectedYear + "/constructorStandings"
+    selectedYear + "/constructorStandings",
+    darkTheme
   );
   for (const element of data["MRData"].StandingsTable.StandingsLists[0]
     .ConstructorStandings) {
@@ -275,7 +281,7 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
 // Constructors championship button on-click (main)
 const buttonConstructors = document.getElementById("constructor-championship");
 buttonConstructors.addEventListener("click", function () {
-  getConstructors(language, yearGlobal, darkTheme);
+  getConstructors(language, yearGlobal, isDarkTheme);
   changeSidebarButtonsBackgroundColor(
     (selectedMainButton = "constructorChampionship")
   );
