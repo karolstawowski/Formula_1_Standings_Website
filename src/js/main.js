@@ -4,7 +4,7 @@ import {
   findCountryCodeByCountryName,
 } from "./countryCodes";
 import { getDataFromStorage } from "./storeDataLocally";
-import { reverseDateOrder, convertTZDToUTC } from "./dateConversion";
+import { displayLocaleDate, convertTZDToUTC } from "./dateConversion";
 import { listenToResize } from "./resizingListener";
 import { listenToSidebarSwitch } from "./sidebarSwitchListener";
 import { createSidebarButtons } from "./createSidebarButtons";
@@ -146,7 +146,7 @@ export async function getRaces(lang, selectedYear, darkTheme) {
       element.Circuit.Location.country
     )}/shiny/64.png" alt="${element.Circuit.Location.country}"> </td>
             <td style="min-width: 220px;"> ${element.raceName} </td>
-            <td style="min-width: 110px;"> ${reverseDateOrder(
+            <td style="min-width: 110px;"> ${displayLocaleDate(
               element.date
             )} </td>
             <td style="min-width: 100px;"> ${
