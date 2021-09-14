@@ -258,7 +258,7 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
     }
     innerContent += `
             <td> ${element.position} </td>
-            <td> ${element.Constructor.name} </td>
+            <td style="min-width: 120px"> ${element.Constructor.name} </td>
             <td title="${findCountryNameByNationality(
               element.Constructor.nationality
             )}"> <img class="flag" src="https://www.countryflags.io/${findCountryCodeByNationality(
