@@ -104,6 +104,7 @@
   display: block;
   padding: 7px 0px;
   height: 50px;
+  width: 117px;
   position: relative;
   display: block;
   top: auto;
@@ -112,6 +113,7 @@
   @include media(">phone") {
     padding: 4px 0px;
     height: 54px;
+    width: 126px;
   }
 }
 
@@ -160,11 +162,13 @@
 
 .en-flag,
 .pl-flag {
+  height: 100%;
   width: 100%;
   cursor: pointer;
 }
 
 .language-flag {
+  height: 100%;
   width: 100%;
 }
 

@@ -33,18 +33,23 @@
 
 .footer-icon {
   height: 32px;
+  width: 32px;
 
   @include media(">phone") {
     height: 34px;
+    width: 34px;
   }
   @include media(">tablet") {
     height: 38px;
+    width: 38px;
   }
   @include media(">laptop") {
     height: 42px;
+    width: 42px;
   }
   @include media(">desktop") {
     height: 46px;
+    width: 46px;
   }
 }
 
