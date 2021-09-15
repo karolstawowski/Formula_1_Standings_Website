@@ -52,14 +52,14 @@ elements.themeSwitch.addEventListener("change", () => {
 elements.en.addEventListener("click", () => {
   if (language === "pl") {
     language = "en";
-    generateTable(selectedMainButton, yearGlobal, language, darkTheme);
+    generateTable(selectedMainButton, yearGlobal, language, isDarkTheme);
     updateLanguageContent(yearGlobal, language);
   }
 });
 elements.pl.addEventListener("click", () => {
   if (language === "en") {
     language = "pl";
-    generateTable(selectedMainButton, yearGlobal, language, darkTheme);
+    generateTable(selectedMainButton, yearGlobal, language, isDarkTheme);
     updateLanguageContent(yearGlobal, language);
   }
 });
