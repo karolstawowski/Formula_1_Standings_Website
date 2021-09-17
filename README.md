@@ -38,5 +38,9 @@ npm start
  
  Footer contains: link to my github profile and button to copy my email address to your clipboard.
 
+## Resources
+<a href="http://ergast.com/mrd/">Ergast Developer API</a>, <a href="https://eduardoboucas.github.io/include-media/">@include-media</a>, <a href="www.countryflags.io">countryflags.io</a>
+
+
 ## Tools and technologies used
-HTML, SCSS, JavaScript, Node.js, npm, ParcelJS, ViteJS, <a href="https://eduardoboucas.github.io/include-media/">@include-media</a>, Visual Studio Code, GIT.
+HTML, SCSS, JavaScript, Node.js, npm, ParcelJS, ViteJS, Visual Studio Code, Git. 
