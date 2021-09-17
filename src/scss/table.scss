@@ -30,8 +30,13 @@ tr:nth-child(even) {
   background-color: $table-even-row-color;
 }
 
+.tr-next-race {
+  background-color: $table-next-race-color !important;
+  color: $text-dark-color !important;
+}
+
 .tr-dark:nth-child(odd) {
-  background-color: #333333;
+  background-color: $table-odd-row-dark-color;
   color: $text-dark-color;
 }
 

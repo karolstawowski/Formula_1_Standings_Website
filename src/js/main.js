@@ -106,7 +106,16 @@ function highlightSidebarButton(button) {
 // Get and set races
 //
 
+function getDate(date) {
+  let year = date.slice(0, 4);
+  let month = date.slice(5, 7);
+  let day = date.slice(8, 10);
+  let convertedDate = new Date(year, parseInt(month) - 1, day);
+  return convertedDate;
+}
+
 export async function getRaces(lang, selectedYear, darkTheme) {
+  let nextRaceCounter = 0;
   let innerContent = "";
   innerContent += `<table><thead><tr>`;
   if (lang === "en") {
@@ -133,7 +142,10 @@ export async function getRaces(lang, selectedYear, darkTheme) {
     darkTheme
   );
   for (const element of data["MRData"].RaceTable.Races) {
-    if (darkTheme) {
+    if (getDate(element.date) > Date.now() && nextRaceCounter < 1) {
+      innerContent += "<tr class='tr-next-race'>";
+      nextRaceCounter++;
+    } else if (darkTheme) {
       innerContent += "<tr class='tr-dark'>";
     } else {
       innerContent += "<tr>";
@@ -145,14 +157,16 @@ export async function getRaces(lang, selectedYear, darkTheme) {
             }" style="min-width: 60px;"> <img class="flag" src="https://www.countryflags.io/${findCountryCodeByCountryName(
       element.Circuit.Location.country
     )}/shiny/64.png" alt="${element.Circuit.Location.country}"> </td>
-            <td style="min-width: 220px;"> ${element.raceName} </td>
+            <td style="min-width: 230px;"> <a href="${element.url}"> ${
+      element.raceName
+    }<a/> </td>
             <td style="min-width: 110px;"> ${displayLocaleDate(
               element.date
             )} </td>
             <td style="min-width: 100px;"> ${
               element.time ? convertTZDToUTC(element.time) : "-"
             }</td>
-            <td style="min-width: 290px;"> ${element.Circuit.circuitName} </td>
+            <td style="min-width: 300px;"> ${element.Circuit.circuitName} </td>
         </tr>`;
   }
   innerContent += "</tbody></table>";
