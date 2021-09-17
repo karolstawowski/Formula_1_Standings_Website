@@ -19,20 +19,20 @@
 }
 
 .loading-image {
-  width: 60%;
+  width: 50%;
   animation: rotate 1.2s infinite;
 
   @include media(">phone") {
-    width: 40%;
+    width: 28%;
   }
   @include media(">tablet") {
-    width: 30%;
-  }
-  @include media(">laptop") {
     width: 25%;
   }
+  @include media(">laptop") {
+    width: 18%;
+  }
   @include media(">desktop") {
-    width: 20%;
+    width: 15%;
   }
 }
 

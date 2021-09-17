@@ -8,7 +8,7 @@ export function dataLoadingScreen(darkTheme) {
   }
 
   let img = document.createElement("img");
-  img.src = new URL("../assets/logo.png", import.meta.url);
+  img.src = new URL("../assets/tire.png", import.meta.url);
   img.className = "loading-image";
   document.getElementById("loading-screen").appendChild(img);
 }
