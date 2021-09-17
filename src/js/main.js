@@ -157,9 +157,9 @@ export async function getRaces(lang, selectedYear, darkTheme) {
             }" style="min-width: 60px;"> <img class="flag" src="https://www.countryflags.io/${findCountryCodeByCountryName(
       element.Circuit.Location.country
     )}/shiny/64.png" alt="${element.Circuit.Location.country}"> </td>
-            <td style="min-width: 230px;"> <a href="${element.url}"> ${
-      element.raceName
-    }<a/> </td>
+            <td style="min-width: 230px;"> <a href="${
+              element.url
+            }" target="_blank"> ${element.raceName}<a/> </td>
             <td style="min-width: 110px;"> ${displayLocaleDate(
               element.date
             )} </td>
@@ -192,6 +192,7 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
     innerContent += `
       <th> Position </th>
       <th> Driver </th>
+      <th> Number </th>
       <th> Country </th>
       <th> Team </th>
       <th> Points </th>`;
@@ -199,6 +200,7 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
     innerContent += `
       <th> Pozycja </th>
       <th> Kierowca </th>
+      <th> Numer </th>
       <th> Kraj </th>
       <th> Zespół </th>
       <th> Ilość punktów </th>`;
@@ -218,8 +220,13 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
     }
     innerContent += `
             <td> ${element.position} </td>
-            <td style="min-width: 180px;"> ${element.Driver.givenName} ${
+            <td style="min-width: 180px;"> <a href="${
+              element.Driver.url ? element.Driver.url : ""
+            }" target="_blank"> ${element.Driver.givenName} ${
       element.Driver.familyName
+    } </a> </td>
+    <td> ${
+      element.Driver.permanentNumber ? element.Driver.permanentNumber : "-"
     } </td>
             <td title="${findCountryNameByNationality(
               element.Driver.nationality
@@ -278,7 +285,9 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
     }
     innerContent += `
             <td> ${element.position} </td>
-            <td style="min-width: 120px"> ${element.Constructor.name} </td>
+            <td style="min-width: 120px"> <a href="${
+              element.Constructor.url ? element.Constructor.url : ""
+            }" target="_blank"> ${element.Constructor.name} </a> </td>
             <td title="${findCountryNameByNationality(
               element.Constructor.nationality
             )}"> <img class="flag" src="https://www.countryflags.io/${findCountryCodeByNationality(
