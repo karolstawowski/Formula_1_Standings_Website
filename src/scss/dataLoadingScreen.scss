@@ -7,6 +7,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include media(">tablet") {
+    height: calc(100vh - 16rem);
+  }
+  @include media(">laptop") {
+    height: calc(100vh - 17.5rem);
+  }
+  @include media(">desktop") {
+    height: calc(100vh - 20rem);
+  }
 }
 
 .loading-screen-dark {
