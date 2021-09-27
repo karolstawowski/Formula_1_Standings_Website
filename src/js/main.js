@@ -171,7 +171,7 @@ export async function getRaces(lang, selectedYear, darkTheme) {
   }
   innerContent += "</tbody></table>";
 
-  //elements.mainContent.innerHTML = innerContent;
+  elements.mainContent.innerHTML = innerContent;
 }
 
 // Races button on-click (main)
@@ -239,7 +239,7 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
   }
   innerContent += "</tbody></table>";
 
-  //elements.mainContent.innerHTML = innerContent;
+  elements.mainContent.innerHTML = innerContent;
 }
 
 // Drivers championship button on-click (main)
@@ -298,7 +298,7 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
   }
   innerContent += "</tbody></table>";
 
-  //elements.mainContent.innerHTML = innerContent;
+  elements.mainContent.innerHTML = innerContent;
 }
 
 // Constructors championship button on-click (main)
