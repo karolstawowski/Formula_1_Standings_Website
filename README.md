@@ -8,9 +8,8 @@
 ### <a href="https://karolstawowski.github.io/Formula_1_Standings_Website/">Click here to see live website!</a>
 
 ## Description
-Formula 1 Standings Website is a huge project for me. Official Formula 1 website provides informations about World Championship standings in an inelegant way. 
-I wanted to make an enviroment which allows the end user to seek for necessary informations and feel like he's at home. Formula 1 Standings Website shares official Formula 1
-World Championship standings for last twenty years of competition. 
+Formula 1 Standings Website is a huge project for me. Official Formula 1 website provides World Championship standings in an inelegant way. 
+I wanted to make an enviroment, which allows the end user to seek for necessary informations and feel like he's at home. Formula 1 Standings Website shares official Formula 1 World Championship standings for the last twenty years of on-track competition. 
 
 ## Special thanks to <a href="https://www.reddit.com/user/mondomando">@mondomando</a> for allowing me to use his <a href="https://www.reddit.com/r/formula1/comments/lx6d0y/oc_ayrton_senna_lowres_art/">low-res McLaren art</a>, which eventually become the logo of this project!
 
@@ -21,18 +20,82 @@ World Championship standings for last twenty years of competition.
 
 ## Installation
 
-To install Formula 1 Standings Website it is required to have <a href="https://nodejs.org/en/download/">Node.js enviroment</a> and <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm package manager</a> installed. 
+To run Formula 1 Standings Website locally, you are to have both <a href="https://nodejs.org/en/download/">Node.js enviroment</a> and <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm package manager</a> installed. 
 
+```bash
+git clone https://github.com/karolstawowski/Formula_1_Standings_Website.git
 ```
-npm install
 
+```bash
+npm install
+```
+
+```bash
 npm start
 ```
 
-## Usage
- To get current Formula 1 standings select one of the buttons on the navigation bar (top of the screen) - races, driver standings or constructor standings.
- 
+## App structure 
+```bash
+📦Formula_1_Standings_Website
+ ┣ 📂src
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📜Email-Mark-120px.png
+ ┃ ┃ ┣ 📜favicon.png
+ ┃ ┃ ┣ 📜GitHub-Mark-120px-plus.png
+ ┃ ┃ ┣ 📜logo.png
+ ┃ ┃ ┗ 📜tire.png
+ ┃ ┣ 📂js
+ ┃ ┃ ┣ 📂variables
+ ┃ ┃ ┃ ┣ 📜colors.js
+ ┃ ┃ ┃ ┗ 📜documentElements.js
+ ┃ ┃ ┣ 📜changeLanguage.js
+ ┃ ┃ ┣ 📜colorSelectedButtonsByDef.js
+ ┃ ┃ ┣ 📜colorSidebarButtons.js
+ ┃ ┃ ┣ 📜convertTZDToLocalTime.js
+ ┃ ┃ ┣ 📜countryCodes.js
+ ┃ ┃ ┣ 📜createSidebarButtons.js
+ ┃ ┃ ┣ 📜dataLoadingScreen.js
+ ┃ ┃ ┣ 📜dateConversion.js
+ ┃ ┃ ┣ 📜generateTable.js
+ ┃ ┃ ┣ 📜main.js
+ ┃ ┃ ┣ 📜resizingListener.js
+ ┃ ┃ ┣ 📜sidebarSwitchListener.js
+ ┃ ┃ ┗ 📜storeDataLocally.js
+ ┃ ┗ 📂scss
+ ┃ ┃ ┣ 📂variables
+ ┃ ┃ ┃ ┣ 📜animationDuration.scss
+ ┃ ┃ ┃ ┣ 📜_colors.scss
+ ┃ ┃ ┃ ┣ 📜_fontSize.scss
+ ┃ ┃ ┃ ┗ 📜_mainContentWidth.scss
+ ┃ ┃ ┣ 📜cleanStyles.scss
+ ┃ ┃ ┣ 📜darkTheme.scss
+ ┃ ┃ ┣ 📜dataLoadingScreen.scss
+ ┃ ┃ ┣ 📜emailButton.scss
+ ┃ ┃ ┣ 📜flags.scss
+ ┃ ┃ ┣ 📜footer.scss
+ ┃ ┃ ┣ 📜main.scss
+ ┃ ┃ ┣ 📜mainContainer.scss
+ ┃ ┃ ┣ 📜navbar.scss
+ ┃ ┃ ┣ 📜parentContainers.scss
+ ┃ ┃ ┣ 📜scrollbar.scss
+ ┃ ┃ ┣ 📜sidebar.scss
+ ┃ ┃ ┣ 📜table.scss
+ ┃ ┃ ┣ 📜themeSwitch.scss
+ ┃ ┃ ┗ 📜_include-media.scss
+ ┣ 📜.gitignore
+ ┣ 📜index.html
+ ┣ 📜LICENSE
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┣ 📜README.md
+ ┗ 📜vite.config.js
+```
+
+## App usage
+
  On the navbar you can: open sidebar (mobile only), switch between light and dark theme, change language of the website.
+
+ To get current Formula 1 standings select one of the buttons on the navigation bar (top of the screen) - races, driver standings or constructor standings.
  
  On the sidebar you can select a season to display information about.
  
@@ -41,6 +104,5 @@ npm start
 ## Resources
 <a href="http://ergast.com/mrd/">Ergast Developer API</a>, <a href="https://eduardoboucas.github.io/include-media/">@include-media</a>, <a href="www.countryflags.io">countryflags.io</a>
 
-
 ## Tools and technologies used
-HTML, SCSS, JavaScript, Node.js, npm, ParcelJS, ViteJS, Visual Studio Code, Git. 
+HTML, SCSS, JavaScript, Node.js, npm, ParcelJS, ViteJS.
