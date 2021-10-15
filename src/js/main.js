@@ -1,17 +1,13 @@
-import {
-  findCountryCodeByNationality,
-  findCountryNameByNationality,
-  findCountryCodeByCountryName,
-} from "./countryCodes";
-import { getDataFromStorage } from "./storeDataLocally";
-import { displayLocaleDate, convertTZDToUTC } from "./dateConversion";
-import { listenToResize } from "./resizingListener";
-import { listenToSidebarSwitch } from "./sidebarSwitchListener";
-import { createSidebarButtons } from "./createSidebarButtons";
-import { changeSidebarButtonsBackgroundColor } from "./colorSidebarButtons";
-import { colorDefaultButtons } from "./colorSelectedButtonsByDef";
+import { listenToResize } from "./windowResizing";
+import { listenToSidebarSwitch } from "./sidebarSwitch";
+import { createSidebarButtons } from "./sidebarButtonsCreator";
+import { changeSidebarButtonsBackgroundColor } from "./sidebarButtonsColorSet";
+import { colorDefaultButtons } from "./colorDefaultButtons";
 import { generateTable } from "./generateTable";
 import { updateLanguageContent, changeSeasonname } from "./changeLanguage";
+import { getDrivers } from "./getDrivers";
+import { getConstructors } from "./getConstructors";
+import { getRaces } from "./getRaces";
 import * as elements from "./variables/documentElements";
 import * as colors from "./variables/colors";
 
@@ -56,6 +52,7 @@ elements.en.addEventListener("click", () => {
     updateLanguageContent(yearGlobal, language);
   }
 });
+
 elements.pl.addEventListener("click", () => {
   if (language === "en") {
     language = "pl";
@@ -102,145 +99,12 @@ function highlightSidebarButton(button) {
     });
 }
 
-//
-// Get and set races
-//
-
-function getDate(date) {
-  let year = date.slice(0, 4);
-  let month = date.slice(5, 7);
-  let day = date.slice(8, 10);
-  let convertedDate = new Date(year, parseInt(month) - 1, day);
-  return convertedDate;
-}
-
-export async function getRaces(lang, selectedYear, darkTheme) {
-  let nextRaceCounter = 0;
-  let innerContent = "";
-  innerContent += `<table><thead><tr>`;
-  if (lang === "en") {
-    innerContent += `
-    <th> Round </th>
-    <th> Country </th>
-    <th> Grand Prix </th>
-    <th> Date </th>
-    <th> Time </th>
-    <th> Circuit </th>`;
-  } else if (lang === "pl") {
-    innerContent += `
-    <th> Runda </th>
-    <th> Kraj </th>
-    <th> Grand Prix </th>
-    <th> Data </th>
-    <th> Godzina </th>
-    <th> Nazwa toru </th>`;
-  }
-  innerContent += `</tr></thead><tbody>`;
-  const data = await getDataFromStorage(
-    selectedYear + "Races",
-    selectedYear,
-    darkTheme
-  );
-  for (const element of data["MRData"].RaceTable.Races) {
-    if (getDate(element.date) > Date.now() && nextRaceCounter < 1) {
-      innerContent += "<tr class='tr-next-race'>";
-      nextRaceCounter++;
-    } else if (darkTheme) {
-      innerContent += "<tr class='tr-dark'>";
-    } else {
-      innerContent += "<tr>";
-    }
-    innerContent += `
-            <td style="min-width: 20px;"> ${element.round} </td>
-            <td title="${
-              element.Circuit.Location.country
-            }" style="min-width: 60px;"> <img class="flag" src="https://www.countryflags.io/${findCountryCodeByCountryName(
-      element.Circuit.Location.country
-    )}/shiny/64.png" alt="${element.Circuit.Location.country}"> </td>
-            <td style="min-width: 230px;"> <a href="${
-              element.url
-            }" target="_blank"> ${element.raceName}<a/> </td>
-            <td style="min-width: 110px;"> ${displayLocaleDate(
-              element.date
-            )} </td>
-            <td style="min-width: 100px;"> ${
-              element.time ? convertTZDToUTC(element.time) : "-"
-            }</td>
-            <td style="min-width: 300px;"> ${element.Circuit.circuitName} </td>
-        </tr>`;
-  }
-  innerContent += "</tbody></table>";
-
-  elements.mainContent.innerHTML = innerContent;
-}
-
 // Races button on-click (main)
 const buttonRaces = document.getElementById("races");
 buttonRaces.addEventListener("click", function () {
   getRaces(language, yearGlobal, isDarkTheme);
   changeSidebarButtonsBackgroundColor((selectedMainButton = "races"));
 });
-
-//
-// Get and set drivers
-//
-
-export async function getDrivers(lang, selectedYear, darkTheme) {
-  let innerContent = "";
-  innerContent += `<table><thead><tr>`;
-  if (lang === "en") {
-    innerContent += `
-      <th> Position </th>
-      <th> Driver </th>
-      <th> Number </th>
-      <th> Country </th>
-      <th> Team </th>
-      <th> Points </th>`;
-  } else if (lang === "pl") {
-    innerContent += `
-      <th> Pozycja </th>
-      <th> Kierowca </th>
-      <th> Numer </th>
-      <th> Kraj </th>
-      <th> Zespół </th>
-      <th> Ilość punktów </th>`;
-  }
-  innerContent += `</tr></thead><tbody>`;
-  const data = await getDataFromStorage(
-    selectedYear + "Drivers",
-    selectedYear + "/driverStandings",
-    darkTheme
-  );
-  for (const element of data["MRData"].StandingsTable.StandingsLists[0]
-    .DriverStandings) {
-    if (darkTheme) {
-      innerContent += "<tr class='tr-dark'>";
-    } else {
-      innerContent += "<tr>";
-    }
-    innerContent += `
-            <td> ${element.position} </td>
-            <td style="min-width: 180px;"> <a href="${
-              element.Driver.url ? element.Driver.url : ""
-            }" target="_blank"> ${element.Driver.givenName} ${
-      element.Driver.familyName
-    } </a> </td>
-    <td> ${
-      element.Driver.permanentNumber ? element.Driver.permanentNumber : "-"
-    } </td>
-            <td title="${findCountryNameByNationality(
-              element.Driver.nationality
-            )}" style="min-width: 60px;"> <img class="flag" src="https://www.countryflags.io/${findCountryCodeByNationality(
-      element.Driver.nationality
-    )}/shiny/64.png" alt="${element.Driver.nationality}"> </td>
-            <td style="min-width: 120px;"> ${element.Constructors[0].name} </td>
-            <td style="min-width: 130px;"> ${element.points} </td>
-        </tr>`;
-  }
-  innerContent += "</tbody></table>";
-
-  elements.mainContent.innerHTML = innerContent;
-}
 
 // Drivers championship button on-click (main)
 const buttonDrivers = document.getElementById("driver-championship");
@@ -250,56 +114,6 @@ buttonDrivers.addEventListener("click", function () {
     (selectedMainButton = "driverChampionship")
   );
 });
-
-//
-// Get and set constructors
-//
-
-export async function getConstructors(lang, selectedYear, darkTheme) {
-  let innerContent = "";
-  innerContent += `<table><thead><tr>`;
-  if (lang === "en") {
-    innerContent += `
-      <th> Position </th>
-      <th> Constructor </th>
-      <th> Country </th>
-      <th> Points </th>`;
-  } else if (lang === "pl") {
-    innerContent += `<th> Pozycja </th>
-      <th> Zespół </th>
-      <th> Kraj </th>
-      <th> Ilość punktów </th>`;
-  }
-  innerContent += `</tr></thead><tbody>`;
-  const data = await getDataFromStorage(
-    selectedYear + "Constructors",
-    selectedYear + "/constructorStandings",
-    darkTheme
-  );
-  for (const element of data["MRData"].StandingsTable.StandingsLists[0]
-    .ConstructorStandings) {
-    if (darkTheme) {
-      innerContent += "<tr class='tr-dark'>";
-    } else {
-      innerContent += "<tr>";
-    }
-    innerContent += `
-            <td> ${element.position} </td>
-            <td style="min-width: 120px"> <a href="${
-              element.Constructor.url ? element.Constructor.url : ""
-            }" target="_blank"> ${element.Constructor.name} </a> </td>
-            <td title="${findCountryNameByNationality(
-              element.Constructor.nationality
-            )}"> <img class="flag" src="https://www.countryflags.io/${findCountryCodeByNationality(
-      element.Constructor.nationality
-    )}/shiny/64.png" alt="${element.Constructor.nationality}"> </td>
-            <td style="min-width: 120px"> ${element.points} </td>
-        </tr>`;
-  }
-  innerContent += "</tbody></table>";
-
-  elements.mainContent.innerHTML = innerContent;
-}
 
 // Constructors championship button on-click (main)
 const buttonConstructors = document.getElementById("constructor-championship");
@@ -311,8 +125,6 @@ buttonConstructors.addEventListener("click", function () {
 });
 
 // Highlight navbar buttons - mouseover
-const navbarButtons = [buttonRaces, buttonConstructors, buttonDrivers];
-
 buttonRaces.addEventListener("mouseover", () => {
   if (selectedMainButton === "races") {
     buttonRaces.style.background = colors.navbarButtonSelectedHoverColor;
@@ -338,6 +150,8 @@ buttonDrivers.addEventListener("mouseover", () => {
 });
 
 // Highlight navbar buttons - mouseout
+const navbarButtons = [buttonRaces, buttonConstructors, buttonDrivers];
+
 navbarButtons.forEach((button) =>
   button.addEventListener("mouseout", () => {
     button.style.backgroundColor = colors.navbarButtonDefaultColor;

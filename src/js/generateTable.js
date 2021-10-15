@@ -1,4 +1,6 @@
-import { getRaces, getDrivers, getConstructors } from "./main";
+import { getDrivers } from "./getDrivers";
+import { getConstructors } from "./getConstructors";
+import { getRaces } from "./getRaces";
 
 export function generateTable(selectedMainButton, year, language, theme) {
   if (selectedMainButton === "races") {

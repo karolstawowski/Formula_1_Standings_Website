@@ -1,0 +1,67 @@
+import { getDataFromStorage } from "./localStorage";
+import {
+  findCountryNameByNationality,
+  findCountryCodeByNationality,
+} from "./countryCodes";
+import { mainContent } from "./variables/documentElements";
+
+export async function getDrivers(lang, selectedYear, darkTheme) {
+  let innerContent = "";
+  innerContent += `<table><thead><tr>`;
+  if (lang === "en") {
+    innerContent += `
+        <th> Position </th>
+        <th> Driver </th>
+        <th> Number </th>
+        <th> Country </th>
+        <th> Team </th>
+        <th> Points </th>`;
+  } else if (lang === "pl") {
+    innerContent += `
+        <th> Pozycja </th>
+        <th> Kierowca </th>
+        <th> Numer </th>
+        <th> Kraj </th>
+        <th> Zespół </th>
+        <th> Ilość punktów </th>`;
+  }
+  innerContent += `</tr></thead><tbody>`;
+  const data = await getDataFromStorage(
+    selectedYear + "Drivers",
+    selectedYear + "/driverStandings",
+    darkTheme
+  );
+  for (const element of data["MRData"].StandingsTable.StandingsLists[0]
+    .DriverStandings) {
+    if (darkTheme) {
+      innerContent += "<tr class='tr-dark'>";
+    } else {
+      innerContent += "<tr>";
+    }
+    innerContent += `
+              <td> ${element.position} </td>
+              <td style="min-width: 180px;"> <a href="${
+                element.Driver.url ? element.Driver.url : ""
+              }" target="_blank"> ${element.Driver.givenName} ${
+      element.Driver.familyName
+    } </a> </td>
+      <td> ${
+        element.Driver.permanentNumber ? element.Driver.permanentNumber : "-"
+      } </td>
+              <td title="${findCountryNameByNationality(
+                element.Driver.nationality
+              )}" style="min-width: 60px;"> 
+                <img class="flag" src="https://www.countryflags.io/${findCountryCodeByNationality(
+                  element.Driver.nationality
+                )}/shiny/64.png" alt="${element.Driver.nationality}"> 
+              </td>
+              <td style="min-width: 120px;"> ${
+                element.Constructors[0].name
+              } </td>
+              <td style="min-width: 130px;"> ${element.points} </td>
+          </tr>`;
+  }
+  innerContent += "</tbody></table>";
+
+  mainContent.innerHTML = innerContent;
+}
