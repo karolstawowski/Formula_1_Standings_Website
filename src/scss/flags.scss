@@ -1,19 +1,18 @@
 @import "./include-media";
 
 img.flag {
-  height: 38px;
-  width: 38px;
-
+  width: 45px;
+  height: 30px;
   @include media(">phone") {
-    height: 42px;
-    width: 42px;
+    width: 48px;
+    height: 32px;
   }
   @include media(">tablet") {
-    height: 44px;
-    width: 44px;
+    width: 51px;
+    height: 34px;
   }
   @include media(">laptop") {
-    height: 48px;
-    width: 48px;
+    width: 54px;
+    height: 36px;
   }
 }

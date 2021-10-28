@@ -6,6 +6,7 @@ import {
 import { mainContent } from "./variables/documentElements";
 
 export async function getConstructors(lang, selectedYear, darkTheme) {
+  const flagsApiProvider = "https://flagcdn.com/";
   let innerContent = "";
   innerContent += `<table><thead><tr>`;
   if (lang === "en") {
@@ -41,9 +42,9 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
               <td title="${findCountryNameByNationality(
                 element.Constructor.nationality
               )}">  
-                <img class="flag" src="https://www.countryflags.io/${findCountryCodeByNationality(
-                  element.Constructor.nationality
-                )}/shiny/64.png" alt="${element.Constructor.nationality}"> 
+                <img class="flag" src="${flagsApiProvider}${findCountryCodeByNationality(
+      element.Constructor.nationality
+    )}.svg" alt="${element.Constructor.nationality}"> 
               </td>
               <td style="min-width: 120px"> ${element.points} </td>
           </tr>`;

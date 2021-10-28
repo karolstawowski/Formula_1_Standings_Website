@@ -44,35 +44,38 @@ tr:nth-child(even) {
   background-color: $table-even-row-dark-color;
   color: $text-dark-color;
 }
+tr {
+  height: 60px;
+}
 
 th {
   text-align: left;
   background-color: $table-header-color;
-  padding: 20px 12px;
+  padding: 0px 12px;
 
   @include media(">phone") {
-    padding: 22px 14px;
+    padding: 0px 14px;
   }
   @include media(">tablet") {
-    padding: 23px 18px;
+    padding: 0px 18px;
   }
   @include media(">laptop") {
-    padding: 24px 20px;
+    padding: 0px 20px;
   }
 }
 
 td {
   height: 2.25rem;
   margin: 0;
-  padding: 8px 12px;
+  padding: 0px 12px;
 
   @include media(">phone") {
-    padding: 8px 14px;
+    padding: 0px 14px;
   }
   @include media(">tablet") {
-    padding: 8px 18px;
+    padding: 0px 18px;
   }
   @include media(">laptop") {
-    padding: 8px 20px;
+    padding: 0px 20px;
   }
 }

@@ -6,6 +6,7 @@ import {
 import { mainContent } from "./variables/documentElements";
 
 export async function getDrivers(lang, selectedYear, darkTheme) {
+  const flagsApiProvider = "https://flagcdn.com/";
   let innerContent = "";
   innerContent += `<table><thead><tr>`;
   if (lang === "en") {
@@ -51,9 +52,9 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
               <td title="${findCountryNameByNationality(
                 element.Driver.nationality
               )}" style="min-width: 60px;"> 
-                <img class="flag" src="https://www.countryflags.io/${findCountryCodeByNationality(
-                  element.Driver.nationality
-                )}/shiny/64.png" alt="${element.Driver.nationality}"> 
+                <img class="flag" src="${flagsApiProvider}${findCountryCodeByNationality(
+      element.Driver.nationality
+    )}.svg" alt="${element.Driver.nationality}"> 
               </td>
               <td style="min-width: 120px;"> ${
                 element.Constructors[0].name

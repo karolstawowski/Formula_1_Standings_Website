@@ -5,6 +5,7 @@ import { displayLocaleDate, convertTZDToUTC } from "./dateConversionFunctions";
 import { getDate } from "./dateConversionFunctions";
 
 export async function getRaces(lang, selectedYear, darkTheme) {
+  const flagsApiProvider = "https://flagcdn.com/";
   let nextRaceCounter = 0;
   let innerContent = "";
   innerContent += `<table><thead><tr>`;
@@ -45,9 +46,9 @@ export async function getRaces(lang, selectedYear, darkTheme) {
               <td title="${
                 element.Circuit.Location.country
               }" style="min-width: 60px;"> 
-                <img class="flag" src="https://www.countryflags.io/${findCountryCodeByCountryName(
-                  element.Circuit.Location.country
-                )}/shiny/64.png" alt="${element.Circuit.Location.country}"> 
+                <img class="flag" src="${flagsApiProvider}${findCountryCodeByCountryName(
+      element.Circuit.Location.country
+    )}.svg" alt="${element.Circuit.Location.country}"> 
               </td>
               <td style="min-width: 230px;"> <a href="${
                 element.url
