@@ -107,7 +107,7 @@ npm start
  Footer contains: link to my github profile and button to copy my email address to your clipboard.
 
 ## Resources
-<a href="http://ergast.com/mrd/">Ergast Developer API</a>, <a href="https://eduardoboucas.github.io/include-media/">@include-media</a>, <a href="www.countryflags.io">countryflags.io</a>
+<a href="http://ergast.com/mrd/">Ergast Developer API</a>, <a href="https://eduardoboucas.github.io/include-media/">@include-media</a>, <a href="https://flagpedia.net/download/api">Flagpedia.net</a>
 
 ## Tools and technologies used
 HTML, SCSS, JavaScript, Node.js, npm, ParcelJS, ViteJS.
