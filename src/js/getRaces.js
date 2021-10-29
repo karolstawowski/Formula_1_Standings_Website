@@ -8,7 +8,9 @@ export async function getRaces(lang, selectedYear, darkTheme) {
   const flagsApiProvider = "https://flagcdn.com/";
   let nextRaceCounter = 0;
   let innerContent = "";
+
   innerContent += `<table><thead><tr>`;
+
   if (lang === "en") {
     innerContent += `
       <th> Round </th>
@@ -27,6 +29,7 @@ export async function getRaces(lang, selectedYear, darkTheme) {
       <th> Nazwa toru </th>`;
   }
   innerContent += `</tr></thead><tbody>`;
+  
   const data = await getDataFromStorage(
     selectedYear + "Races",
     selectedYear,
@@ -42,27 +45,21 @@ export async function getRaces(lang, selectedYear, darkTheme) {
       innerContent += "<tr>";
     }
     innerContent += `
-              <td style="min-width: 20px;"> ${element.round} </td>
-              <td title="${
-                element.Circuit.Location.country
-              }" style="min-width: 60px;"> 
-                <img class="flag" src="${flagsApiProvider}${findCountryCodeByCountryName(
-      element.Circuit.Location.country
-    )}.svg" alt="${element.Circuit.Location.country}"> 
-              </td>
-              <td style="min-width: 230px;"> <a href="${
-                element.url
-              }" target="_blank"> ${element.raceName}<a/> </td>
-              <td style="min-width: 110px;"> ${displayLocaleDate(
-                element.date
-              )} </td>
-              <td style="min-width: 100px;"> ${
-                element.time ? convertTZDToUTC(element.time) : "-"
-              }</td>
-              <td style="min-width: 300px;"> ${
-                element.Circuit.circuitName
-              } </td>
-          </tr>`;
+                <td style="min-width: 20px;"> ${element.round} </td>
+                <td title="${element.Circuit.Location.country}" style="min-width: 60px;"> 
+                  <img class="flag" 
+                    src="${flagsApiProvider}${findCountryCodeByCountryName(element.Circuit.Location.country)}.svg" 
+                    alt="${element.Circuit.Location.country}"> 
+                </td>
+                <td style="min-width: 230px;"> 
+                  <a href="${element.url}" target="_blank"> 
+                    ${element.raceName}
+                  <a/>
+                </td>
+                <td style="min-width: 110px;"> ${displayLocaleDate(element.date)} </td>
+                <td style="min-width: 100px;"> ${element.time ? convertTZDToUTC(element.time) : "-"}</td>
+                <td style="min-width: 300px;"> ${element.Circuit.circuitName} </td>
+              </tr>`;
   }
   innerContent += "</tbody></table>";
 

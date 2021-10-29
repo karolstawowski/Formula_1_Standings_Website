@@ -4,7 +4,10 @@ import { createSidebarButtons } from "./sidebarButtonsCreator";
 import { changeSidebarButtonsBackgroundColor } from "./sidebarButtonsColorSet";
 import { colorDefaultButtons } from "./colorDefaultButtons";
 import { generateTable } from "./generateTable";
-import { updateLanguageContent, changeSeasonname } from "./changeLanguage";
+import {
+  updateLanguageContent,
+  changeSeasonname,
+} from "./changeInterfaceLanguage";
 import { getDrivers } from "./getDrivers";
 import { getConstructors } from "./getConstructors";
 import { getRaces } from "./getRaces";

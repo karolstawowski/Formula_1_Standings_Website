@@ -8,7 +8,9 @@ import { mainContent } from "./variables/documentElements";
 export async function getConstructors(lang, selectedYear, darkTheme) {
   const flagsApiProvider = "https://flagcdn.com/";
   let innerContent = "";
+
   innerContent += `<table><thead><tr>`;
+
   if (lang === "en") {
     innerContent += `
         <th> Position </th>
@@ -22,6 +24,7 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
         <th> Ilość punktów </th>`;
   }
   innerContent += `</tr></thead><tbody>`;
+
   const data = await getDataFromStorage(
     selectedYear + "Constructors",
     selectedYear + "/constructorStandings",
@@ -35,19 +38,19 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
       innerContent += "<tr>";
     }
     innerContent += `
-              <td> ${element.position} </td>
-              <td style="min-width: 120px"> <a href="${
-                element.Constructor.url ? element.Constructor.url : ""
-              }" target="_blank"> ${element.Constructor.name} </a> </td>
-              <td title="${findCountryNameByNationality(
-                element.Constructor.nationality
-              )}">  
-                <img class="flag" src="${flagsApiProvider}${findCountryCodeByNationality(
-      element.Constructor.nationality
-    )}.svg" alt="${element.Constructor.nationality}"> 
-              </td>
-              <td style="min-width: 120px"> ${element.points} </td>
-          </tr>`;
+                <td> ${element.position} </td>
+                <td style="min-width: 120px"> 
+                  <a href="${element.Constructor.url ? element.Constructor.url : ""}" target="_blank"> 
+                    ${element.Constructor.name} 
+                  </a> 
+                </td>
+                <td title="${findCountryNameByNationality(element.Constructor.nationality)}">  
+                <img class="flag" 
+                  src="${flagsApiProvider}${findCountryCodeByNationality(element.Constructor.nationality)}.svg" 
+                  alt="${element.Constructor.nationality}"> 
+                </td>
+                <td style="min-width: 120px"> ${element.points} </td>
+              </tr>`;
   }
   innerContent += "</tbody></table>";
 
