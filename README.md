@@ -43,24 +43,29 @@ npm start
  ┃ ┃ ┣ 📜favicon.png
  ┃ ┃ ┣ 📜GitHub-Mark-120px-plus.png
  ┃ ┃ ┣ 📜logo.png
- ┃ ┃ ┗ 📜tire.png
+ ┃ ┃ ┣ 📜PL_flag.svg
+ ┃ ┃ ┣ 📜tire.png
+ ┃ ┃ ┗ 📜UK_flag.svg
  ┃ ┣ 📂js
  ┃ ┃ ┣ 📂variables
  ┃ ┃ ┃ ┣ 📜colors.js
  ┃ ┃ ┃ ┗ 📜documentElements.js
- ┃ ┃ ┣ 📜changeLanguage.js
- ┃ ┃ ┣ 📜colorSelectedButtonsByDef.js
- ┃ ┃ ┣ 📜colorSidebarButtons.js
+ ┃ ┃ ┣ 📜changeInterfaceLanguage.js
+ ┃ ┃ ┣ 📜colorDefaultButtons.js
  ┃ ┃ ┣ 📜convertTZDToLocalTime.js
  ┃ ┃ ┣ 📜countryCodes.js
- ┃ ┃ ┣ 📜createSidebarButtons.js
  ┃ ┃ ┣ 📜dataLoadingScreen.js
- ┃ ┃ ┣ 📜dateConversion.js
+ ┃ ┃ ┣ 📜dateConversionFunctions.js
  ┃ ┃ ┣ 📜generateTable.js
+ ┃ ┃ ┣ 📜getConstructors.js
+ ┃ ┃ ┣ 📜getDrivers.js
+ ┃ ┃ ┣ 📜getRaces.js
+ ┃ ┃ ┣ 📜localStorage.js
  ┃ ┃ ┣ 📜main.js
- ┃ ┃ ┣ 📜resizingListener.js
- ┃ ┃ ┣ 📜sidebarSwitchListener.js
- ┃ ┃ ┗ 📜storeDataLocally.js
+ ┃ ┃ ┣ 📜sidebarButtonsColorSet.js
+ ┃ ┃ ┣ 📜sidebarButtonsCreator.js
+ ┃ ┃ ┣ 📜sidebarSwitch.js
+ ┃ ┃ ┗ 📜windowResizing.js
  ┃ ┗ 📂scss
  ┃ ┃ ┣ 📂variables
  ┃ ┃ ┃ ┣ 📜animationDuration.scss
