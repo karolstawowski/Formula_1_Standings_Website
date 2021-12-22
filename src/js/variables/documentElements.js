@@ -17,8 +17,8 @@ export const buttonConstructorsText = document.getElementById(
   "constructor-championship-text"
 );
 export const footer = document.getElementById("footer");
-export const en = document.getElementById("en");
-export const pl = document.getElementById("pl");
+export const en = document.getElementById("en-language");
+export const pl = document.getElementById("pl-language");
 export const sidebarTitle = document.getElementById("sidebar-title");
 export const navbar = document.getElementById("navbar");
 export const emailButton = document.getElementById("email-button");
