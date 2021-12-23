@@ -1,11 +1,9 @@
 import * as elements from "./variables/documentElements";
 
 export function dataLoadingScreen(darkTheme) {
-  if (darkTheme) {
-    elements.mainContent.innerHTML = `<div id="loading-screen" class="loading-screen-dark"></div>`;
-  } else {
-    elements.mainContent.innerHTML = `<div id="loading-screen" class="loading-screen"></div>`;
-  }
+  darkTheme
+    ? (elements.mainContent.innerHTML = `<div id="loading-screen" class="loading-screen-dark"></div>`)
+    : (elements.mainContent.innerHTML = `<div id="loading-screen" class="loading-screen"></div>`);
 
   const img = document.createElement("img");
   img.src = new URL("../assets/tire.png", import.meta.url);

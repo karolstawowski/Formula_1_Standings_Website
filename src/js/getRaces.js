@@ -29,7 +29,7 @@ export async function getRaces(lang, selectedYear, darkTheme) {
       <th> Nazwa toru </th>`;
   }
   innerContent += `</tr></thead><tbody>`;
-  
+
   const data = await getDataFromStorage(
     selectedYear + "Races",
     selectedYear,
@@ -39,16 +39,21 @@ export async function getRaces(lang, selectedYear, darkTheme) {
     if (getDate(element.date) > Date.now() && nextRaceCounter < 1) {
       innerContent += "<tr class='tr-next-race'>";
       nextRaceCounter++;
-    } else if (darkTheme) {
-      innerContent += "<tr class='tr-dark'>";
     } else {
-      innerContent += "<tr>";
+      darkTheme
+        ? (innerContent += "<tr class='tr-dark'>")
+        : (innerContent += "<tr>");
     }
+
     innerContent += `
                 <td style="min-width: 20px;"> ${element.round} </td>
-                <td title="${element.Circuit.Location.country}" style="min-width: 60px;"> 
+                <td title="${
+                  element.Circuit.Location.country
+                }" style="min-width: 60px;"> 
                   <img class="flag" 
-                    src="${flagsApiProvider}${findCountryCodeByCountryName(element.Circuit.Location.country)}.svg" 
+                    src="${flagsApiProvider}${findCountryCodeByCountryName(
+      element.Circuit.Location.country
+    )}.svg" 
                     alt="${element.Circuit.Location.country}"> 
                 </td>
                 <td style="min-width: 230px;"> 
@@ -56,9 +61,15 @@ export async function getRaces(lang, selectedYear, darkTheme) {
                     ${element.raceName}
                   <a/>
                 </td>
-                <td style="min-width: 110px;"> ${displayLocaleDate(element.date)} </td>
-                <td style="min-width: 100px;"> ${element.time ? convertTZDToUTC(element.time) : "-"}</td>
-                <td style="min-width: 300px;"> ${element.Circuit.circuitName} </td>
+                <td style="min-width: 110px;"> ${displayLocaleDate(
+                  element.date
+                )} </td>
+                <td style="min-width: 100px;"> ${
+                  element.time ? convertTZDToUTC(element.time) : "-"
+                }</td>
+                <td style="min-width: 300px;"> ${
+                  element.Circuit.circuitName
+                } </td>
               </tr>`;
   }
   innerContent += "</tbody></table>";

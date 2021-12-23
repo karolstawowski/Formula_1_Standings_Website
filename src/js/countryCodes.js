@@ -1192,25 +1192,19 @@ var countryCodesAndNames = [
 ];
 
 export function findCountryCodeByNationality(nationality) {
-  for (let i = 0; i < countryCodesAndNames.length; i++) {
-    if (countryCodesAndNames[i].Nationality === nationality) {
-      return countryCodesAndNames[i].CCA2.toLowerCase();
-    }
-  }
+  return countryCodesAndNames
+    .find((element) => element.Nationality === nationality)
+    ?.CCA2.toLowerCase();
 }
 
 export function findCountryNameByNationality(nationality) {
-  for (let i = 0; i < countryCodesAndNames.length; i++) {
-    if (countryCodesAndNames[i].Nationality === nationality) {
-      return countryCodesAndNames[i].Name;
-    }
-  }
+  return countryCodesAndNames.find(
+    (element) => element.Nationality === nationality
+  )?.Name;
 }
 
 export function findCountryCodeByCountryName(countryName) {
-  for (let i = 0; i < countryCodesAndNames.length; i++) {
-    if (countryCodesAndNames[i].Name === countryName) {
-      return countryCodesAndNames[i].CCA2.toLowerCase();
-    }
-  }
+  return countryCodesAndNames
+    .find((element) => element.Name === countryName)
+    ?.CCA2.toLowerCase();
 }

@@ -32,21 +32,25 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
   );
   for (const element of data["MRData"].StandingsTable.StandingsLists[0]
     .ConstructorStandings) {
-    if (darkTheme) {
-      innerContent += "<tr class='tr-dark'>";
-    } else {
-      innerContent += "<tr>";
-    }
+    darkTheme
+      ? (innerContent += "<tr class='tr-dark'>")
+      : (innerContent += "<tr>");
     innerContent += `
                 <td> ${element.position} </td>
                 <td style="min-width: 120px"> 
-                  <a href="${element.Constructor.url ? element.Constructor.url : ""}" target="_blank"> 
+                  <a href="${
+                    element.Constructor.url ? element.Constructor.url : ""
+                  }" target="_blank"> 
                     ${element.Constructor.name} 
                   </a> 
                 </td>
-                <td title="${findCountryNameByNationality(element.Constructor.nationality)}">  
+                <td title="${findCountryNameByNationality(
+                  element.Constructor.nationality
+                )}">  
                 <img class="flag" 
-                  src="${flagsApiProvider}${findCountryCodeByNationality(element.Constructor.nationality)}.svg" 
+                  src="${flagsApiProvider}${findCountryCodeByNationality(
+      element.Constructor.nationality
+    )}.svg" 
                   alt="${element.Constructor.nationality}"> 
                 </td>
                 <td style="min-width: 120px"> ${element.points} </td>
