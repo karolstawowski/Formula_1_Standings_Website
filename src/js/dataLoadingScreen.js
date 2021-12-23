@@ -7,7 +7,7 @@ export function dataLoadingScreen(darkTheme) {
     elements.mainContent.innerHTML = `<div id="loading-screen" class="loading-screen"></div>`;
   }
 
-  let img = document.createElement("img");
+  const img = document.createElement("img");
   img.src = new URL("../assets/tire.png", import.meta.url);
   img.className = "loading-image";
   document.getElementById("loading-screen").appendChild(img);

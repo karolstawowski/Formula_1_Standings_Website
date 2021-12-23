@@ -1,16 +1,15 @@
 export function getDate(date) {
-  let year = date.slice(0, 4);
-  let month = date.slice(5, 7);
-  let day = date.slice(8, 10);
-  let convertedDate = new Date(year, parseInt(month) - 1, day);
-  return convertedDate;
+  const year = date.slice(0, 4);
+  const month = date.slice(5, 7);
+  const day = date.slice(8, 10);
+  return new Date(year, parseInt(month) - 1, day);
 }
 
 export function displayLocaleDate(date) {
-  let year = date.slice(0, 4);
-  let month = date.slice(5, 7);
-  let day = date.slice(8, 10);
-  let convertedDate = new Date(year, parseInt(month) - 1, day);
+  const year = date.slice(0, 4);
+  const month = date.slice(5, 7);
+  const day = date.slice(8, 10);
+  const convertedDate = new Date(year, parseInt(month) - 1, day);
   return convertedDate.toLocaleDateString().indexOf(".") === 1
     ? 0 + convertedDate.toLocaleDateString()
     : convertedDate.toLocaleDateString();

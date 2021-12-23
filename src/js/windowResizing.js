@@ -1,7 +1,7 @@
 import * as elements from "./variables/documentElements";
 
+const delay = 200;
 let timeout = false;
-let delay = 200;
 
 let previousHeight = window.innerHeight;
 
