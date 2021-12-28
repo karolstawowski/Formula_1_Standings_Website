@@ -16,7 +16,7 @@ import * as colors from "./variables/colors";
 
 // Global variables
 let selectedMainButton = "races";
-let yearGlobal = 2021;
+let yearGlobal = 2022;
 let language = "pl";
 let isDarkTheme = false;
 
@@ -26,7 +26,7 @@ listenToSidebarSwitch();
 createSidebarButtons();
 colorDefaultButtons();
 updateLanguageContent(yearGlobal, language);
-getRaces(language, 2021, isDarkTheme);
+getRaces(language, yearGlobal, isDarkTheme);
 // Highlight sidebar buttons on start
 const buttons = document.querySelectorAll("button[fetch-button]");
 highlightSidebarButton(document.getElementById(yearGlobal));

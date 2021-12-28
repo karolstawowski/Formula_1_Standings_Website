@@ -1,6 +1,6 @@
 export function createSidebarButtons() {
   const sidebarContent = document.getElementById("sidebar-button-wrapper");
-  for (let i = 21; i > -1; i--) {
+  for (let i = 22; i > -1; i--) {
     const sidebarItem = document.createElement("li");
     const sidebarButton = document.createElement("button");
     sidebarButton.classList.add("sidebar-button");
