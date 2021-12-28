@@ -1,7 +1,7 @@
 import * as colors from "./variables/colors";
 
-export function colorDefaultButtons() {
-  document.getElementById("2021").style.backgroundColor =
+export function colorDefaultButtons(yearGlobal) {
+  document.getElementById(yearGlobal).style.backgroundColor =
     colors.sidebarButtonSelectedColor;
   document.getElementById("races").style.backgroundColor =
     colors.navbarButtonSelectedColor;

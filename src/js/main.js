@@ -24,7 +24,7 @@ let isDarkTheme = false;
 listenToResize();
 listenToSidebarSwitch();
 createSidebarButtons();
-colorDefaultButtons();
+colorDefaultButtons(yearGlobal);
 updateLanguageContent(yearGlobal, language);
 getRaces(language, yearGlobal, isDarkTheme);
 // Highlight sidebar buttons on start
@@ -67,7 +67,7 @@ elements.pl.addEventListener("click", () => {
 // Sidebar buttons functionality
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    yearGlobal = button.id;
+    yearGlobal = parseInt(button.id);
     // Add on-hover colors for all buttons
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div
