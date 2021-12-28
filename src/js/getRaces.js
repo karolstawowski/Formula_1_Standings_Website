@@ -37,11 +37,9 @@ export async function getRaces(lang, selectedYear, darkTheme) {
   );
   for (const element of data["MRData"].RaceTable.Races) {
     if (selectedYear === 2022) {
-      console.log("Got there");
       if (getDate(element.date) > Date.now() && isNextRaceFound === false) {
         innerContent += "<tr class='tr-next-race'>";
         isNextRaceFound = true;
-        console.log("Highlighted");
       } else {
         darkTheme
           ? (innerContent += "<tr class='tr-dark'>")
