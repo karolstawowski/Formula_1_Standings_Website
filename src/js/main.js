@@ -17,7 +17,7 @@ import * as colors from "./variables/colors";
 // Global variables
 let selectedMainButton = "races";
 let yearGlobal = 2022;
-let language = "pl";
+let language = "en";
 let isDarkTheme = false;
 
 // Starting functions
