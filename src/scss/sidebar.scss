@@ -43,11 +43,9 @@
   width: 25%;
   z-index: 3;
   height: 100%;
-  overflow-y: auto;
 
   @include media(">tablet") {
     width: 100%;
-    overflow-y: hidden;
     visibility: visible;
   }
 }
@@ -82,24 +80,22 @@
 }
 
 .sidebar-content {
-  margin-bottom: 5rem;
+  height: 100vh;
 
   @include media(">tablet") {
-    margin-bottom: 2rem;
+    height: auto;
   }
 }
 
 .sidebar-title {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   width: 5rem;
   line-height: 1.4em;
   font-size: 1.4em;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid black;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
   color: black;
 
   @include media(">phone") {
@@ -116,33 +112,50 @@
   }
 }
 
+.sidebar-list {
+  overflow-y: scroll;
+  height: calc(100% - 65px - 1.2rem);
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3rem;
+  border-radius: 6px;
+  background-color: $sidebar-list-background-color;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include media(">tablet") {
+    height: 1400px;
+  }
+}
+
 .sidebar-button {
   padding: 0.2rem 0rem;
   height: 2.2rem;
   line-height: 2.2rem;
-  width: 60%;
+  width: 70%;
   max-width: 200px;
   background-color: $sidebar-button-default-color;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
-  margin-top: 0.6rem;
+  margin: 0.6rem auto;
   color: white;
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   @include media(">phone") {
-    margin-top: 0.65rem;
+    margin: 0.65rem auto;
   }
   @include media(">tablet") {
-    margin-top: 0.7rem;
+    margin: 0.7rem auto;
   }
   @include media(">laptop") {
-    margin-top: 0.9rem;
+    margin: 0.9rem auto;
   }
   @include media(">desktop") {
-    margin-top: 1rem;
+    margin: 1rem auto;
     height: 2.4rem;
   }
 }
