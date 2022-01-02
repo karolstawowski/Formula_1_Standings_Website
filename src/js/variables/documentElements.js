@@ -1,5 +1,6 @@
 export const menuButton = document.getElementById("menu-bar-icon");
 export const sideBar = document.getElementById("sidebar");
+export const sideBarList = document.getElementById("sidebar-list");
 export const filler = document.getElementById("filler");
 export const main = document.getElementById("main");
 export const mainContainer = document.getElementById("main-container");

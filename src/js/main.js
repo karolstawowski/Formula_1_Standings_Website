@@ -37,6 +37,7 @@ elements.themeSwitch.addEventListener("change", () => {
   elements.main.classList.toggle("darktheme");
   elements.seasonName.classList.toggle("darktheme");
   elements.sideBar.classList.toggle("darktheme");
+  elements.sideBarList.classList.toggle("darktheme");
   elements.sidebarTitle.classList.toggle("darktheme");
   elements.navbar.classList.toggle("darktheme");
   elements.footer.classList.toggle("darktheme");
