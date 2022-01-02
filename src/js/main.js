@@ -16,17 +16,17 @@ import * as colors from "./variables/colors";
 
 // Global variables
 let selectedMainButton = "races";
-let yearGlobal = 2021;
-let language = "pl";
+let yearGlobal = 2022;
+let language = "en";
 let isDarkTheme = false;
 
 // Starting functions
 listenToResize();
 listenToSidebarSwitch();
 createSidebarButtons();
-colorDefaultButtons();
+colorDefaultButtons(yearGlobal);
 updateLanguageContent(yearGlobal, language);
-getRaces(language, 2021, isDarkTheme);
+getRaces(language, yearGlobal, isDarkTheme);
 // Highlight sidebar buttons on start
 const buttons = document.querySelectorAll("button[fetch-button]");
 highlightSidebarButton(document.getElementById(yearGlobal));
@@ -37,6 +37,7 @@ elements.themeSwitch.addEventListener("change", () => {
   elements.main.classList.toggle("darktheme");
   elements.seasonName.classList.toggle("darktheme");
   elements.sideBar.classList.toggle("darktheme");
+  elements.sideBarList.classList.toggle("darktheme");
   elements.sidebarTitle.classList.toggle("darktheme");
   elements.navbar.classList.toggle("darktheme");
   elements.footer.classList.toggle("darktheme");
@@ -67,7 +68,7 @@ elements.pl.addEventListener("click", () => {
 // Sidebar buttons functionality
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    yearGlobal = button.id;
+    yearGlobal = parseInt(button.id);
     // Add on-hover colors for all buttons
     highlightSidebarButton(document.getElementById(yearGlobal));
     // Display data based on button selected in main div

@@ -6,7 +6,7 @@ import { getDate } from "./dateConversionFunctions";
 
 export async function getRaces(lang, selectedYear, darkTheme) {
   const flagsApiProvider = "https://flagcdn.com/";
-  let nextRaceCounter = 0;
+  let isNextRaceFound = false;
   let innerContent = "";
 
   innerContent += `<table><thead><tr>`;
@@ -36,9 +36,15 @@ export async function getRaces(lang, selectedYear, darkTheme) {
     darkTheme
   );
   for (const element of data["MRData"].RaceTable.Races) {
-    if (getDate(element.date) > Date.now() && nextRaceCounter < 1) {
-      innerContent += "<tr class='tr-next-race'>";
-      nextRaceCounter++;
+    if (selectedYear === 2022) {
+      if (getDate(element.date) > Date.now() && isNextRaceFound === false) {
+        innerContent += "<tr class='tr-next-race'>";
+        isNextRaceFound = true;
+      } else {
+        darkTheme
+          ? (innerContent += "<tr class='tr-dark'>")
+          : (innerContent += "<tr>");
+      }
     } else {
       darkTheme
         ? (innerContent += "<tr class='tr-dark'>")

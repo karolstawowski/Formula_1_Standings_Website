@@ -11,6 +11,9 @@
   background-color: $sidebar-dark-color;
   filter: brightness(95%);
 }
+.sidebar-list.darktheme {
+  background-color: $sidebar-list-dark-color;
+}
 .sidebar-title.darktheme {
   color: $text-dark-color;
   border-bottom: 1px solid $text-dark-color;

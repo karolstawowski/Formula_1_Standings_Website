@@ -1115,6 +1115,11 @@ var countryCodesAndNames = [
     Nationality: "American",
   },
   {
+    CCA2: "US",
+    Name: "United States",
+    Nationality: "American",
+  },
+  {
     CCA2: "UY",
     Name: "Uruguay",
     Nationality: "Uruguayan",
