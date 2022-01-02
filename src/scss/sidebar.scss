@@ -121,6 +121,7 @@
   margin-bottom: 3rem;
   border-radius: 6px;
   background-color: $sidebar-list-background-color;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     display: none;
