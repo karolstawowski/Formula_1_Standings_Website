@@ -11,17 +11,17 @@ export function convertTZDToLocalTime(TZDTime) {
   if (currentTimeZoneOffsetInHours % 1 == 0) {
     const UTCHourWithOffset =
       currentTimeZoneOffsetInHours +
-      parseInt(UTCTime.substr(0, UTCTime.indexOf(":")));
-    return UTCHourWithOffset.toString() + ":00";
+      parseInt(UTCTime.substr(0, UTCTime.indexOf(':')));
+    return UTCHourWithOffset.toString() + ':00';
   }
   // if offset is NOT a full hour
   else {
     const hours = Math.trunc(currentTimeZoneOffsetInHours);
     const minutes = (currentTimeZoneOffsetInHours % 1) * 60;
     const UTCHourWithOffset =
-      hours + parseInt(UTCTime.substr(0, UTCTime.indexOf(":")));
+      hours + parseInt(UTCTime.substr(0, UTCTime.indexOf(':')));
     const UTCMinuteWithOffset =
-      minutes + parseInt(UTCTime.substr(UTCTime.indexOf(":") + 1, 2));
-    return UTCHourWithOffset + ":" + UTCMinuteWithOffset;
+      minutes + parseInt(UTCTime.substr(UTCTime.indexOf(':') + 1, 2));
+    return UTCHourWithOffset + ':' + UTCMinuteWithOffset;
   }
 }

@@ -1,22 +1,22 @@
-@use "./variables/fontSize";
-@import "./include-media";
+@use './variables/fontSize';
+@import './include-media';
 
 body {
   margin: 0;
-  font-family: "Cairo", sans-serif;
+  font-family: 'Cairo', sans-serif;
   font-size: fontSize.$global-font-size-m;
   line-height: fontSize.$global-line-height-m;
 
-  @include media(">phone") {
+  @include media('>phone') {
     font-size: fontSize.$global-font-size-m;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     font-size: fontSize.$global-font-size-l;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     font-size: fontSize.$global-font-size-x;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     font-size: fontSize.$global-font-size-xl;
   }
 }
@@ -38,7 +38,7 @@ body {
   overflow: hidden;
   min-height: calc(100vh - 6.6em);
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     display: flex;
     flex-wrap: wrap;
   }

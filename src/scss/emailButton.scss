@@ -20,19 +20,19 @@
   margin-left: -70px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-  @include media(">phone") {
+  @include media('>phone') {
     width: 200px;
     margin-left: -100px;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     width: 260px;
     margin-left: -130px;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     width: 280px;
     margin-left: -140px;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     width: 320px;
     margin-left: -160px;
   }

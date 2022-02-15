@@ -1,20 +1,20 @@
-import { dataLoadingScreen } from "./dataLoadingScreen";
+import { dataLoadingScreen } from './dataLoadingScreen';
 
-const LOCALSTORAGE_KEY = "f1";
+const LOCALSTORAGE_KEY = 'f1';
 
 const saveJSONToStorage = (key, json) => {
   let data = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
   if (data) {
     data[key] = {
       data: json,
-      updateDate: new Date().toISOString(),
+      updateDate: new Date().toISOString()
     };
   } else {
     data = {
       [key]: {
         data: json,
-        updateDate: new Date().toISOString(),
-      },
+        updateDate: new Date().toISOString()
+      }
     };
   }
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(data));
@@ -28,7 +28,7 @@ const parseStorageData = (key) => {
 const updateDataInStorage = async (key, APIKey, darkTheme) => {
   dataLoadingScreen(darkTheme);
   const name = await fetch(
-    "https://ergast.com/api/f1/" + APIKey + ".json"
+    'https://ergast.com/api/f1/' + APIKey + '.json'
   ).then((resp) => resp.json());
   saveJSONToStorage(key, name);
   return name;

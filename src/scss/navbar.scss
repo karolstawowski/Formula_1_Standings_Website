@@ -1,6 +1,6 @@
-@import "./include-media";
-@import "./variables/colors";
-@import "./variables/animationDuration";
+@import './include-media';
+@import './variables/colors';
+@import './variables/animationDuration';
 
 .navbar {
   color: white;
@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: space-between;
 
-  @include media(">desktop") {
+  @include media('>desktop') {
     height: 70px;
   }
 }
@@ -76,7 +76,7 @@
   background-color: #19868a;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     visibility: hidden;
   }
 }
@@ -97,7 +97,7 @@
   top: auto;
   left: auto;
 
-  @include media(">phone") {
+  @include media('>phone') {
     padding: 4px 0px;
     height: 54px;
     width: 126px;
@@ -109,19 +109,19 @@
   flex-wrap: wrap;
   align-items: center;
 
-  @include media("<=phone") {
+  @include media('<=phone') {
     margin-left: 15px;
   }
-  @include media(">phone", "<=tablet") {
+  @include media('>phone', '<=tablet') {
     margin-left: 18px;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     margin-right: 1px;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     margin-right: 9px;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     margin-right: 8px;
   }
 }
@@ -134,15 +134,15 @@
   align-items: center;
   margin-right: 7px;
 
-  @include media(">phone") {
+  @include media('>phone') {
     width: 40px;
     margin-right: 10px;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     width: 44px;
     margin-right: 13px;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     margin-right: 10px;
   }
 }
@@ -160,7 +160,7 @@
   display: flex;
   justify-content: stretch;
 
-  @include media(">desktop") {
+  @include media('>desktop') {
     height: 66px;
   }
 }

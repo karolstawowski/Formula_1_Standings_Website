@@ -1,4 +1,4 @@
-@import "./variables/colors";
+@import './variables/colors';
 
 .loading-screen {
   height: calc(100vh - 15rem);
@@ -8,13 +8,13 @@
   justify-content: center;
   align-items: center;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     height: calc(100vh - 16rem);
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     height: calc(100vh - 17.5rem);
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     height: calc(100vh - 20rem);
   }
 }
@@ -32,16 +32,16 @@
   width: 50%;
   animation: rotate 1.2s infinite;
 
-  @include media(">phone") {
+  @include media('>phone') {
     width: 28%;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     width: 25%;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     width: 18%;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     width: 15%;
   }
 }

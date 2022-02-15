@@ -1,6 +1,6 @@
-@import "./include-media";
-@import "./variables/colors";
-@import "./variables/animationDuration";
+@import './include-media';
+@import './variables/colors';
+@import './variables/animationDuration';
 
 .sidebar-container {
   width: 200%;
@@ -14,7 +14,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     display: block;
     width: 20%;
     visibility: visible;
@@ -26,10 +26,10 @@
     left: auto;
     right: auto;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     width: 15%;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     width: 300px;
     margin-top: 136px;
   }
@@ -44,7 +44,7 @@
   z-index: 3;
   height: 100%;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     width: 100%;
     visibility: visible;
   }
@@ -82,7 +82,7 @@
 .sidebar-content {
   height: 100vh;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     height: auto;
   }
 }
@@ -98,16 +98,16 @@
   margin: 1rem auto;
   color: black;
 
-  @include media(">phone") {
+  @include media('>phone') {
     width: 5rem;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     width: 5.5rem;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     width: 6rem;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     width: 7rem;
   }
 }
@@ -127,7 +127,7 @@
     display: none;
   }
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     height: 1400px;
   }
 }
@@ -146,16 +146,16 @@
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-  @include media(">phone") {
+  @include media('>phone') {
     margin: 0.65rem auto;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     margin: 0.7rem auto;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     margin: 0.9rem auto;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     margin: 1rem auto;
     height: 2.4rem;
   }
@@ -170,7 +170,7 @@
   z-index: 2;
   opacity: 0.7;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     visibility: hidden;
   }
 }

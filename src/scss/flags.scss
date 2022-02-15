@@ -1,18 +1,18 @@
-@import "./include-media";
+@import './include-media';
 
 img.flag {
   border-radius: 3px;
   width: 45px;
   max-height: 30px;
-  @include media(">phone") {
+  @include media('>phone') {
     width: 48px;
     max-height: 32px;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     width: 48px;
     max-height: 32px;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     width: 54px;
     max-height: 36px;
   }

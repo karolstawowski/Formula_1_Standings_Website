@@ -1,6 +1,6 @@
-@use "./variables/fontSize";
-@import "./include-media";
-@import "./variables/colors";
+@use './variables/fontSize';
+@import './include-media';
+@import './variables/colors';
 
 table {
   background-color: white;
@@ -9,10 +9,10 @@ table {
   border-collapse: collapse;
   color: $font-accent-color;
 
-  @include media(">laptop") {
+  @include media('>laptop') {
     font-size: 0.9em;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     font-size: 0.8em;
   }
 }
@@ -53,13 +53,13 @@ th {
   background-color: $table-header-color;
   padding: 0px 12px;
 
-  @include media(">phone") {
+  @include media('>phone') {
     padding: 0px 14px;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     padding: 0px 18px;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     padding: 0px 20px;
   }
 }
@@ -69,13 +69,13 @@ td {
   margin: 0;
   padding: 0px 12px;
 
-  @include media(">phone") {
+  @include media('>phone') {
     padding: 0px 14px;
   }
-  @include media(">tablet") {
+  @include media('>tablet') {
     padding: 0px 18px;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     padding: 0px 20px;
   }
 }

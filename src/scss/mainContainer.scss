@@ -1,6 +1,6 @@
-@use "./variables/mainContentWidth";
-@import "./include-media";
-@import "./variables/colors";
+@use './variables/mainContentWidth';
+@import './include-media';
+@import './variables/colors';
 
 .main {
   display: flex;
@@ -11,14 +11,14 @@
   min-height: 1020px;
   background-color: $main-background-color;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     width: 80%;
     margin-left: 0%;
   }
-  @include media(">laptop") {
+  @include media('>laptop') {
     width: 85%;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     width: calc(100% - 300px);
     margin-top: 136px;
   }
@@ -59,10 +59,10 @@
   line-height: 2em;
   align-self: flex-start;
 
-  @include media(">phone") {
+  @include media('>phone') {
     margin: 12px 0px;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     margin: 16px 0px;
     padding-left: 100px;
   }
@@ -74,12 +74,12 @@
   width: mainContentWidth.$main-content-width-m-s;
   overflow-x: auto;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     margin-left: 2em;
     margin-right: 2em;
     width: mainContentWidth.$main-content-width-x-l;
   }
-  @include media(">desktop") {
+  @include media('>desktop') {
     margin-left: 2em;
     margin-right: 2em;
     width: calc(100% - 200px);
