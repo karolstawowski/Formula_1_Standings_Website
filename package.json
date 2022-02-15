@@ -1,6 +1,6 @@
 {
-  "name": "oxif1",
-  "version": "0.0.0",
+  "name": "formula1_standings_website",
+  "version": "1.0.0",
   "scripts": {
     "start": "vite --host",
     "dev": "vite",
