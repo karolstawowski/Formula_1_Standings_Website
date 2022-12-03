@@ -5,7 +5,7 @@
 ![Number of lines](https://img.shields.io/tokei/lines/github/karolstawowski/Formula_1_Standings_Website?color=3993fa)
 ![Version](https://img.shields.io/badge/version-1.0.0.0-3993fa) <br>
 
-### <a href="https://karolstawowski.github.io/Formula_1_Standings_Website/">Click here to see live website!</a>
+### <a href="https://karolstawowski.github.io/Formula_1_Standings_Website/">Click here to see website!</a>
 
 ## Description
 Formula 1 Standings Website is a huge project for me. Official Formula 1 website provides World Championship standings in an inelegant way. 
