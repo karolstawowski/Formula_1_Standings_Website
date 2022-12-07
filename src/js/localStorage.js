@@ -7,14 +7,14 @@ const saveJSONToStorage = (key, json) => {
   if (data) {
     data[key] = {
       data: json,
-      updateDate: new Date().toISOString()
+      updateDate: new Date().toISOString(),
     };
   } else {
     data = {
       [key]: {
         data: json,
-        updateDate: new Date().toISOString()
-      }
+        updateDate: new Date().toISOString(),
+      },
     };
   }
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(data));

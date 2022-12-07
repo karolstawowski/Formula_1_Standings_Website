@@ -2,7 +2,7 @@ import { getDataFromStorage } from './localStorage';
 import { mainContent } from './variables/documentElements';
 import {
   findCountryNameByNationality,
-  findCountryCodeByNationality
+  findCountryCodeByNationality,
 } from './countryCodes';
 
 export async function getConstructors(lang, selectedYear, darkTheme) {

@@ -6,7 +6,7 @@ import { colorDefaultButtons } from './colorDefaultButtons';
 import { generateTable } from './generateTable';
 import {
   updateLanguageContent,
-  changeSeasonname
+  changeSeasonname,
 } from './changeInterfaceLanguage';
 import { getDrivers } from './getDrivers';
 import { getConstructors } from './getConstructors';

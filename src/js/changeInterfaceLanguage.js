@@ -5,7 +5,7 @@ import {
   buttonConstructorsText,
   buttonDriversText,
   emailPopup,
-  footerAuthor
+  footerAuthor,
 } from './variables/documentElements';
 
 export function changeSeasonname(year, lang) {

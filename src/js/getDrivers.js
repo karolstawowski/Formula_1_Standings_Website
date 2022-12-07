@@ -1,7 +1,7 @@
 import { getDataFromStorage } from './localStorage';
 import {
   findCountryNameByNationality,
-  findCountryCodeByNationality
+  findCountryCodeByNationality,
 } from './countryCodes';
 import { mainContent } from './variables/documentElements';
 
