@@ -1,6 +1,8 @@
 export function createSidebarButtons() {
   const sidebarContent = document.getElementById('sidebar-button-wrapper');
-  for (let i = 2022; i > 1949; i--) {
+  const currentYear = new Date().getFullYear();
+
+  for (let i = currentYear; i > 1949; i--) {
     const sidebarItem = document.createElement('li');
     const sidebarButton = document.createElement('button');
     sidebarButton.classList.add('sidebar-button');
