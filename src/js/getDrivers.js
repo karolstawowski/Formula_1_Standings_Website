@@ -40,6 +40,7 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
     selectedYear + '/driverStandings',
     darkTheme
   );
+
   for (const element of data['MRData'].StandingsTable.StandingsLists[0]
     .DriverStandings) {
     darkTheme

@@ -35,6 +35,7 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
     selectedYear + '/constructorStandings',
     darkTheme
   );
+
   for (const element of data['MRData'].StandingsTable.StandingsLists[0]
     .ConstructorStandings) {
     darkTheme

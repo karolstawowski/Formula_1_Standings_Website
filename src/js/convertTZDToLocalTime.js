@@ -8,7 +8,7 @@ export function convertTZDToLocalTime(TZDTime) {
     (localTime.getTimezoneOffset() / 60) * -1;
 
   // if offset is a full hour
-  if (currentTimeZoneOffsetInHours % 1 == 0) {
+  if (currentTimeZoneOffsetInHours % 1 === 0) {
     const UTCHourWithOffset =
       currentTimeZoneOffsetInHours +
       parseInt(UTCTime.substr(0, UTCTime.indexOf(':')));

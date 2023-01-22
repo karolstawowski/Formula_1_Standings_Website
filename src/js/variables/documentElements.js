@@ -28,3 +28,4 @@ export const emailPopup = document.getElementById('email-popup');
 export const mainContent = document.getElementById('main-content');
 export const footerAuthor = document.getElementById('footer-author');
 export const themeSwitch = document.getElementById('theme-switch');
+export const themeSlider = document.getElementById('theme-slider');

@@ -2,12 +2,12 @@ import { getDrivers } from './getDrivers';
 import { getConstructors } from './getConstructors';
 import { getRaces } from './getRaces';
 
-export function generateTable(selectedMainButton, year, language, theme) {
+export function generateTable(selectedMainButton, year, language, isDarkTheme) {
   if (selectedMainButton === 'races') {
-    getRaces(language, year, theme);
+    getRaces(language, year, isDarkTheme);
   } else if (selectedMainButton === 'driverChampionship') {
-    getDrivers(language, year, theme);
+    getDrivers(language, year, isDarkTheme);
   } else if (selectedMainButton === 'constructorChampionship') {
-    getConstructors(language, year, theme);
+    getConstructors(language, year, isDarkTheme);
   }
 }

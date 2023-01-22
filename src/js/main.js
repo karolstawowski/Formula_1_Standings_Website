@@ -13,12 +13,15 @@ import { getConstructors } from './getConstructors';
 import { getRaces } from './getRaces';
 import * as elements from './variables/documentElements';
 import * as colors from './variables/colors';
+import { setCookie } from './setCookie';
+import { getCookie } from './getCookie';
 
 // Global variables
 let selectedMainButton = 'races';
 let yearGlobal = new Date().getFullYear();
 let language = 'en';
-let isDarkTheme = false;
+let isDarkTheme = getCookie('isF1WebsiteDarkTheme') === 'true' ?? true;
+const cookiesStoreHours = 48;
 
 // Starting functions
 listenToResize();
@@ -31,9 +34,22 @@ getRaces(language, yearGlobal, isDarkTheme);
 const buttons = document.querySelectorAll('button[fetch-button]');
 highlightSidebarButton(document.getElementById(yearGlobal));
 
+if (isDarkTheme) {
+  elements.main.classList.add('darktheme');
+  elements.seasonName.classList.add('darktheme');
+  elements.sideBar.classList.add('darktheme');
+  elements.sideBarList.classList.add('darktheme');
+  elements.sidebarTitle.classList.add('darktheme');
+  elements.navbar.classList.add('darktheme');
+  elements.footer.classList.add('darktheme');
+  elements.themeSlider.checked = true;
+}
+
 // Theme switch functionality
 elements.themeSwitch.addEventListener('change', () => {
   isDarkTheme = !isDarkTheme;
+  setCookie('isF1WebsiteDarkTheme', isDarkTheme, cookiesStoreHours);
+
   elements.main.classList.toggle('darktheme');
   elements.seasonName.classList.toggle('darktheme');
   elements.sideBar.classList.toggle('darktheme');
@@ -42,8 +58,8 @@ elements.themeSwitch.addEventListener('change', () => {
   elements.navbar.classList.toggle('darktheme');
   elements.footer.classList.toggle('darktheme');
 
-  let trs = document.getElementsByTagName('tr');
-  for (let element of trs) {
+  let tableRows = document.getElementsByTagName('tr');
+  for (let element of tableRows) {
     element.classList.toggle('tr-dark');
   }
 });
