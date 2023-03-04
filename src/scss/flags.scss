@@ -4,6 +4,7 @@ img.flag {
   border-radius: 3px;
   width: 45px;
   max-height: 30px;
+
   @include media('>phone') {
     width: 48px;
     max-height: 32px;

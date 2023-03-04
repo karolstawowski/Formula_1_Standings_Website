@@ -5,15 +5,15 @@
 table {
   background-color: white;
   width: 100%;
-  font-weight: bold;
+  font-weight: 500;
   border-collapse: collapse;
   color: $font-accent-color;
 
   @include media('>laptop') {
-    font-size: 0.9em;
+    font-size: 0.85em;
   }
   @include media('>desktop') {
-    font-size: 0.8em;
+    font-size: 0.75em;
   }
 }
 
@@ -44,12 +44,12 @@ tr:nth-child(even) {
   background-color: $table-even-row-dark-color;
   color: $text-dark-color;
 }
+
 tr {
   height: 60px;
 }
 
 th {
-  text-align: left;
   background-color: $table-header-color;
   padding: 0px 12px;
 
@@ -78,4 +78,18 @@ td {
   @include media('>laptop') {
     padding: 0px 20px;
   }
+}
+
+td.emphasise {
+  font-weight: 600;
+}
+
+td.qualifying-date {
+  text-align: center;
+  line-height: 1.4rem;
+}
+
+td.race-date {
+  @extend .qualifying-date;
+  font-weight: 600;
 }

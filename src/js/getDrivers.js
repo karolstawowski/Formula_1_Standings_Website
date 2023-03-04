@@ -47,28 +47,30 @@ export async function getDrivers(lang, selectedYear, darkTheme) {
       ? (innerContent += "<tr class='tr-dark'>")
       : (innerContent += '<tr>');
     innerContent += `
-        <td> ${element.position} </td>
-        <td style="min-width: 180px;"> 
-          <a href="${
-            element.Driver.url ? element.Driver.url : ''
-          }" target="_blank"> 
-            ${element.Driver.givenName} ${element.Driver.familyName} 
+        <td> ${element.position ?? '-'} </td>
+        <td style="min-width: 180px;" class="emphasise"> 
+          <a href="${element.Driver.url ?? ''}" target="_blank"> 
+            ${element.Driver.givenName ?? '-'} ${
+      element.Driver.familyName ?? '-'
+    } 
           </a> 
         </td>
-        <td> ${
-          element.Driver.permanentNumber ? element.Driver.permanentNumber : '-'
-        } </td>
+        <td> ${element.Driver.permanentNumber ?? '-'} </td>
         <td title="${findCountryNameByNationality(
           element.Driver.nationality
         )}" style="min-width: 60px;"> 
           <img class="flag" 
             src="${flagsApiProvider}${findCountryCodeByNationality(
-      element.Driver.nationality
+      element.Driver.nationality ?? '-'
     )}.svg" 
-            alt="${element.Driver.nationality}"> 
+            alt="${element.Driver.nationality ?? '-'}"> 
         </td>
-        <td style="min-width: 120px;"> ${element.Constructors[0].name} </td>
-        <td style="min-width: 130px;"> ${element.points} </td>
+        <td style="min-width: 120px;"> ${
+          element?.Constructors[0]?.name ?? '-'
+        } </td>
+        <td style="min-width: 130px;" class="emphasise"> ${
+          element.points ?? '-'
+        } </td>
       </tr>`;
   }
   innerContent += `

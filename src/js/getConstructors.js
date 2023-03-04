@@ -42,31 +42,23 @@ export async function getConstructors(lang, selectedYear, darkTheme) {
       ? (innerContent += "<tr class='tr-dark'>")
       : (innerContent += '<tr>');
     innerContent += `
-        <td> ${element.position} </td>
-        <td style="min-width: 120px"> 
-          <a href="${
-            element.Constructor.url ? element.Constructor.url : ''
-          }" target="_blank"> 
-            ${element.Constructor.name ? element.Constructor.name : '-'} 
+        <td> ${element.position ?? '-'} </td>
+        <td style="min-width: 120px" class="emphasise"> 
+          <a href="${element.Constructor.url ?? '-'}" target="_blank"> 
+            ${element.Constructor.name ?? '-'} 
           </a> 
         </td>
         <td title="${findCountryNameByNationality(
-          element.Constructor.nationality
-            ? element.Constructor.nationality
-            : '-'
+          element.Constructor.nationality ?? '-'
         )}">  
         <img class="flag" 
           src="${flagsApiProvider}${findCountryCodeByNationality(
-      element.Constructor.nationality ? element.Constructor.nationality : '-'
+      element.Constructor.nationality ?? '-'
     )}.svg" 
-          alt="${
-            element.Constructor.nationality
-              ? element.Constructor.nationality
-              : '-'
-          }"> 
+          alt="${element.Constructor.nationality ?? '-'}"> 
         </td>
-        <td style="min-width: 120px"> ${
-          element.points ? element.points : '-'
+        <td style="min-width: 120px" class="emphasise"> ${
+          element.points ?? '-'
         } </td>
       </tr>`;
   }
