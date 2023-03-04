@@ -27,11 +27,10 @@ const parseStorageData = (key) => {
 
 const updateDataInStorage = async (key, APIKey, darkTheme) => {
   dataLoadingScreen(darkTheme);
-  const name = await fetch(
-    'https://ergast.com/api/f1/' + APIKey + '.json'
-  ).then((resp) => resp.json());
-  saveJSONToStorage(key, name);
-  return name;
+  const data = await fetch('https://ergast.com/api/f1/' + APIKey + '.json');
+  const jsonData = await data.json();
+  saveJSONToStorage(key, jsonData);
+  return jsonData;
 };
 
 export const getDataFromStorage = async (queryId, APIKey, darkTheme) => {
