@@ -1,8 +1,7 @@
-import { getDataFromStorage } from './localStorage';
 import { findCountryCodeByCountryName } from './countryCodes';
+import { convertDateToString } from './dateConversionFunctions';
+import { getDataFromStorage } from './localStorage';
 import { mainContent } from './variables/documentElements';
-import { displayLocaleDate, convertTZDToUTC } from './dateConversionFunctions';
-import { getDate } from './dateConversionFunctions';
 
 export async function getRaces(lang, selectedYear, darkTheme) {
   const flagsApiProvider = 'https://flagcdn.com/';
@@ -18,16 +17,16 @@ export async function getRaces(lang, selectedYear, darkTheme) {
           <th> Round </th>
           <th> Country </th>
           <th> Grand Prix </th>
-          <th> Date </th>
-          <th> Time </th>
+          <th> Qualifying </th>
+          <th> Race </th>
           <th> Circuit </th>`;
   } else if (lang === 'pl') {
     innerContent += `
           <th> Runda </th>
           <th> Kraj </th>
           <th> Grand Prix </th>
-          <th> Data </th>
-          <th> Godzina </th>
+          <th> Kwalifikacje </th>
+          <th> Wyścig </th>
           <th> Nazwa toru </th>`;
   }
   innerContent += `
@@ -41,8 +40,18 @@ export async function getRaces(lang, selectedYear, darkTheme) {
     darkTheme
   );
 
-  for (const element of data['MRData'].RaceTable.Races) {
-    if (getDate(element.date) > Date.now() && isNextRaceFound === false) {
+  data['MRData'].RaceTable.Races.map((race) => {
+    const raceDateISOString =
+      race.date && race.time ? race.date + 'T' + race.time : '-';
+    const raceDate = new Date(raceDateISOString);
+
+    const qualifyingDateISOString =
+      race.Qualifying && race.Qualifying.date && race.Qualifying.time
+        ? race.Qualifying.date + 'T' + race.Qualifying.time
+        : '-';
+    const qualifyingDate = new Date(qualifyingDateISOString);
+
+    if (raceDate > Date.now() && !isNextRaceFound) {
       innerContent += "<tr class='tr-next-race'>";
       isNextRaceFound = true;
     } else {
@@ -52,28 +61,30 @@ export async function getRaces(lang, selectedYear, darkTheme) {
     }
 
     innerContent += `
-        <td style="min-width: 20px;"> ${element.round} </td>
+        <td style="min-width: 20px;"> ${race.round ?? '-'} </td>
         <td title="${
-          element.Circuit.Location.country
+          race.Circuit.Location.country ?? '-'
         }" style="min-width: 60px;"> 
           <img class="flag" 
             src="${flagsApiProvider}${findCountryCodeByCountryName(
-      element.Circuit.Location.country
+      race.Circuit.Location.country ?? '-'
     )}.svg" 
-            alt="${element.Circuit.Location.country}"> 
+            alt="${race.Circuit.Location.country ?? '-'}"/> 
         </td>
-        <td style="min-width: 230px;"> 
-          <a href="${element.url}" target="_blank"> 
-            ${element.raceName}
+        <td style="min-width: 230px;" class="race-name"> 
+          <a href="${race.url ?? '-'}" target="_blank"> 
+            ${race.raceName ?? '-'}
           <a/>
         </td>
-        <td style="min-width: 110px;"> ${displayLocaleDate(element.date)} </td>
-        <td style="min-width: 100px;"> ${
-          element.time ? convertTZDToUTC(element.time) : '-'
+        <td style="min-width: 100px;" class="qualifying-date"> ${
+          race.Qualifying ? convertDateToString(qualifyingDate) : '-'
         }</td>
-        <td style="min-width: 300px;"> ${element.Circuit.circuitName} </td>
+        <td style="min-width: 110px;" class="race-date"> ${
+          race.time ? convertDateToString(raceDate) : '-'
+        }</td>
+        <td style="min-width: 300px;"> ${race.Circuit.circuitName ?? '-'} </td>
       </tr>`;
-  }
+  });
   innerContent += `
     </tbody>
   </table>`;
