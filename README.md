@@ -10,7 +10,7 @@
 Formula 1 Standings Website is a huge project for me. Official Formula 1 website provides World Championship standings in an inelegant way.
 I wanted to make an enviroment, which allows the F1 fan to seek for necessary information and feel like he's at home. Formula 1 Standings Website shares official Formula 1 World Championship standings since the beginning of competition, 1950.
 
-<img src="./screenshots/website_preview.png">
+<img src="./website_preview.png">
 
 ### Special thanks to <a href="https://www.reddit.com/user/mondomando">@mondomando</a> for allowing me to use his <a href="https://www.reddit.com/r/formula1/comments/lx6d0y/oc_ayrton_senna_lowres_art/">low-res McLaren art</a>, which eventually become the logo of this project!
 
