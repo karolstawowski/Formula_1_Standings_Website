@@ -22,18 +22,18 @@ I wanted to make an enviroment, which allows the F1 fan to seek for necessary in
 
 ## Installation
 
-To run Formula 1 Standings Website locally, you are to have both <a href="https://nodejs.org/en/download/">Node.js enviroment</a> and <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm package manager</a> installed.
+To run Formula 1 Standings Website locally, you need both <a href="https://nodejs.org/en/download/">Node.js enviroment</a> and <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm package manager</a> installed.
 
 ```bash
 git clone https://github.com/karolstawowski/Formula_1_Standings_Website.git
 ```
 
 ```bash
-npm install
+yarn install
 ```
 
 ```bash
-npm start
+yarn start
 ```
 
 ## App structure
