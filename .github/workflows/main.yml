@@ -1,24 +1,47 @@
-name: Build and Deploy
+name: Build and Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - main
-permissions:
-  contents: write
+      - master
+
 jobs:
-  build-and-deploy:
-    concurrency: ci-${{ github.ref }}
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧
-        run: |
-          yarn install
-          yarn build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          folder: ./dist
+          node-version: '16'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build project
+        run: yarn build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
