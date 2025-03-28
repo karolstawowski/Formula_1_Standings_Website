@@ -1,3 +1,4 @@
+import { API_URL } from './constants/apiUrl';
 import { dataLoadingScreen } from './dataLoadingScreen';
 
 const LOCALSTORAGE_KEY = 'f1';
@@ -27,7 +28,7 @@ const parseStorageData = (key) => {
 
 const updateDataInStorage = async (key, APIKey, darkTheme) => {
   dataLoadingScreen(darkTheme);
-  const data = await fetch('https://ergast.com/api/f1/' + APIKey + '.json');
+  const data = await fetch(API_URL + APIKey + '.json');
   const jsonData = await data.json();
   saveJSONToStorage(key, jsonData);
   return jsonData;
